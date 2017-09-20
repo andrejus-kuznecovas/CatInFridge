@@ -46,6 +46,7 @@ namespace TestingAPI2
             file1.WriteLine(plainText);
             file1.Close();
         }
-        
+
+        public void UselessMethodToMakePullRequest(int number) => number++;
     }
 }
