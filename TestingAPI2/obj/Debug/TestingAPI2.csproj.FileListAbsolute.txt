@@ -67,3 +67,26 @@ D:\CIF\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.csprojResolveAssemblyRefere
 D:\CIF\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.csproj.CoreCompileInputs.cache
 D:\CIF\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.exe
 D:\CIF\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.pdb
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\obj\Debug\TestingAPI2.csprojResolveAssemblyReference.cache
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\obj\Debug\TestingAPI2.csproj.CoreCompileInputs.cache
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\obj\Debug\TestingAPI2.exe
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\obj\Debug\TestingAPI2.pdb
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\x64\tesseract.dll
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\x86\tesseract.dll
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\tessdata\configs\config.cfg
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\tessdata\eng.cube.bigrams
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\tessdata\eng.cube.fold
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\tessdata\eng.cube.lm
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\tessdata\eng.cube.nn
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\tessdata\eng.cube.params
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\tessdata\eng.cube.size
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\tessdata\eng.cube.word-freq
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\tessdata\eng.tesseract_cube.nn
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\tessdata\eng.traineddata
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\tessdata\pdf.ttf
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\tessdata\pdf.ttx
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\TestingAPI2.exe.config
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\TestingAPI2.exe
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\TestingAPI2.pdb
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\Patagames.Ocr.dll
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\Patagames.Ocr.xml

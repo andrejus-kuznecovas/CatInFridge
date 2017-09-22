@@ -10,7 +10,7 @@ namespace TestingAPI2
 {
     public class Program
     {
-        public string imageLoc = "D:\\image05.jpg";
+        public string imageLoc = "D:\\cekis.jpg";
         public string outputLoc1 = "D:\\output\\check.txt";
         public string outputLoc2 = "D:\\output\\check2.txt";
 
@@ -22,15 +22,24 @@ namespace TestingAPI2
 
         public void ImageToText()
         {
-            using (var api = OcrApi.Create())
+            try
             {
-                api.Init(Languages.Lithuanian);
-                string plainText = api.GetTextFromImage(filename: @imageLoc);
-                Console.WriteLine(plainText);
-                //ToFile(plainText);
-                //ToFileNewLine(plainText);
+                using (var api = OcrApi.Create())
+                {
+                    api.Init(Languages.Lithuanian);
+                    string plainText = api.GetTextFromImage(imageLoc);
+                    Console.WriteLine(plainText);
+                    //ToFile(plainText);
+                    //ToFileNewLine(plainText);
+                    Console.Read();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Unhandled error occured: " + e);
                 Console.Read();
             }
+            
         }
 
         //šitas medotas perrašo tekstinį failą kiekvieną kartą

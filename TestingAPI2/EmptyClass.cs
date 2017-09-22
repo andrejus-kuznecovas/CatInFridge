@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TestingAPI2
 {
-    public string greetings = "HI";
+    
     class EmptyClass
     { 
-    
+        public string greetings = "HI";
     }
 }
