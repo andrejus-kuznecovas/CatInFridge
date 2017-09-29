@@ -90,3 +90,11 @@ D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\D
 D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\TestingAPI2.pdb
 D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\Patagames.Ocr.dll
 D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\Patagames.Ocr.xml
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\obj\Debug\TestingAPI2.csproj.GenerateResource.Cache
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\AForge.Video.DirectShow.dll
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\AForge.Video.dll
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\AForge.dll
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\AForge.Video.xml
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\AForge.Video.DirectShow.xml
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\AForge.xml
+D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\obj\Debug\TestingWindowsForms.Form1.resources
