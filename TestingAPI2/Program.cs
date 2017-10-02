@@ -14,7 +14,7 @@ namespace TestingAPI2
     {
         public string imageLoc = "D:\\cekis.jpg";
 
-
+        [STAThread]
         static void Main(string[] args)
         {
             Application.EnableVisualStyles();

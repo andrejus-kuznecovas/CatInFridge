@@ -67,10 +67,13 @@ namespace TestingWindowsForms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.InitialDirectory = @"D:\Visual Studio Projects\Testing Visual Studio\TestingWinForms\Pictures";
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (cam != null)
             {
-                pictureBox1.Image.Save(saveFileDialog1.FileName);
+                saveFileDialog1.InitialDirectory = @"D:\Visual Studio Projects\Testing Visual Studio\TestingWinForms\Pictures";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox1.Image.Save(saveFileDialog1.FileName);
+                }
             }
         }
 
