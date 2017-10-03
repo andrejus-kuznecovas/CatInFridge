@@ -12,13 +12,15 @@ namespace TestingAPI2
 {
     public class Program
     {
-        public string imageLoc = "C:\\Users\\Ben\\Desktop\\cekis.jpg";
-        public string outputLoc1 = "C:\\Users\\Ben\\Desktop\\hocr.html";
-        public string outputLoc2 = "D:\\output\\check2.txt";
+        public string imageLoc = "C:\\Users\\Benas\\Desktop\\cekis.jpg";
+        public string outputLoc1 = "C:\\Users\\Benas\\Desktop\\hocr.html";
         private static readonly string HORC_HTML_ID = "word_1_";
+        private static string projectPath;
 
         static void Main(string[] args)
         {
+            projectPath = Path.GetFullPath(@"..\..\");
+
             Program obj = new Program();
             obj.ImageToText();
         }
@@ -59,7 +61,7 @@ namespace TestingAPI2
             {
                 using (var api = OcrApi.Create())
                 {
-                    api.Init(Languages.Lithuanian);
+                    api.Init(Languages.Lithuanian, projectPath);
                     api.InputName = imageLoc;
                     doc.LoadHtml(api.GetHOCRText(0));
                     return doc;
