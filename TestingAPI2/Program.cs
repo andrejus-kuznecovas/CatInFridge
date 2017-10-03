@@ -25,35 +25,56 @@ namespace TestingAPI2
 
         public void ImageToText()
         {
+            HtmlDocument html = OcrHtml();
+            if (html == null)
+                return;
+
+            ToFile(html.ToString(), outputLoc1);
+            int[] coordinates = GetPriceCoordinates(html);
+            string[] prices = GetPrices(GetXPadding(coordinates, 0.07), html);    //todo: add to pref file
+
+            Console.Read();
+
+        }
+
+        private int[] GetXPadding(int[] coordinates, double p)
+        {
+            int len = coordinates[2] - coordinates[0];
+            coordinates[0] -= Convert.ToInt32(len * p);
+            coordinates[2] += Convert.ToInt32(len * p);
+            return coordinates;
+        }
+
+        private string[] GetPrices(int[] coordinates, HtmlDocument doc)
+        {
+            List<HtmlNode> nodes;
+            return null;
+
+        }
+
+        private HtmlDocument OcrHtml()
+        {
+            HtmlDocument doc = new HtmlDocument();            
             try
             {
                 using (var api = OcrApi.Create())
                 {
                     api.Init(Languages.Lithuanian);
-                    string plainText = api.GetTextFromImage(imageLoc);
-                    Console.WriteLine(plainText);
                     api.InputName = imageLoc;
-                    plainText = api.GetHOCRText(0);
-                    ToFile(plainText, outputLoc1);
-                    string[] coordinates = GetPriceCoordinates(plainText);
-
-                    Console.Read();
+                    doc.LoadHtml(api.GetHOCRText(0));
+                    return doc;
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine("Unhandled error occured: " + e);
-                Console.Read();
+                return null;
             }
-            
         }
 
-        private string[] GetPriceCoordinates(string plainText)
-        {
-            HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(plainText);
-            List<HtmlNode> items = new List<HtmlNode>();
-            items = doc.DocumentNode
+        private int[] GetPriceCoordinates(HtmlDocument doc)
+        {            
+            List<HtmlNode> items = doc.DocumentNode
                 .SelectNodes("//*[text()='PVM']").ToList();
 
             foreach(HtmlNode node in items)
@@ -64,7 +85,7 @@ namespace TestingAPI2
                     string coor = Regex.Replace(
                         Regex.Split(nextWord
                             .GetAttributeValue("title", null), ";")[0], @"[a-zA-Z]", "");
-                    return Regex.Split(coor.Substring(1), " ");
+                    return Array.ConvertAll(Regex.Split(coor.Substring(1), " "), int.Parse);
                 }
 
             }
