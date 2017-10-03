@@ -90,3 +90,29 @@ D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\D
 D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\TestingAPI2.pdb
 D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\Patagames.Ocr.dll
 D:\Visual Studio Projects\CatInFridge Visual Studio Repository\TestingAPI2\bin\Debug\Patagames.Ocr.xml
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\x64\tesseract.dll
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\x86\tesseract.dll
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\tessdata\configs\config.cfg
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\tessdata\eng.cube.bigrams
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\tessdata\eng.cube.fold
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\tessdata\eng.cube.lm
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\tessdata\eng.cube.nn
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\tessdata\eng.cube.params
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\tessdata\eng.cube.size
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\tessdata\eng.cube.word-freq
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\tessdata\eng.tesseract_cube.nn
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\tessdata\eng.traineddata
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\tessdata\pdf.ttf
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\tessdata\pdf.ttx
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\TestingAPI2.exe.config
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\TestingAPI2.exe
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\TestingAPI2.pdb
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\Patagames.Ocr.dll
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\Patagames.Ocr.xml
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.csprojResolveAssemblyReference.cache
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.csproj.CoreCompileInputs.cache
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.exe
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.pdb
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Ben\Documents\CatInFridge\TestingAPI2\bin\Debug\HtmlAgilityPack.xml
