@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Patagames.Ocr;
 using Patagames.Ocr.Enums;
 using System.IO;
@@ -10,7 +7,7 @@ namespace TestingAPI2
 {
     public class Program
     {
-        public string imageLoc = "D:\\image05.jpg";
+        public string imageLoc = "D:\\receipts\\r3.jpg";
         public string outputLoc1 = "D:\\output\\check.txt";
         public string outputLoc2 = "D:\\output\\check2.txt";
 
@@ -25,10 +22,14 @@ namespace TestingAPI2
             using (var api = OcrApi.Create())
             {
                 api.Init(Languages.Lithuanian);
-                string plainText = api.GetTextFromImage(filename: @imageLoc);
-                Console.WriteLine(plainText);
-                //ToFile(plainText);
-                //ToFileNewLine(plainText);
+                string receipt = api.GetTextFromImage(filename: @imageLoc);
+                Console.WriteLine(receipt);
+
+                IsIKI(receipt);
+
+                receipt = ParsingReceipt.RemoveInternationalLetters(receipt);
+                Console.WriteLine("\n\t Čekis be lietuviškų simbolių:\n\n"+receipt);
+
                 Console.Read();
             }
         }
@@ -47,6 +48,16 @@ namespace TestingAPI2
             file1.Close();
         }
 
-        public void UselessMethodToMakePullRequest(int number) => number++;
+        public void IsIKI(string receipt)
+        {
+            if (ParsingReceipt.GetShopName(receipt) == Shop.IKI)
+            {
+                Console.WriteLine("\n\t\tParduotuvė yra IKI");
+            }
+            else
+            {
+                Console.WriteLine("\n\n\tParduotuvė neatpažinta");
+            }
+        }
     }
 }

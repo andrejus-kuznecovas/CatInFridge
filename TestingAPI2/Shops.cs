@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace TestingAPI2
 {
-    public string greetings = "HI";
-    class EmptyClass
-    { 
-    
-    }
+    public enum Shop
+    {
+        IKI, MAXIMA, NORFA, RIMI, UNRECOGNIZED
+    };
 }
