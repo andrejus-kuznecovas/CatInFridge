@@ -47,7 +47,7 @@ namespace TestingAPI2
             file1.WriteLine(plainText);
             file1.Close();
         }
-
+        //Method to see if the receipt is from Shop IKI
         public void IsIKI(string receipt)
         {
             if (ParsingReceipt.GetShopName(receipt) == Shop.IKI)
