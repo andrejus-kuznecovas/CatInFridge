@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Patagames.Ocr;
 using Patagames.Ocr.Enums;
 using System.IO;
@@ -30,28 +29,41 @@ namespace TestingAPI2
             HtmlDocument html = OcrHtml();
             if (html == null)
                 return;
+            
+            HtmlNode checkmarkLine= GetLineOfPVMSuma(html);
 
-            ToFile(html.ToString(), outputLoc1);
-            int[] coordinates = GetPriceCoordinates(html);
-            string[] prices = GetPrices(GetXPadding(coordinates, 0.07), html);    //todo: add to pref file
+            Dictionary<string, string> prices = GetPrices(checkmarkLine, html);
 
+            Console.Write("DONE");
             Console.Read();
 
         }
 
-        private int[] GetXPadding(int[] coordinates, double p)
+        private Dictionary<string, string> GetPrices(HtmlNode checkmark, HtmlDocument doc)
         {
-            int len = coordinates[2] - coordinates[0];
-            coordinates[0] -= Convert.ToInt32(len * p);
-            coordinates[2] += Convert.ToInt32(len * p);
-            return coordinates;
-        }
+            Dictionary<string, string> lines = new Dictionary<string, string>();
+            HtmlNode lineNode = checkmark.NextSibling.NextSibling;
+            string product;
+            if (Regex.Matches(lineNode.InnerText, @"[a-zA-Z]")
+                .Count == 0)
+                lineNode = lineNode.NextSibling.NextSibling;
 
-        private string[] GetPrices(int[] coordinates, HtmlDocument doc)
-        {
-            List<HtmlNode> nodes;
-            return null;
 
+            while(Regex.Matches(lineNode.InnerText, @"[a-zA-Z]")
+                .Count != 0)
+            {
+                Match match = Regex.Match(lineNode.InnerText, @"\s(\d+).(\d+)");
+                product = lineNode.InnerText.Substring(0, match.Index);
+                if (!lines.ContainsKey(product))
+                    lines.Add(product, match.Value);
+
+                else if (Double.Parse(match.Value) < Double.Parse(lines[product]))
+                    lines[product] = match.Value;
+
+                lineNode = lineNode.NextSibling.NextSibling;                
+            }
+
+            return lines;
         }
 
         private HtmlDocument OcrHtml()
@@ -62,8 +74,10 @@ namespace TestingAPI2
                 using (var api = OcrApi.Create())
                 {
                     api.Init(Languages.Lithuanian, projectPath);
-                    api.InputName = imageLoc;
-                    doc.LoadHtml(api.GetHOCRText(0));
+                    api.SetImage(OcrPix.FromFile(imageLoc));
+                    string html = api.GetHOCRText(0);
+                    ToFile(html, outputLoc1);
+                    doc.LoadHtml(html);
                     return doc;
                 }
             }
@@ -74,22 +88,16 @@ namespace TestingAPI2
             }
         }
 
-        private int[] GetPriceCoordinates(HtmlDocument doc)
+        private HtmlNode GetLineOfPVMSuma(HtmlDocument doc)
         {            
             List<HtmlNode> items = doc.DocumentNode
-                .SelectNodes("//*[text()='PVM']").ToList();
+                .SelectNodes("//*[text()='pvm']").ToList();
 
             foreach(HtmlNode node in items)
             {
-                HtmlNode nextWord = node.NextSibling.NextSibling;
-                if (nextWord.InnerText.Equals("suma"))
-                {
-                    string coor = Regex.Replace(
-                        Regex.Split(nextWord
-                            .GetAttributeValue("title", null), ";")[0], @"[a-zA-Z]", "");
-                    return Array.ConvertAll(Regex.Split(coor.Substring(1), " "), int.Parse);
-                }
-
+                HtmlNode nextWord = node.NextSibling.NextSibling.NextSibling.NextSibling;
+                if (nextWord.InnerText.Equals("kodas"))
+                    return node.ParentNode;
             }
             return null;
         }
