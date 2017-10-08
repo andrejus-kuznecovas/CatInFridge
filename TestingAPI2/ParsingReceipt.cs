@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace TestingAPI2
 {
-    class ParsingReceipt
+    public class ParsingReceipt : IParser<List<Item>>
     {
         //Method removes Lithuanian letters and turns them into standart (ex. Ž -> Z)
         public static string RemoveInternationalLetters(string receipt)
@@ -43,19 +43,61 @@ namespace TestingAPI2
             }
             return Shop.UNRECOGNIZED;
         }
-        
-        //Finding a price of an item, replacing , to . for parsing
-        /*public static double FindPrice(string text)
+
+ 
+
+        //searching for 8 digits and whatever (of reasonable amount) rubbish inbetween them
+        private string dateRegex = @"(\d\D{0,3}\d\D{0,3}\d\D{0,3}\d\D{0,3}\d\D{0,3}\d\D{0,3}\d\D{0,3}\d)";
+
+        public string RemoveNonDigits(string str)
         {
-            string pricePattern = @"(-?\d+(\.|,)\s?\d{1,2})\s?(A|N)\b";
-            double pricePoint;
-            Match priceMatch = Regex.Match(RemoveInternationalLetters(text),
-                pricePattern, RegexOptions.IgnoreCase);
-            
-             
-                return PricePoint;
-         
-        }*/
+            return new String(str.Where(Char.IsDigit).ToArray());
+        }
+
+
+        //Lines ending with three numbers and tax groups A or M1 are what we consider items
+        private string itemRegex = @"(.+)(\d.*\d.*\d.*)(?:A|M1)";
+
+
+        public ParsingReceipt(string dateRegex, string itemRegex)
+        {
+            this.dateRegex = dateRegex;
+            this.itemRegex = itemRegex;
+        }
+
+        public List<Item> Parse(string source)
+        {
+            List<Item> parsedItems = new List<Item>();
+
+            var itemMatch = Regex.Match(source, itemRegex);
+
+            while (itemMatch.Success)
+            {
+                parsedItems.Add(ParseItem(itemMatch));
+                itemMatch = itemMatch.NextMatch();
+            }
+
+            return parsedItems;
+        }
+
+        public Item ParseItem(Match matchedItem)
+        {
+            //According to the specified regex, there are two matching groups (the last one is not matching)
+            //Match.Group[0] is a full match
+            //Match.Group[1] is the first matching group
+            string itemName = matchedItem.Groups[1].Value.Trim();
+
+            //Match.Group[2] is the second matching group
+            int itemPrice;
+            string itemPriceClean = matchedItem.Groups[2].Value.Trim();
+            if (!int.TryParse(itemPriceClean, out itemPrice))
+            {
+                itemPrice = 0;
+            }
+
+            Item parsedItem = new Item(itemName, itemPrice);
+            return parsedItem;
+        }
 
     }
 }

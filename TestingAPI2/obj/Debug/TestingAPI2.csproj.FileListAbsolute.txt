@@ -63,7 +63,7 @@ D:\CIF\CatInFridge\TestingAPI2\bin\Debug\TestingAPI2.exe
 D:\CIF\CatInFridge\TestingAPI2\bin\Debug\TestingAPI2.pdb
 D:\CIF\CatInFridge\TestingAPI2\bin\Debug\Patagames.Ocr.dll
 D:\CIF\CatInFridge\TestingAPI2\bin\Debug\Patagames.Ocr.xml
-D:\CIF\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.csprojResolveAssemblyReference.cache
 D:\CIF\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.csproj.CoreCompileInputs.cache
 D:\CIF\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.exe
 D:\CIF\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.pdb
+D:\CIF\CatInFridge\TestingAPI2\obj\Debug\TestingAPI2.csprojResolveAssemblyReference.cache
