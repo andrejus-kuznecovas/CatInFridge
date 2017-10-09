@@ -1,6 +1,9 @@
 ﻿using System;
+<<<<<<< HEAD
 using System.Collections.Generic;
 using System.Linq;
+=======
+>>>>>>> api_branch
 using Patagames.Ocr;
 using Patagames.Ocr.Enums;
 using System.IO;
@@ -11,10 +14,16 @@ namespace TestingAPI2
 {
     public class Program
     {
+<<<<<<< HEAD
         public string imageLoc = "C:\\Users\\Benas\\Desktop\\cekis.jpg";
         public string outputLoc1 = "C:\\Users\\Benas\\Desktop\\hocr.html";
         private static readonly string HORC_HTML_ID = "word_1_";
         private static string projectPath;
+=======
+        public string imageLoc = "D:\\receipts\\r3.jpg";
+        public string outputLoc1 = "D:\\output\\check.txt";
+        public string outputLoc2 = "D:\\output\\check2.txt";
+>>>>>>> api_branch
 
         static void Main(string[] args)
         {
@@ -52,6 +61,7 @@ namespace TestingAPI2
             while(Regex.Matches(lineNode.InnerText, @"[a-zA-Z]")
                 .Count != 0)
             {
+<<<<<<< HEAD
                 Match match = Regex.Match(lineNode.InnerText, @"\s(\d+).(\d+)");
                 product = lineNode.InnerText.Substring(0, match.Index);
                 if (!lines.ContainsKey(product))
@@ -61,6 +71,13 @@ namespace TestingAPI2
                     lines[product] = match.Value;
 
                 lineNode = lineNode.NextSibling.NextSibling;                
+=======
+                api.Init(Languages.Lithuanian);
+                string receipt = api.GetTextFromImage(filename: @imageLoc);
+                Console.WriteLine(receipt);
+                
+                Console.Read();
+>>>>>>> api_branch
             }
 
             return lines;
@@ -88,6 +105,7 @@ namespace TestingAPI2
             }
         }
 
+<<<<<<< HEAD
         private HtmlNode GetLineOfPVMSuma(HtmlDocument doc)
         {            
             List<HtmlNode> items = doc.DocumentNode
@@ -106,5 +124,7 @@ namespace TestingAPI2
         {
             System.IO.File.WriteAllText(outputLoc1, plainText);
         }        
+=======
+>>>>>>> api_branch
     }
 }
