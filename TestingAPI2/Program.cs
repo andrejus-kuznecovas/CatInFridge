@@ -24,12 +24,7 @@ namespace TestingAPI2
                 api.Init(Languages.Lithuanian);
                 string receipt = api.GetTextFromImage(filename: @imageLoc);
                 Console.WriteLine(receipt);
-
-                IsIKI(receipt);
-
-                receipt = ParsingReceipt.RemoveInternationalLetters(receipt);
-                Console.WriteLine("\n\t Čekis be lietuviškų simbolių:\n\n"+receipt);
-
+                
                 Console.Read();
             }
         }
@@ -40,24 +35,5 @@ namespace TestingAPI2
             System.IO.File.WriteAllText(@outputLoc1, plainText);
         }
 
-        //šitas metodas įrašo stringą į naują eilutę kiekvieną kartą (neperrašo)
-        public void ToFileNewLine(string plainText)
-        {
-            StreamWriter file1 = new StreamWriter(outputLoc2, true);
-            file1.WriteLine(plainText);
-            file1.Close();
-        }
-        //Method to see if the receipt is from Shop IKI
-        public void IsIKI(string receipt)
-        {
-            if (ParsingReceipt.GetShopName(receipt) == Shop.IKI)
-            {
-                Console.WriteLine("\n\t\tParduotuvė yra IKI");
-            }
-            else
-            {
-                Console.WriteLine("\n\n\tParduotuvė neatpažinta");
-            }
-        }
     }
 }
