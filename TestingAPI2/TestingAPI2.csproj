@@ -45,17 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IParser.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="ItemDateCompare.cs" />
-    <Compile Include="ItemManager.cs" />
-    <Compile Include="ItemNameCompare.cs" />
-    <Compile Include="ItemPriceCompare.cs" />
-    <Compile Include="ItemStoreCompare.cs" />
-    <Compile Include="ParsingReceipt.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Shop.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shops.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
