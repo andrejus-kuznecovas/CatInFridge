@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using TestingAPI2;
 
 namespace TestingWindowsForms
 {
@@ -27,23 +28,28 @@ namespace TestingWindowsForms
             webcam = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach(FilterInfo VideoCaptureDevice in webcam)
             {
-                comboBox1.Items.Add(VideoCaptureDevice.Name);
+                comboBoxCamDeviceSelect.Items.Add(VideoCaptureDevice.Name);
             }
             if (webcam.Count > 0)
             {
-                comboBox1.SelectedIndex = 0;
+                comboBoxCamDeviceSelect.SelectedIndex = 0;
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("Sorry there are no cameras available on your device");
-                System.Windows.Forms.Application.Exit();
+                buttonStartCam.Dispose();
+                buttonTakePhoto.Dispose();
+                buttonStopCam.Dispose();
+                comboBoxCamDeviceSelect.Dispose();
+                pictureBox.Dispose();
+                //System.Windows.Forms.MessageBox.Show("Sorry there are no cameras available on your device");
+                //System.Windows.Forms.Application.Exit();
             }
             
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
-            cam = new VideoCaptureDevice(webcam[comboBox1.SelectedIndex].MonikerString);
+            cam = new VideoCaptureDevice(webcam[comboBoxCamDeviceSelect.SelectedIndex].MonikerString);
             cam.NewFrame += new NewFrameEventHandler(cam_NewFrame);
             cam.Start();
         }
@@ -51,7 +57,7 @@ namespace TestingWindowsForms
         private void cam_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap bit = (Bitmap)eventArgs.Frame.Clone();
-            pictureBox1.Image = bit;
+            pictureBox.Image = bit;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -64,15 +70,17 @@ namespace TestingWindowsForms
                   }
             }
         }
-
+        
         private void button2_Click(object sender, EventArgs e)
         {
             if (cam != null)
             {
-                saveFileDialog1.InitialDirectory = @"D:\Visual Studio Projects\Testing Visual Studio\TestingWinForms\Pictures";
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                saveFileDialog.InitialDirectory = @"C:\";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    pictureBox1.Image.Save(saveFileDialog1.FileName);
+                    pictureBox.Image.Save(saveFileDialog.FileName);
+                    Program obj = new Program();
+                    textBoxOcrResult.Text = obj.ImageToText(openFileDialog.FileName);
                 }
             }
         }
@@ -84,6 +92,15 @@ namespace TestingWindowsForms
                 cam.Stop();
             }
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void buttonOpenFile_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Program obj = new Program();
+                textBoxOcrResult.Text = obj.ImageToText(openFileDialog.FileName);
+            }
         }
     }
 }

@@ -21,19 +21,17 @@ namespace TestingAPI2
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
             Program obj = new Program();
-            obj.ImageToText();
+            //obj.ImageToText(imageLoc);
         }
 
-        public void ImageToText()
+        public string ImageToText(string imageLoc)
         {
             try
             {
                 using (var api = OcrApi.Create())
                 {
                     api.Init(Languages.Lithuanian);
-                    string plainText = api.GetTextFromImage(imageLoc);
-                    Console.WriteLine(plainText);
-                    Console.Read();
+                    return api.GetTextFromImage(imageLoc);
                 }
             }
             catch (Exception e)
@@ -41,7 +39,7 @@ namespace TestingAPI2
                 Console.WriteLine("Unhandled error occured: " + e);
                 Console.Read();
             }
-            
+            return null;
         }
 
 
