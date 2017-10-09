@@ -36,6 +36,9 @@
     </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.5.5.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.5.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="AForge.Video">
       <HintPath>..\..\Testing Visual Studio\A.Forge.NET libs\Release\AForge.Video.dll</HintPath>
     </Reference>
@@ -57,12 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -99,6 +96,7 @@
     <None Include="tessdata\eng.traineddata">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="tessdata\lit.traineddata" />
     <None Include="tessdata\pdf.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
