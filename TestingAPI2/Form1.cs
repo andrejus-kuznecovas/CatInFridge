@@ -1,28 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using TestingAPI2;
+using System.Collections;
+using TestingAPI2.Entities;
 
 namespace TestingWindowsForms
 {
     public partial class Form1 : Form
     {
+        private FilterInfoCollection webcam;
+        private VideoCaptureDevice cam;
+        private ArrayList products;
+
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private FilterInfoCollection webcam;
-        private VideoCaptureDevice cam;
-
+        }        
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             webcam = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -41,26 +39,24 @@ namespace TestingWindowsForms
                 buttonStopCam.Dispose();
                 comboBoxCamDeviceSelect.Dispose();
                 pictureBox.Dispose();
-                //System.Windows.Forms.MessageBox.Show("Sorry there are no cameras available on your device");
-                //System.Windows.Forms.Application.Exit();
             }
             
         }
         
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonStartCam_Click(object sender, EventArgs e)
         {
             cam = new VideoCaptureDevice(webcam[comboBoxCamDeviceSelect.SelectedIndex].MonikerString);
-            cam.NewFrame += new NewFrameEventHandler(cam_NewFrame);
+            cam.NewFrame += new NewFrameEventHandler(OpenCamFrame);
             cam.Start();
         }
 
-        private void cam_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        private void OpenCamFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap bit = (Bitmap)eventArgs.Frame.Clone();
             pictureBox.Image = bit;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonStopCam_Click(object sender, EventArgs e)
         {
             if (cam != null)
             {
@@ -71,7 +67,7 @@ namespace TestingWindowsForms
             }
         }
         
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonTakePhoto_Click(object sender, EventArgs e)
         {
             if (cam != null)
             {
@@ -79,28 +75,83 @@ namespace TestingWindowsForms
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     pictureBox.Image.Save(saveFileDialog.FileName);
-                    Program obj = new Program();
-                    textBoxOcrResult.Text = obj.ImageToText(openFileDialog.FileName);
+                    //textBoxOcrResult.Text = Program.ImageToText(openFileDialog.FileName);
                 }
             }
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void CloseForm(object sender, FormClosingEventArgs e)
         {
             if (cam != null)
             {
                 cam.Stop();
             }
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
 
         private void buttonOpenFile_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                Program obj = new Program();
-                textBoxOcrResult.Text = obj.ImageToText(openFileDialog.FileName);
+                products = Ocr.GetPrices(openFileDialog.FileName);
+                RefreshProductListView();
             }
+        }
+
+        private void RefreshProductListView()
+        {
+            listViewProducts.Items.Clear();
+            ListViewItem item;
+            foreach (Product entry
+                in products)
+            {
+                item = listViewProducts.Items.Add(entry.name);
+                item.SubItems.Add(entry.price);
+                listViewProducts.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            }
+
+            if (listViewProducts.Items.Count != 0)
+                buttonGetResults.Visible = true;
+            else buttonGetResults.Visible = false;
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            ListViewItem item = listViewProducts.SelectedItems[0];
+            using (EditDialogBox db = new EditDialogBox(item.Text, item.SubItems[1].Text))
+            {
+                if (db.ShowDialog() == DialogResult.OK)
+                {
+                    products.RemoveAt(listViewProducts.Items.IndexOf(item));
+                    products.Add(new Product(db.ReturnValue1.name, db.ReturnValue1.price));
+                }
+            }
+            RefreshProductListView();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            products.Remove(listViewProducts.SelectedItems[0].Text);
+            RefreshProductListView();
+        }
+
+        private void listViewProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(!buttonEdit.Visible)
+            {
+                buttonEdit.Visible = true;
+                buttonDelete.Visible = true;
+            }
+            else if(listViewProducts.SelectedItems.Count == 0)
+            {
+                buttonEdit.Visible = false;
+                buttonDelete.Visible = false;
+            }
+        }
+
+        private void buttonGetResults_Click(object sender, EventArgs e)
+        {
+            Repository.WriteToXmlFile(products);
         }
     }
 }

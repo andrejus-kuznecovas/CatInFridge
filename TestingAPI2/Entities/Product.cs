@@ -7,26 +7,39 @@ using System.Threading.Tasks;
 
 namespace TestingAPI2.Entities
 {
-    class Product       //entity
+    [Serializable]
+    public class Product       //entity
     {
-        string name;
-        double price;
-        DateTime date;
+        public string name;
+        public string price;
+        public DateTime date;
+        //Shop shop;
+        public string shop;
 
-        public Product(string name, double price)
+        Product()
+        { }
+        public Product(string name, string price)
         {
             this.name = name;
             this.price = price;
-            this.date = DateTime.Now;
+            date = DateTime.Now;
+        }
+        public Product(string name, string price, string shop)
+        {
+            this.name = name;
+            this.price = price;
+            this.shop = shop;
+            date = DateTime.Now;
         }
 
-        public Product(string name, double price, string date)
+        public Product(string name, string price, string shop, string date)
         {
             if (!DateTime.TryParseExact(date, "yyyy-MM-dd", new CultureInfo("lt-LT")
                 , DateTimeStyles.None, out this.date))
                 this.date = DateTime.Now;
 
             this.name = name;
+            this.shop = shop;
             this.price = price;
         }
 

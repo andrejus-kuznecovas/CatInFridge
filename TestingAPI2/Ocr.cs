@@ -6,77 +6,57 @@ using Patagames.Ocr.Enums;
 using System.IO;
 using HtmlAgilityPack;
 using System.Text.RegularExpressions;
+using TestingAPI2.Entities;
+using System.Collections;
 
 namespace TestingAPI2
 {
-    public class Program
+    public static class Ocr
     {
-        public string imageLoc = "C:\\Users\\Benas\\Desktop\\cekis.jpg";
-        public string outputLoc1 = "C:\\Users\\Benas\\Desktop\\hocr.html";
-        private static readonly string HORC_HTML_ID = "word_1_";
-        private static string projectPath;
-
-        static void Main(string[] args)
+        public static ArrayList GetPrices(string imageLoc)
         {
-            projectPath = Path.GetFullPath(@"..\..\");
-
-            Program obj = new Program();
-            obj.ImageToText();
-        }
-
-        public void ImageToText()
-        {
-            HtmlDocument html = OcrHtml();
+            HtmlDocument html = OcrHtml(imageLoc);
             if (html == null)
-                return;
-            
-            HtmlNode checkmarkLine= GetLineOfPVMSuma(html);
+                return null;
 
-            Dictionary<string, string> prices = GetPrices(checkmarkLine, html);
+            HtmlNode checkmark = GetLineOfPVMKodas(html);
 
-            Console.Write("DONE");
-            Console.Read();
-
-        }
-
-        private Dictionary<string, string> GetPrices(HtmlNode checkmark, HtmlDocument doc)
-        {
-            Dictionary<string, string> lines = new Dictionary<string, string>();
+            ArrayList lines = new ArrayList();
+            Product newProduct;
             HtmlNode lineNode = checkmark.NextSibling.NextSibling;
             string product;
             if (Regex.Matches(lineNode.InnerText, @"[a-zA-Z]")
                 .Count == 0)
                 lineNode = lineNode.NextSibling.NextSibling;
-
-
+            
             while(Regex.Matches(lineNode.InnerText, @"[a-zA-Z]")
                 .Count != 0)
             {
                 Match match = Regex.Match(lineNode.InnerText, @"\s(\d+).(\d+)");
-                product = lineNode.InnerText.Substring(0, match.Index);
-                if (!lines.ContainsKey(product))
-                    lines.Add(product, match.Value);
-
-                else if (Double.Parse(match.Value) < Double.Parse(lines[product]))
-                    lines[product] = match.Value;
-
+                if(match.Success)
+                {
+                    product = lineNode.InnerText.Substring(0, match.Index);
+                    newProduct = new Product(product, match.Value);
+                    if (!lines.Contains(newProduct))
+                        lines.Add(newProduct);
+                }                
+                
                 lineNode = lineNode.NextSibling.NextSibling;
             }
 
             return lines;
         }
 
-        private HtmlDocument OcrHtml()
+        private static HtmlDocument OcrHtml(string imageLoc)
         {
             HtmlDocument doc = new HtmlDocument();            
             try
             {
                 using (var api = OcrApi.Create())
                 {
-                    api.Init(Languages.Lithuanian, projectPath);
+                    api.Init(Languages.Lithuanian, Path.GetFullPath(@"..\..\"));
                     api.SetImage(OcrPix.FromFile(imageLoc));
                     string html = api.GetHOCRText(0);
-                    ToFile(html, outputLoc1);
                     doc.LoadHtml(html);
                     return doc;
                 }
@@ -88,7 +68,7 @@ namespace TestingAPI2
             }
         }
         
-        private HtmlNode GetLineOfPVMSuma(HtmlDocument doc)
+        private static HtmlNode GetLineOfPVMKodas(HtmlDocument doc)
         {            
             List<HtmlNode> items = doc.DocumentNode
                 .SelectNodes("//*[text()='pvm']").ToList();
@@ -101,10 +81,6 @@ namespace TestingAPI2
             }
             return null;
         }
-
-        public void ToFile(string plainText, string outputloc)
-        {
-            System.IO.File.WriteAllText(outputLoc1, plainText);
-        }        
+        
     }
 }
