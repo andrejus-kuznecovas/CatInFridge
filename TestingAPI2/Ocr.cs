@@ -71,7 +71,7 @@ namespace TestingAPI2
         private static HtmlNode GetLineOfPVMKodas(HtmlDocument doc)
         {            
             List<HtmlNode> items = doc.DocumentNode
-                .SelectNodes("//*[text()='pvm']").ToList();
+                .SelectNodes("//*[text()='PVM']").ToList();
 
             foreach(HtmlNode node in items)
             {
