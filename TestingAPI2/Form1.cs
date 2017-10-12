@@ -131,7 +131,7 @@ namespace TestingWindowsForms
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            products.Remove(listViewProducts.SelectedItems[0].Text);
+            products.RemoveAt(listViewProducts.SelectedIndices[0]);
             RefreshProductListView();
         }
 
@@ -151,7 +151,9 @@ namespace TestingWindowsForms
 
         private void buttonGetResults_Click(object sender, EventArgs e)
         {
+            listViewProducts.Items.Clear();
             Repository.WriteToXmlFile(products);
+            RefreshProductListView();
         }
     }
 }

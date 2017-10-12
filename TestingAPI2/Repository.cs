@@ -17,51 +17,34 @@ namespace TestingAPI2
 
         public static void WriteToXmlFile(ArrayList objectToWrite)      //neveikia
         {
-            XmlWriter writer = null;
-            XmlDocument doc;
-
-            if (!File.Exists(path))
-            {
-                doc = new XmlDocument();
-                doc.LoadXml("<Products></Products>");
-                writer = XmlWriter.Create(path, new XmlWriterSettings() {
-                    Indent = true,
-                    NamespaceHandling = NamespaceHandling.OmitDuplicates,
-                    OmitXmlDeclaration = true
-                    });
-                doc.Save(writer);
-                writer.Close();
-            }
-
-            doc = new XmlDocument();
-            doc.Load(path);
-            XmlNode rootNode = doc.FirstChild;
-            var nav = rootNode.CreateNavigator();
-            writer = nav.AppendChild();
-
-            var serializer = new XmlSerializer(typeof(Product));
+            StreamWriter theStreamWriter = null;
             try
             {
-                foreach (Product singleObject in objectToWrite)
-                    serializer.Serialize(writer, singleObject);
+                XmlSerializer serializer = new XmlSerializer(typeof(ArrayList), new Type[] { typeof(Product) });
 
+                if (File.Exists(path))
+                    objectToWrite.AddRange(ReadFromXmlFile());
+
+                theStreamWriter = new StreamWriter(path);
+                serializer.Serialize(theStreamWriter, objectToWrite);
             }
-            finally
+            catch (Exception e)
             {
-                if (writer != null)
-                    writer.Close();
+                Console.WriteLine(e.ToString());
             }
-
+            finally { theStreamWriter.Close(); }
+            
+                        
         }
 
-        public static Product[] ReadFromXmlFile()
+        public static ArrayList ReadFromXmlFile()
         {
             TextReader reader = null;
             try
             {
-                var serializer = new XmlSerializer(typeof(Product[]));
-                reader = new StreamReader(Path.GetFullPath(@"..\..\") + "Products.xml");
-                return (Product[])serializer.Deserialize(reader);
+                var serializer = new XmlSerializer(typeof(ArrayList), new Type[] { typeof(Product) });
+                reader = new StreamReader(path);
+                return (ArrayList)serializer.Deserialize(reader);
             }
             finally
             {
