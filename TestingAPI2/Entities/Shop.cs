@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TestingAPI2.Entities
-{
-    class Shop      //entity
+{   [Serializable]
+    public class Shop      //entity
     {
-        string name;
-        string exp;     //expression
+        public string name;
 
-        public Shop(string name, string exp)
+        public Shop(string name)
         {
             this.name = name;
-            this.exp = exp;
         }
+
+        public Shop() { }
     }
 }

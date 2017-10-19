@@ -14,7 +14,8 @@ namespace TestingAPI2
         [STAThread]
         static void Main(string[] args)
         {
-            Repository.path = Path.GetFullPath(@"..\..\") + "Products.xml";
+            Repository.productPath = Path.GetFullPath(@"..\..\") + "Products.xml";
+            Repository.shopPath = Path.GetFullPath(@"..\..\") + "Shops.xml";
             Application.Run(new Form1());
         }
     }

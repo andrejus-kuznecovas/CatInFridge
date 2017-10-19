@@ -14,7 +14,9 @@ namespace TestingWindowsForms
     {
         private FilterInfoCollection webcam;
         private VideoCaptureDevice cam;
-        private ArrayList products;
+        private ArrayList newProducts;
+        private ArrayList otherProducts;
+        private ArrayList shopList;
 
         public Form1()
         {
@@ -23,8 +25,10 @@ namespace TestingWindowsForms
         
         private void Form1_Load(object sender, EventArgs e)
         {
+            otherProducts = new ArrayList();
             webcam = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach(FilterInfo VideoCaptureDevice in webcam)
+
+            foreach (FilterInfo VideoCaptureDevice in webcam)
             {
                 comboBoxCamDeviceSelect.Items.Add(VideoCaptureDevice.Name);
             }
@@ -40,9 +44,29 @@ namespace TestingWindowsForms
                 comboBoxCamDeviceSelect.Dispose();
                 pictureBox.Dispose();
             }
-            
+
+            RefreshShopList();
+
+            if (comboBoxShopSelect.Items.Count == 0)
+            {
+                comboBoxShopSelect.Enabled = false;
+                radioButtonNewShop.Enabled = false;
+                radioButtonShopSelect.Enabled = false;
+                textBoxNewShop.ReadOnly = false;
+                radioButtonNewShop.Checked = true;
+                radioButtonShopSelect.Checked = false;
+            }
+            else comboBoxShopSelect.SelectedIndex = 0;
         }
-        
+
+        private void RefreshShopList()
+        {
+            shopList = Repository.ReadShopsFromXmlFile();
+
+            foreach (Shop shop in shopList)
+                comboBoxShopSelect.Items.Add(shop.name);
+        }
+
         private void buttonStartCam_Click(object sender, EventArgs e)
         {
             cam = new VideoCaptureDevice(webcam[comboBoxCamDeviceSelect.SelectedIndex].MonikerString);
@@ -93,26 +117,32 @@ namespace TestingWindowsForms
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                products = Ocr.GetPrices(openFileDialog.FileName);
-                RefreshProductListView();
+                newProducts = Ocr.GetPrices(openFileDialog.FileName);
+                RefreshNewProductListView();
+
+                otherProducts.Clear();
+                listViewSimilar.Items.Clear();
             }
         }
 
-        private void RefreshProductListView()
+        private void RefreshNewProductListView()
         {
             listViewProducts.Items.Clear();
             ListViewItem item;
-            foreach (Product entry
-                in products)
+            foreach (Tuple<string, string> entry
+                in newProducts)
             {
-                item = listViewProducts.Items.Add(entry.name);
-                item.SubItems.Add(entry.price);
+                item = listViewProducts.Items.Add(entry.Item1);
+                item.SubItems.Add(entry.Item2);
                 listViewProducts.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
 
             if (listViewProducts.Items.Count != 0)
                 buttonGetResults.Visible = true;
             else buttonGetResults.Visible = false;
+
+            buttonEdit.Visible = false;
+            buttonDelete.Visible = false;
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -122,38 +152,77 @@ namespace TestingWindowsForms
             {
                 if (db.ShowDialog() == DialogResult.OK)
                 {
-                    products.RemoveAt(listViewProducts.Items.IndexOf(item));
-                    products.Add(new Product(db.ReturnValue1.name, db.ReturnValue1.price));
+                    newProducts.RemoveAt(listViewProducts.Items.IndexOf(item));
+                    newProducts.Add(db.ReturnValue1);
                 }
             }
-            RefreshProductListView();
+            RefreshNewProductListView();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            products.RemoveAt(listViewProducts.SelectedIndices[0]);
-            RefreshProductListView();
+            newProducts.RemoveAt(listViewProducts.SelectedIndices[0]);
+            RefreshNewProductListView();
         }
 
         private void listViewProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(!buttonEdit.Visible)
+            
+            if(listViewProducts.SelectedItems.Count == 0 || otherProducts.Count != 0)
+            {
+                buttonEdit.Visible = false;
+                buttonDelete.Visible = false;
+            }
+            else if (!buttonEdit.Visible)
             {
                 buttonEdit.Visible = true;
                 buttonDelete.Visible = true;
             }
-            else if(listViewProducts.SelectedItems.Count == 0)
+            if (otherProducts.Count != 0)
+                RefreshSimilarProductList();
+        }
+
+        private void RefreshSimilarProductList()
+        {
+            listViewSimilar.Items.Clear();
+            ListViewItem item;
+            foreach (Product product
+                in otherProducts)
             {
-                buttonEdit.Visible = false;
-                buttonDelete.Visible = false;
+                item = listViewSimilar.Items.Add(product.name);
+                item.SubItems.Add(product.shop.name);
+                item.SubItems.Add(product.price);
+                listViewSimilar.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
         }
 
         private void buttonGetResults_Click(object sender, EventArgs e)
         {
-            listViewProducts.Items.Clear();
-            Repository.WriteToXmlFile(products);
-            RefreshProductListView();
+            
+
+            Shop newShop;
+
+            if(radioButtonNewShop.Checked)
+            {
+                newShop = new Shop(textBoxNewShop.Text);
+                Repository.WriteShopToXmlFile(newShop);
+            }
+            else
+                newShop = (Shop) shopList[comboBoxShopSelect.SelectedIndex];
+
+            otherProducts = Repository.ReadProductsFromXmlFile();
+
+            Repository.WriteProductsToXmlFile(newProducts, newShop);
+        }
+
+        private void radioButtonNewShop_CheckedChanged(object sender, EventArgs e)
+        {
+            textBoxNewShop.ReadOnly = !radioButtonNewShop.Checked;
+        }
+
+        private void radioButtonShopSelect_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxShopSelect.Enabled = radioButtonShopSelect.Checked;
         }
     }
 }

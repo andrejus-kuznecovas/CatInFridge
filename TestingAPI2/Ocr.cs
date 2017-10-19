@@ -23,7 +23,7 @@ namespace TestingAPI2
             HtmlNode checkmark = GetLineOfPVMKodas(html);
 
             ArrayList lines = new ArrayList();
-            Product newProduct;
+            Tuple<string, string> newProduct;
             HtmlNode lineNode = checkmark.NextSibling.NextSibling;
             string product;
             if (Regex.Matches(lineNode.InnerText, @"[a-zA-Z]")
@@ -37,11 +37,10 @@ namespace TestingAPI2
                 if(match.Success)
                 {
                     product = lineNode.InnerText.Substring(0, match.Index);
-                    newProduct = new Product(product, match.Value);
+                    newProduct = new Tuple<string, string>(product, match.Value);
                     if (!lines.Contains(newProduct))
                         lines.Add(newProduct);
-                }                
-                
+                }
                 lineNode = lineNode.NextSibling.NextSibling;
             }
 

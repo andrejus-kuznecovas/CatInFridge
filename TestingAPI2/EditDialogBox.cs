@@ -13,7 +13,7 @@ namespace TestingAPI2
 {
     public partial class EditDialogBox : Form
     {
-        public Product ReturnValue1 { get; set; }
+        public Tuple<string, string> ReturnValue1 { get; set; }
 
         public EditDialogBox(string name, string price)
         {
@@ -28,7 +28,7 @@ namespace TestingAPI2
             if (!textBoxName.Text.Equals(""))
                 if (double.TryParse(textBoxPrice.Text, out num))
                     if (num > 0)
-                        ReturnValue1 = new Product(textBoxName.Text, textBoxPrice.Text);
+                        ReturnValue1 = new Tuple<string, string>(textBoxName.Text, textBoxPrice.Text);
         }
 
     }
