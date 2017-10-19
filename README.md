@@ -11,7 +11,6 @@ Komandos nariai:
 
 Benas Ladzikas, Tadas Kizevičius, Andrejus Kuznecovas, Lukas Jurevičius.
 
-
 I lab. darbo tikslas:
 
 Sukurti Windows Form aplikaciją, kuri nuskaitytų vartotojo pateiktą čekį, rastų jame prekes su jų kainomis, atpažintų parduotuvę ir šią informaciją išsaugotų.
@@ -32,3 +31,9 @@ Suvedus prekės pavadinimą palyginti kainas skirtingose parduotuvėse.
 Pastabos:
 
 1.Komandos atlikti darbai ir progresas: https://trello.com/b/PtZn87iF/cat-in-fridge-board-of-activities
+
+Vartotojo reikalavimai(I laboratorinio darbo pabaigoje):
+
+1.Privalo pridėti prie References HTMLAgilityPack, AForge. AForge.Video,  AForge.Video.DirectShow, Patagames OCR.
+
+2.Rekomenduojama leisti per MS Visual Studio.
