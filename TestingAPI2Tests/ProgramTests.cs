@@ -14,37 +14,36 @@ namespace TestingAPI2.Tests
     public class ProgramTests
     {
 
-        [TestMethod()]
-        /*public void GettingLineOfPVMKodasTest()
+        /*[TestMethod()]
+        public void GettingLineOfPVMKodasTest2()
         {
             HtmlDocument doc = new HtmlDocument();
-            doc.Load(@"D:\testing2.html");
+            doc.Load(@"D:\testing.html");
 
-            HtmlNode line = Ocr.GetLineOfPVMKodas(doc);
-            string whaaat = line.ToString();
+            HtmlNode htmlLine = Ocr.GetLineOfPVMKodas(doc);
+            string line = htmlLine.ToString();
             int Start = 0, End = 0;
             string strStart = "PVM";
             string strEnd = "kodas";
-            string nuNaxj = "";
-            if (whaaat.Contains(strStart) && whaaat.Contains(strEnd))
+            string wordsInBetween = "";
+            if (line.Contains(strStart) && line.Contains(strEnd))
             {
-                Start = whaaat.IndexOf(strStart, 0) + whaaat.Length;
-                End = whaaat.IndexOf(strEnd, Start);
-                nuNaxj = whaaat.Substring(Start, End - Start);
+                Start = line.IndexOf(strStart, 0) + line.Length;
+                End = line.IndexOf(strEnd, Start);
+                wordsInBetween = line.Substring(Start, End - Start);
             }
             else
             {
-                Assert.IsNull(line);
+                Assert.IsNull(htmlLine);
             }
-            var noOfWords = Regex.Split(nuNaxj.Substring(0, nuNaxj.Length - 1), " ")
+            var noOfWords = Regex.Split(wordsInBetween.Substring(0, wordsInBetween.Length - 1), " ")
                 .Length;
-
-            //int count = nuNaxj.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Count();
-            Assert.Equals(1, noOfWords);
+            
+            Assert.AreEqual(1, noOfWords);
         }*/
 
         [TestMethod()]
-        public void GettingLineOfPVMKodasTest2()
+        public void GettingLineOfPVMKodasTestOfNullDocument()
         {
             Assert.IsNull(Ocr.GetLineOfPVMKodas(null));
         }
