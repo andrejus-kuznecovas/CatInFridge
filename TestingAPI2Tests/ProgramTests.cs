@@ -47,5 +47,43 @@ namespace TestingAPI2.Tests
         {
             Assert.IsNull(Ocr.GetLineOfPVMKodas(null));
         }
+        
+        [TestMethod()]
+        [ExpectedException(typeof(Exception))]
+        public void OcrHtmlTestOfReturnType()
+        {
+            //HtmlDocument doc = new HtmlDocument();
+            //doc.Load(@"D:\testing.html");
+            //Assert.AreEqual(doc.GetType(), Ocr.OcrHtml(@"D:\cekis.jpg").GetType());
+
+            Assert.IsInstanceOfType(Ocr.OcrHtml(@"D:\cekis.jpg"), typeof(HtmlDocument));
+        }
+
+        [TestMethod()]
+        public void GetPricesTestOfNullPic()
+        {
+            Assert.IsNull(Ocr.GetPrices(@"D:\TestNullPic.jpg"));
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(System.ArgumentNullException))]
+        public void GettingLineOfPVMKodasTestOfExceptionThrowing()
+        {
+            HtmlDocument doc = new HtmlDocument();
+            doc.Load(@"D:\TestZeroItemsHtml.html");
+
+            Ocr.GetLineOfPVMKodas(doc);
+
+            /*
+            try
+            {
+                var obj = Ocr.GetLineOfPVMKodas(doc);
+                Assert.Fail("An exception should have been thrown");
+            }
+            catch (ArgumentNullException e)
+            {
+                Assert.AreEqual("Prekiu nuskaityti nepavyko", e.Message);
+            }*/
+        }
     }
 }
