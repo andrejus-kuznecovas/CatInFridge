@@ -8,6 +8,7 @@ using HtmlAgilityPack;
 using System.Text.RegularExpressions;
 using TestingAPI2.Entities;
 using System.Collections;
+using System.Xml;
 
 namespace TestingAPI2
 {
@@ -58,6 +59,15 @@ namespace TestingAPI2
                     api.SetImage(OcrPix.FromFile(imageLoc));
                     string html = api.GetHOCRText(0);
                     doc.LoadHtml(html);
+
+                    //paversti i string html jei reiktu
+                    //string converted = File.ReadAllText(@"D:\testing2.html");
+                    //System.IO.File.WriteAllText(@"D:\shit.txt", converted);
+
+                    //patikrinimui ka nuskaito...
+                    //string path = "D:\\test.xml";
+                    //XmlTextWriter writer = new XmlTextWriter(path, null);
+                    //doc.Save(writer);
                     return doc;
                 }
             }
@@ -68,10 +78,14 @@ namespace TestingAPI2
             }
         }
         
-        private static HtmlNode GetLineOfPVMKodas(HtmlDocument doc)
-        {            
+        public static HtmlNode GetLineOfPVMKodas(HtmlDocument doc)
+        {    
+            if (doc == null)
+            {
+                return null;
+            }
             List<HtmlNode> items = doc.DocumentNode
-                .SelectNodes("//*[text()='pvm']").ToList();
+                .SelectNodes("//*[text()='PVM']").ToList();
 
             foreach(HtmlNode node in items)
             {
