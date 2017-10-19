@@ -16,8 +16,11 @@ namespace TestingAPI2
         public static string productPath { get; set; }
         public static string shopPath { get; set; }
 
-        public static void WriteProductsToXmlFile(ArrayList objs, Shop shop)        //TODO: category
+        public static bool WriteProductsToXmlFile(ArrayList objs, Shop shop)        //TODO: category
         {
+            if(objs == null || shop == null)
+                return false;
+
             ArrayList objectToWrite = new ArrayList();
             foreach (Tuple<string, string> obj in objs)
                 objectToWrite.Add(new Product(obj.Item1, obj.Item2, shop));
@@ -37,8 +40,10 @@ namespace TestingAPI2
             {
                 Console.WriteLine(e.ToString());
             }
-            finally { if(theStreamWriter != null) theStreamWriter.Close(); }           
-                        
+            finally {
+                if (theStreamWriter != null) theStreamWriter.Close(); }
+
+            return true;
         }
 
         public static ArrayList ReadProductsFromXmlFile()
@@ -60,8 +65,11 @@ namespace TestingAPI2
             }
         }
 
-        public static void WriteShopToXmlFile(Shop obj)
+        public static bool WriteShopToXmlFile(Shop obj)
         {
+            if (obj == null)
+                return false;
+
             StreamWriter theStreamWriter = null;
             try
             {
@@ -80,6 +88,7 @@ namespace TestingAPI2
             }
             finally { if (theStreamWriter != null) theStreamWriter.Close(); }
 
+            return true;
         }
 
         public static ArrayList ReadShopsFromXmlFile()
