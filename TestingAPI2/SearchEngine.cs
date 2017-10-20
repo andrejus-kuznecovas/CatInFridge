@@ -34,7 +34,7 @@ namespace TestingAPI2
                     .ToList<Product>();            
         }
 
-        private static string FixStrings(string str)
+        public static string FixStrings(string str)
         {
             str = str.ToLower();
             str = Regex.Replace(str, "ą", "a");

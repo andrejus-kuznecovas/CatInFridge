@@ -85,5 +85,11 @@ namespace TestingAPI2.Tests
                 Assert.AreEqual("Prekiu nuskaityti nepavyko", e.Message);
             }*/
         }
+
+        [TestMethod()]
+        public void FixStringsTest()
+        {
+            Assert.AreEqual("ace", SearchEngine.FixStrings("ąČe"));
+        }
     }
 }
