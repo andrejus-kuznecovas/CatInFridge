@@ -8,6 +8,7 @@ using HtmlAgilityPack;
 using System.Text.RegularExpressions;
 using TestingAPI2.Entities;
 using System.Collections;
+using System.Xml;
 
 namespace TestingAPI2
 {
@@ -20,6 +21,8 @@ namespace TestingAPI2
                 return null;
 
             HtmlNode checkmark = GetLineOfPVMKodas(html);
+            if (checkmark == null)
+                return null;
 
             ArrayList lines = new ArrayList();
             Tuple<string, string> newProduct;
@@ -28,12 +31,12 @@ namespace TestingAPI2
             if (Regex.Matches(lineNode.InnerText, @"[a-zA-Z]")
                 .Count == 0)
                 lineNode = lineNode.NextSibling.NextSibling;
-            
-            while(Regex.Matches(lineNode.InnerText, @"[a-zA-Z]")
+
+            while (Regex.Matches(lineNode.InnerText, @"[a-zA-Z]")
                 .Count != 0)
             {
                 Match match = Regex.Match(lineNode.InnerText, @"\s(\d+).(\d+)");
-                if(match.Success)
+                if (match.Success)
                 {
                     product = lineNode.InnerText.Substring(0, match.Index);
                     newProduct = new Tuple<string, string>(product, match.Value);
@@ -46,9 +49,9 @@ namespace TestingAPI2
             return lines;
         }
 
-        private static HtmlDocument OcrHtml(string imageLoc)
+        public static HtmlDocument OcrHtml(string imageLoc)
         {
-            HtmlDocument doc = new HtmlDocument();            
+            HtmlDocument doc = new HtmlDocument();
             try
             {
                 using (var api = OcrApi.Create())
@@ -57,6 +60,14 @@ namespace TestingAPI2
                     api.SetImage(OcrPix.FromFile(imageLoc));
                     string html = api.GetHOCRText(0);
                     doc.LoadHtml(html);
+                    //paversti i string html jei reiktu
+                    //string converted = File.ReadAllText(@"D:\testing3000.html");
+                    //System.IO.File.WriteAllText(@"D:\crap.txt", converted);
+
+                    //patikrinimui ka nuskaito...
+                    //string path = "D:\\test.xml";
+                    //XmlTextWriter writer = new XmlTextWriter(path, null);
+                    //doc.Save(writer);
                     return doc;
                 }
             }
@@ -66,20 +77,34 @@ namespace TestingAPI2
                 return null;
             }
         }
-        
-        private static HtmlNode GetLineOfPVMKodas(HtmlDocument doc)
-        {            
-            List<HtmlNode> items = doc.DocumentNode
-                .SelectNodes("//*[text()='PVM']").ToList();
 
-            foreach(HtmlNode node in items)
+        public static HtmlNode GetLineOfPVMKodas(HtmlDocument doc)
+        {
+            if (doc == null)
             {
-                HtmlNode nextWord = node.NextSibling.NextSibling.NextSibling.NextSibling;
-                if (nextWord.InnerText.Equals("kodas"))
-                    return node.ParentNode;
+                return null;
             }
-            return null;
+
+            try
+            {
+                List<HtmlNode> items = doc.DocumentNode
+                    .SelectNodes("//*[text()='PVM']").ToList();
+
+                foreach (HtmlNode node in items)
+                {
+                    HtmlNode nextWord = node.NextSibling.NextSibling.NextSibling.NextSibling;
+                    if (nextWord.InnerText.Equals("kodas"))
+                    {
+                        return node.ParentNode;
+                    }
+                }
+                return null;
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine("Nebuvo nuskaityta jokia preke! " + e);
+                return null;
+            }
         }
-        
     }
 }

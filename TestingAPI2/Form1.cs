@@ -118,6 +118,11 @@ namespace TestingWindowsForms
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 newProducts = Ocr.GetPrices(openFileDialog.FileName);
+                if (newProducts == null)
+                {
+                    MessageBox.Show("Nepavyko nuskaityti jokios prekes.\nBandykite dar karta!");
+                    buttonOpenFile_Click(sender, e);
+                }
                 RefreshNewProductListView();
 
                 otherProducts.Clear();
