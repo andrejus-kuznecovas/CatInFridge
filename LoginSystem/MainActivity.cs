@@ -25,6 +25,7 @@ namespace LoginSystem
         private ProgressBar mProgressBar;
         private ImageView _imageView;
 
+        //class with variables for future use
         public static class App
         {
             public static File  _file;
@@ -63,7 +64,7 @@ namespace LoginSystem
 
 
         }
-
+        //2 helper methods 
         private void CreateDirectoryForPictures()
         {
             App._dir = new File(
@@ -82,7 +83,7 @@ namespace LoginSystem
                 PackageManager.QueryIntentActivities(intent, PackageInfoFlags.MatchDefaultOnly);
             return availableActivities != null && availableActivities.Count > 0;
         }
-
+        //Event handler for the Click event
         private void TakeAPicture(object sender, EventArgs eventArgs)
         {
             Intent intent = new Intent(MediaStore.ActionImageCapture);
@@ -90,10 +91,6 @@ namespace LoginSystem
             intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(App._file));
             StartActivityForResult(intent, 0);
         }
-
-
-
-
 
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -114,10 +111,9 @@ namespace LoginSystem
             mediaScanIntent.SetData(contentUri);
             SendBroadcast(mediaScanIntent);
 
-            // Display in ImageView. We will resize the bitmap to fit the display.
-            // Loading the full sized image will consume to much memory
+            // Display in ImageView. Resize the bitmap to fit the display.
+            // Loading the full sized image will consume too much memory
             // and cause the application to crash.
-
             int height = Resources.DisplayMetrics.HeightPixels;
             int width = _imageView.Height;
             App.bitmap = App._file.Path.LoadAndResizeBitmap(width, height);
@@ -127,7 +123,7 @@ namespace LoginSystem
                 App.bitmap = null;
             }
 
-            // Dispose of the Java side bitmap.
+            // Dispose of the bitmap.
             GC.Collect();
         }
 
