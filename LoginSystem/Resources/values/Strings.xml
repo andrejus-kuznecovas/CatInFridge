@@ -3,4 +3,5 @@
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">LoginSystem</string>
     <color name="primary">#FFFFFF</color>
+  <string name="openCamera">Open Camera</string>
 </resources>

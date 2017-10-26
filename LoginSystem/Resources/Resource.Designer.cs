@@ -113,11 +113,14 @@ namespace LoginSystem
 			// aapt resource value: 0x7f080001
 			public const int btnUpload = 2131230721;
 			
+			// aapt resource value: 0x7f080005
+			public const int imageView1 = 2131230725;
+			
 			// aapt resource value: 0x7f080002
 			public const int myImageView = 2131230722;
 			
-			// aapt resource value: 0x7f080005
-			public const int progressBar1 = 2131230725;
+			// aapt resource value: 0x7f080006
+			public const int progressBar1 = 2131230726;
 			
 			// aapt resource value: 0x7f080003
 			public const int txtOr = 2131230723;
@@ -159,6 +162,9 @@ namespace LoginSystem
 			
 			// aapt resource value: 0x7f050000
 			public const int Hello = 2131034112;
+			
+			// aapt resource value: 0x7f050002
+			public const int openCamera = 2131034114;
 			
 			static String()
 			{

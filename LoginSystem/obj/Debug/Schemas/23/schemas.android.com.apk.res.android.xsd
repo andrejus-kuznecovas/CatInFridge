@@ -2,7 +2,7 @@
 <xs:schema xmlns:android="http://schemas.android.com/apk/res/android" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res/android" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v23</xs:documentation>
-    <xs:documentation>2017-10-26 12:37:19</xs:documentation>
+    <xs:documentation>2017-10-26 13:01:38</xs:documentation>
   </xs:annotation>
   <xs:attribute name="accessibilityLiveRegion">
     <xs:annotation>
@@ -3641,6 +3641,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -3682,6 +3683,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -4297,6 +4299,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -4832,6 +4835,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -5920,6 +5924,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -6215,6 +6220,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -10973,6 +10979,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -11014,6 +11021,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -11588,6 +11596,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -11629,6 +11638,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -11670,6 +11680,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -16786,6 +16797,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -16925,6 +16937,7 @@
             <xs:enumeration value="@+id/checkBox1" />
             <xs:enumeration value="@id/btnPhoto" />
             <xs:enumeration value="@id/btnUpload" />
+            <xs:enumeration value="@id/imageView1" />
             <xs:enumeration value="@id/myImageView" />
             <xs:enumeration value="@id/progressBar1" />
             <xs:enumeration value="@id/txtOr" />
@@ -17829,6 +17842,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -19059,6 +19073,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -21545,6 +21560,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -21743,6 +21759,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -21998,6 +22015,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -22699,6 +22717,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -24629,6 +24648,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -26574,6 +26594,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -27569,6 +27590,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -31007,6 +31029,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -33167,6 +33190,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -33463,6 +33487,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -35144,6 +35169,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -35185,6 +35211,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -38331,6 +38358,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -38372,6 +38400,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -40521,6 +40550,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -40683,6 +40713,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />
@@ -41819,6 +41850,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
+            <xs:enumeration value="@string/openCamera" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />

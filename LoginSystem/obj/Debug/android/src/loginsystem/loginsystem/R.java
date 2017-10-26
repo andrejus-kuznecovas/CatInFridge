@@ -27,8 +27,9 @@ public final class R {
     public static final class id {
         public static final int btnPhoto=0x7f080004;
         public static final int btnUpload=0x7f080001;
+        public static final int imageView1=0x7f080005;
         public static final int myImageView=0x7f080002;
-        public static final int progressBar1=0x7f080005;
+        public static final int progressBar1=0x7f080006;
         public static final int txtOr=0x7f080003;
         public static final int txtWelcome=0x7f080000;
     }
@@ -38,6 +39,7 @@ public final class R {
     public static final class string {
         public static final int ApplicationName=0x7f050001;
         public static final int Hello=0x7f050000;
+        public static final int openCamera=0x7f050002;
     }
     public static final class style {
         public static final int dialog_animation=0x7f070000;
