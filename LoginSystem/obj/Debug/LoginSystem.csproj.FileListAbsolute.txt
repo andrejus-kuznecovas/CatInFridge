@@ -1,0 +1,101 @@
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\bin\Debug\LoginSystem.dll
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\bin\Debug\LoginSystem.pdb
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\bin\Debug\LoginSystem.dll.mdb
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\bin\Debug\LoginSystem.LoginSystem.apk
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\bin\Debug\LoginSystem.LoginSystem-Signed.apk
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\LoginSystem.dll
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\LoginSystem.pdb
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\android\bin\LoginSystem.LoginSystem.apk
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\res\layout\main.xml
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\res\values\strings.xml
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\res\drawable\icon.png
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\R.cs.flag
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\uploadflags.txt
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\res\drawable\buttonsigninstyle.xml
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\res\drawable\buttonsignupstyle.xml
+c:\users\joseph\documents\visual studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\res\drawable\progressbarstyle.xml
+C:\Users\Joseph\Documents\Visual Studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\res\layout\dialog_sign_up.xml
+C:\Users\Joseph\Documents\Visual Studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\res\drawable\edit_text_style.xml
+C:\Users\Joseph\Documents\Visual Studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\res\drawable\mail.png
+C:\Users\Joseph\Documents\Visual Studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\res\anim\slide_up.xml
+C:\Users\Joseph\Documents\Visual Studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\res\anim\slide_right.xml
+C:\Users\Joseph\Documents\Visual Studio 2013\Projects\LoginSystem\LoginSystem\obj\Debug\res\values\styles.xml
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\bin\Debug\LoginSystem.dll
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\bin\Debug\LoginSystem.pdb
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\bin\Debug\LoginSystem.LoginSystem.apk
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\bin\Debug\LoginSystem.LoginSystem-Signed.apk
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\LoginSystem.csprojResolveAssemblyReference.cache
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\LoginSystem.dll
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\LoginSystem.pdb
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\android\bin\LoginSystem.LoginSystem.apk
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\res\layout\dialog_sign_up.xml
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\res\layout\main.xml
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\res\values\strings.xml
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\res\drawable\icon.png
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\res\drawable\buttonsigninstyle.xml
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\res\drawable\buttonsignupstyle.xml
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\res\drawable\progressbarstyle.xml
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\res\drawable\edit_text_style.xml
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\res\drawable\mail.png
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\res\anim\slide_up.xml
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\res\anim\slide_right.xml
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\res\values\styles.xml
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\R.cs.flag
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\uploadflags.txt
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\obj\Debug\LoginSystem.dll.mdb
+E:\SoftwareDevelopment\Android\Xamarin\VisualStudio\LoginSystem\LoginSystem\bin\Debug\LoginSystem.dll.mdb
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\LoginSystem.dll
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\LoginSystem.pdb
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\LoginSystem.LoginSystem.apk
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\LoginSystem.LoginSystem-Signed.apk
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\LoginSystem.csprojResolveAssemblyReference.cache
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\LoginSystem.csproj.CoreCompileInputs.cache
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\LoginSystem.dll
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\LoginSystem.pdb
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\android\bin\LoginSystem.LoginSystem.apk
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\res\layout\main.xml
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\res\values\strings.xml
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\res\drawable\progressbarstyle.xml
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\res\drawable\edit_text_style.xml
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\res\anim\slide_up.xml
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\res\anim\slide_right.xml
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\res\values\styles.xml
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\R.cs.flag
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\uploadflags.txt
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\LoginSystem.dll.mdb
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\LoginSystem.dllLoginSystem.dll.mdb
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\Mono.Android.dll.mdb
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\mscorlib.dll.mdb
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\System.Core.dll.mdb
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\System.dll.mdb
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\System.Runtime.Serialization.dll.mdb
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\System.ServiceModel.Internals.dll.mdb
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\System.Xml.dll.mdb
+D:\move to xamarin\LoginSystem\LoginSystem\bin\Debug\System.Xml.Linq.dll.mdb
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\android\assets\LoginSystem.dll.mdb
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\res\drawable\buttonuploadstyle.xml
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\res\drawable\buttonphotostyle.xml
+D:\move to xamarin\LoginSystem\LoginSystem\obj\Debug\res\drawable\icon.png
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\LoginSystem.dll
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\LoginSystem.pdb
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\LoginSystem.LoginSystem.apk
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\LoginSystem.LoginSystem-Signed.apk
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\LoginSystem.csprojResolveAssemblyReference.cache
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\LoginSystem.csproj.CoreCompileInputs.cache
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\LoginSystem.dll
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\LoginSystem.pdb
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\bin\LoginSystem.LoginSystem.apk
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\layout\main.xml
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\values\strings.xml
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\drawable\progressbarstyle.xml
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\drawable\edit_text_style.xml
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\anim\slide_up.xml
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\anim\slide_right.xml
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\values\styles.xml
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\drawable\buttonuploadstyle.xml
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\drawable\buttonphotostyle.xml
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\drawable\icon.png
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\R.cs.flag
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\uploadflags.txt
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\LoginSystem.dll.mdb
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\LoginSystem.dll.mdb
