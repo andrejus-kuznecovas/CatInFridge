@@ -112,6 +112,7 @@ namespace LoginSystem
             // Display in ImageView. Resize the bitmap to fit the display.
             // Loading the full sized image will consume too much memory
             // and cause the application to crash.
+            // Does not work yet
             int height = Resources.DisplayMetrics.HeightPixels;
             int width = _imageView.Height;
             App.bitmap = App._file.Path.LoadAndResizeBitmap(width, height);

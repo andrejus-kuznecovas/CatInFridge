@@ -13,7 +13,7 @@ using Android.Graphics;
 
 namespace LoginSystem
 {
-    //Extention method to resize the picture
+    //Extention class to resize the picture
     public static class BitmapHelpers
     {
         public static Bitmap LoadAndResizeBitmap(this string fileName, int width, int height)
