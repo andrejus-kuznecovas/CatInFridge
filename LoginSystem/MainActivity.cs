@@ -30,9 +30,18 @@ namespace LoginSystem
            
         }
 
-  
-       
-        private void ActLikeARequest()
+        //selecting image from gallery 
+        button.Click += delegate {
+    var imageIntent = new Intent();
+        imageIntent.SetType("image/*");
+    imageIntent.SetAction(Intent.ActionGetContent);
+    StartActivityForResult(
+        Intent.CreateChooser (imageIntent, "Select photo"), 0);
+        };
+
+
+
+    private void ActLikeARequest()
         {
             Thread.Sleep(3000);
 
