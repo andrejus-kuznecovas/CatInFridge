@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#ccccff"
+    android:background="#E8E1FA"
     android:weightSum="100"
     android:minWidth="25px"
     android:minHeight="25px">
@@ -11,9 +11,9 @@
         android:text="Welcome To Cat In Fridge"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
-        android:layout_weight="25"
+        android:layout_weight="28"
         android:layout_height="0dp"
-        android:textColor="#990033"
+        android:textColor="#300F82"
         android:id="@+id/txtWelcome"
         android:gravity="center"
         android:textStyle="bold"
@@ -22,7 +22,7 @@
         android:text="Upload a receipt to scan it"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="22"
+        android:layout_weight="24"
         android:id="@+id/btnUpload"
         android:background="@drawable/ButtonUploadStyle"
         android:layout_marginLeft="20dp"
@@ -38,7 +38,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="15"
+        android:layout_weight="20"
         android:textColor="#000"
         android:id="@+id/txtOr"
         android:textSize="20sp"
@@ -47,7 +47,7 @@
         android:text="Take a Photo of a receipt "
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="22"
+        android:layout_weight="24"
         android:id="@+id/btnPhoto"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -55,16 +55,8 @@
         android:textSize="20sp"
         android:background="@drawable/ButtonPhotoStyle" />
     <ImageView
-        android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="fill_parent"
         android:layout_height="75dp"
         android:id="@+id/imageView1"
-        android:adjustViewBounds="true" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="35"
-        android:minWidth="25px"
-        android:minHeight="25px">
-    </RelativeLayout>
+        android:adjustViewBounds="false" />
 </LinearLayout>
