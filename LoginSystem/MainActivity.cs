@@ -43,6 +43,7 @@ namespace LoginSystem
 
             mBtnUpload = FindViewById<Button>(Resource.Id.btnUpload);
             mBtnPhoto = FindViewById<Button>(Resource.Id.btnPhoto);
+            
             //Image selection
             mBtnUpload.Click += delegate
             {
