@@ -25,10 +25,11 @@ public final class R {
         public static final int progressbarstyle=0x7f020004;
     }
     public static final class id {
-        public static final int btnPhoto=0x7f080003;
+        public static final int btnPhoto=0x7f080004;
         public static final int btnUpload=0x7f080001;
-        public static final int progressBar1=0x7f080004;
-        public static final int txtOr=0x7f080002;
+        public static final int myImageView=0x7f080002;
+        public static final int progressBar1=0x7f080005;
+        public static final int txtOr=0x7f080003;
         public static final int txtWelcome=0x7f080000;
     }
     public static final class layout {
