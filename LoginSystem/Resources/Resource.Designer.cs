@@ -119,9 +119,6 @@ namespace LoginSystem
 			// aapt resource value: 0x7f080002
 			public const int myImageView = 2131230722;
 			
-			// aapt resource value: 0x7f080006
-			public const int progressBar1 = 2131230726;
-			
 			// aapt resource value: 0x7f080003
 			public const int txtOr = 2131230723;
 			

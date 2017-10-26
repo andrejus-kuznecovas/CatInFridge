@@ -22,13 +22,12 @@ namespace LoginSystem
     {
         private Button mBtnUpload;
         private Button mBtnPhoto;
-        private ProgressBar mProgressBar;
         private ImageView _imageView;
 
         //class with variables for future use
         public static class App
         {
-            public static File  _file;
+            public static File _file;
             public static File _dir;
             public static Bitmap bitmap;
         }
@@ -44,9 +43,9 @@ namespace LoginSystem
 
             mBtnUpload = FindViewById<Button>(Resource.Id.btnUpload);
             mBtnPhoto = FindViewById<Button>(Resource.Id.btnPhoto);
-            mProgressBar = FindViewById<ProgressBar>(Resource.Id.progressBar1);
             //Image selection
-            mBtnUpload.Click += delegate {
+            mBtnUpload.Click += delegate
+            {
                 var imageIntent = new Intent();
                 imageIntent.SetType("image/*");
                 imageIntent.SetAction(Intent.ActionGetContent);
@@ -57,14 +56,21 @@ namespace LoginSystem
             {
                 CreateDirectoryForPictures();
 
-                Button button = FindViewById<Button>(Resource.Id.btnPhoto);
+                mBtnPhoto = FindViewById<Button>(Resource.Id.btnPhoto);
                 _imageView = FindViewById<ImageView>(Resource.Id.imageView1);
-                button.Click += TakeAPicture;
+                mBtnPhoto.Click += TakeAPicture;
             }
 
 
         }
         //2 helper methods 
+        private bool IsThereAnAppToTakePictures()
+        {
+            Intent intent = new Intent(MediaStore.ActionImageCapture);
+            IList<ResolveInfo> availableActivities =
+                PackageManager.QueryIntentActivities(intent, PackageInfoFlags.MatchDefaultOnly);
+            return availableActivities != null && availableActivities.Count > 0;
+        }
         private void CreateDirectoryForPictures()
         {
             App._dir = new File(
@@ -74,14 +80,6 @@ namespace LoginSystem
             {
                 App._dir.Mkdirs();
             }
-        }
-
-        private bool IsThereAnAppToTakePictures()
-        {
-            Intent intent = new Intent(MediaStore.ActionImageCapture);
-            IList<ResolveInfo> availableActivities =
-                PackageManager.QueryIntentActivities(intent, PackageInfoFlags.MatchDefaultOnly);
-            return availableActivities != null && availableActivities.Count > 0;
         }
         //Event handler for the Click event
         private void TakeAPicture(object sender, EventArgs eventArgs)
@@ -94,15 +92,15 @@ namespace LoginSystem
 
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-    {
-        base.OnActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == Result.Ok)
         {
-            var imageView =
-                FindViewById<ImageView>(Resource.Id.myImageView);
-            imageView.SetImageURI(data.Data);
-        }
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            if (resultCode == Result.Ok)
+            {
+                var imageView =
+                    FindViewById<ImageView>(Resource.Id.myImageView);
+                imageView.SetImageURI(data.Data);
+            }
 
             // Make it available in the gallery
 
@@ -127,15 +125,6 @@ namespace LoginSystem
             GC.Collect();
         }
 
-
-
-    private void ActLikeARequest()
-        {
-            Thread.Sleep(3000);
-
-            RunOnUiThread(() => { mProgressBar.Visibility = ViewStates.Invisible; });
-            int x = Resource.Animation.slide_right;
-        }
     }
 }
 
