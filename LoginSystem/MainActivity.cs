@@ -14,9 +14,10 @@ using Android.Graphics;
 using Android.Net;
 
 namespace LoginSystem
-
+   
 
 {
+   
     [Activity(Label = "LoginSystem", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
@@ -33,7 +34,7 @@ namespace LoginSystem
         }
 
 
-
+ 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -91,7 +92,12 @@ namespace LoginSystem
             StartActivityForResult(intent, 0);
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="requestCode"></param>
+        /// <param name="resultCode"></param>
+        /// <param name="data"></param>
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
