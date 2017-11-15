@@ -6,6 +6,9 @@ D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\System.dll
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\System.Xml.dll
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\System.Xml.Linq.dll
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\Tesseract.Binding.Droid.dll
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\Tesseract.dll
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\Tesseract.Droid.dll
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\System.Runtime.dll
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\System.ComponentModel.Composition.dll
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\System.Threading.dll
@@ -21,3 +24,6 @@ D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\System.Runtime.Serialization.dll
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\System.ServiceModel.Internals.dll
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\Mono.Security.dll
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\System.Globalization.dll
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\System.Threading.Tasks.dll
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\System.IO.dll

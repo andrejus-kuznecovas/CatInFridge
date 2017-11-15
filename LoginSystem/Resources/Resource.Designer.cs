@@ -26,6 +26,8 @@ namespace LoginSystem
 		
 		public static void UpdateIdValues()
 		{
+			global::Tesseract.Droid.Resource.String.ApplicationName = global::LoginSystem.Resource.String.ApplicationName;
+			global::Tesseract.Droid.Resource.String.Hello = global::LoginSystem.Resource.String.Hello;
 		}
 		
 		public partial class Animation
@@ -139,7 +141,10 @@ namespace LoginSystem
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int Login = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Main = 2130903041;
 			
 			static Layout()
 			{

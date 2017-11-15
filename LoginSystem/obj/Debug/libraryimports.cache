@@ -2,5 +2,7 @@
 <Paths>
   <ManifestDocuments />
   <NativeLibraries />
-  <Jars />
+  <Jars>
+    <Jar>obj\Debug\__library_projects__\Tesseract.Binding.Droid\library_project_imports\classes.jar</Jar>
+  </Jars>
 </Paths>
