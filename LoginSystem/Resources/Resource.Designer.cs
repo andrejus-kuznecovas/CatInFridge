@@ -109,20 +109,23 @@ namespace LoginSystem
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f080006
-			public const int btnPhoto = 2131230726;
-			
 			// aapt resource value: 0x7f080003
-			public const int btnUpload = 2131230723;
+			public const int btnLogin = 2131230723;
 			
 			// aapt resource value: 0x7f080007
-			public const int imageView1 = 2131230727;
+			public const int btnPhoto = 2131230727;
 			
 			// aapt resource value: 0x7f080004
-			public const int myImageView = 2131230724;
+			public const int btnUpload = 2131230724;
+			
+			// aapt resource value: 0x7f080008
+			public const int imageView1 = 2131230728;
 			
 			// aapt resource value: 0x7f080005
-			public const int txtOr = 2131230725;
+			public const int myImageView = 2131230725;
+			
+			// aapt resource value: 0x7f080006
+			public const int txtOr = 2131230726;
 			
 			// aapt resource value: 0x7f080002
 			public const int txtPassword = 2131230722;
