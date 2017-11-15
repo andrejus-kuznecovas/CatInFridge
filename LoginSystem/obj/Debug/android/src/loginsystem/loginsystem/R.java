@@ -25,15 +25,19 @@ public final class R {
         public static final int progressbarstyle=0x7f020004;
     }
     public static final class id {
-        public static final int btnPhoto=0x7f080004;
-        public static final int btnUpload=0x7f080001;
-        public static final int imageView1=0x7f080005;
-        public static final int myImageView=0x7f080002;
-        public static final int txtOr=0x7f080003;
+        public static final int btnLogin=0x7f080003;
+        public static final int btnPhoto=0x7f080007;
+        public static final int btnUpload=0x7f080004;
+        public static final int imageView1=0x7f080008;
+        public static final int myImageView=0x7f080005;
+        public static final int txtOr=0x7f080006;
+        public static final int txtPassword=0x7f080002;
+        public static final int txtUsername=0x7f080001;
         public static final int txtWelcome=0x7f080000;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
+        public static final int login=0x7f030000;
+        public static final int main=0x7f030001;
     }
     public static final class string {
         public static final int ApplicationName=0x7f050001;

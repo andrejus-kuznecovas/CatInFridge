@@ -102,3 +102,4 @@ D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\Tesseract.Binding.Droid.dll
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\Tesseract.dll
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\Tesseract.Droid.dll
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\layout\login.xml

@@ -99,6 +99,9 @@ class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
 		/* We need to ensure that "LoginSystem.dll" comes first in this list. */
 		"LoginSystem.dll",
+		"Tesseract.Binding.Droid.dll",
+		"Tesseract.dll",
+		"Tesseract.Droid.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};
