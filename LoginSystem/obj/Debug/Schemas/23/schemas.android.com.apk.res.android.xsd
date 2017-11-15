@@ -2,7 +2,7 @@
 <xs:schema xmlns:android="http://schemas.android.com/apk/res/android" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res/android" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v23</xs:documentation>
-    <xs:documentation>2017-11-15 19:23:21</xs:documentation>
+    <xs:documentation>2017-11-15 19:34:26</xs:documentation>
   </xs:annotation>
   <xs:attribute name="accessibilityLiveRegion">
     <xs:annotation>
@@ -16940,6 +16940,8 @@
             <xs:enumeration value="@id/imageView1" />
             <xs:enumeration value="@id/myImageView" />
             <xs:enumeration value="@id/txtOr" />
+            <xs:enumeration value="@id/txtPassword" />
+            <xs:enumeration value="@id/txtUsername" />
             <xs:enumeration value="@id/txtWelcome" />
             <xs:enumeration value="@android:id/accessibilityActionContextClick" />
             <xs:enumeration value="@android:id/accessibilityActionScrollDown" />
