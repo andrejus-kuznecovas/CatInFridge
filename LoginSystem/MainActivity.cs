@@ -36,9 +36,6 @@ namespace LoginSystem
 
             Intent i = new Intent(this, typeof(MainScreen));
             StartActivity(i);
-
-
-
         }
     }
 }

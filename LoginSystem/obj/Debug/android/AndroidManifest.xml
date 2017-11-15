@@ -5,7 +5,7 @@
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-  <application android:label="LoginSystem" android:icon="@drawable/icon" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+  <application android:label=" " android:icon="@drawable/icon" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
     <activity android:icon="@drawable/icon" android:label="LoginSystem" android:name="md5c65fa0486ebee89dbb6f0bf37323cf0f.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

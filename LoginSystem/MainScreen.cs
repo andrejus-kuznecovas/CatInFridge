@@ -18,6 +18,8 @@ namespace LoginSystem
     [Activity(Label = "MainScreen")]
     public class MainScreen : Activity
     {
+        private string username;
+        private string password;
         private Button mBtnUpload;
         private Button mBtnPhoto;
         private ImageView _imageView;
@@ -29,8 +31,6 @@ namespace LoginSystem
             public static File _dir;
             public static Bitmap bitmap;
         }
-
-
 
         protected override void OnCreate(Bundle bundle2)
         {
