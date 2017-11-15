@@ -8,7 +8,7 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="Welcome To Cat In Fridge"
+        android:text="Choose an Option"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_weight="28"

@@ -107,7 +107,7 @@ namespace LoginSystem
             }
 
             // Make it available in the gallery
-
+            // code below throws an unhandled expection for null file - TO FIX
             Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
             Android.Net.Uri contentUri = Android.Net.Uri.FromFile(App._file);
             mediaScanIntent.SetData(contentUri);
