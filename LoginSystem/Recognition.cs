@@ -32,6 +32,8 @@ namespace LoginSystem
       "ptaWYudnUuYmlsbHkKMTUxMjI1OTE5" +
       "OQo5NAoy\n";
 
+
+
         private static List<Language> ocrLanguages = new List<Language>();
         private PageFactory pageFactory;
         private ITextRecognition textRecognition;
