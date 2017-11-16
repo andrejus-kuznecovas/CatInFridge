@@ -21,16 +21,14 @@ namespace LoginSystem
     {
 
         ProgressBar circle;
-        private EditText name;
-        private EditText password;
+        private string password;
+        static public string username;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Login);
-            name = FindViewById<EditText>(Resource.Id.txtUsername);
-            password = FindViewById<EditText>(Resource.Id.txtPassword);
 
             Button loginBtn = FindViewById<Button>(Resource.Id.btnLogin);
             circle = FindViewById<ProgressBar>(Resource.Id.progressBar1);
@@ -42,19 +40,24 @@ namespace LoginSystem
 
         private void Login_Click(object sender, System.EventArgs e)
         {
+       
+            
+            //Starts new activity (Main Screen)
+            Intent i = new Intent(this, typeof(MainScreen));
+            StartActivity(i);
+        }
+
+        void signUpD_signUpComplete(object sender, OnSignUpEventArgs e)
+        {
             //displays a loading progress circle
             circle.Visibility = Android.Views.ViewStates.Visible;
             Thread thread = new Thread(actRequest);
             thread.Start();
 
             //saves username and password ( later to use as an access to API)
-            password = e.username;
-            name = e.password;
+            username = e.Username;
+            password = e.Password;
 
-
-            //Starts new activity (Main Screen)
-            Intent i = new Intent(this, typeof(MainScreen));
-            StartActivity(i);
         }
 
         private void actRequest()

@@ -20,7 +20,7 @@ namespace LoginSystem
         private string password;
 
 
-        public string UserName
+        public string Username
         {
             get { return username; }
             set { username = value; }
@@ -75,9 +75,8 @@ namespace LoginSystem
                     password.Text, email.Text));
                 this.Dismiss();
             
-        
         }
-
+  
 
         private bool isInputCorrect()
         {
