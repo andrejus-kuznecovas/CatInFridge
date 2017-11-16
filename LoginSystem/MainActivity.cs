@@ -19,15 +19,20 @@ namespace LoginSystem
     [Activity(Label = "LoginSystem", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-
-        ProgressBar circle;
+        
+        ProgressBar circle; //Loading bar in Login screen
         private string password;
         static public string username;
+
+        /// <summary>
+        /// Displays Login Screen when app starts
+        /// </summary>
+        /// <param name="bundle"></param>
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
+            // Set our view from the "Login" layout resource
             SetContentView(Resource.Layout.Login);
 
             Button loginBtn = FindViewById<Button>(Resource.Id.btnLogin);
@@ -37,16 +42,22 @@ namespace LoginSystem
 
 
         }
-
+        /// <summary>
+        /// When user clicks Login button, next Activity is loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Login_Click(object sender, System.EventArgs e)
-        {
-       
-            
+        { 
             //Starts new activity (Main Screen)
             Intent i = new Intent(this, typeof(MainScreen));
             StartActivity(i);
         }
-
+        /// <summary>
+        /// Displays progress bar animation and saves username/password
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void signUpD_signUpComplete(object sender, OnSignUpEventArgs e)
         {
             //displays a loading progress circle
@@ -59,7 +70,9 @@ namespace LoginSystem
             password = e.Password;
 
         }
-
+         /// <summary>
+         /// Method to display the progress bar after clicking loading
+         /// </summary>
         private void actRequest()
         {
             Thread.Sleep(3000);

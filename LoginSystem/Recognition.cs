@@ -12,6 +12,7 @@ using ScanbotSDK.Xamarin.Android.Wrapper;
 
 
 //Packages need to be downloaded manually. Download Scanbot.
+//Class is not used because OCR works badly
 namespace LoginSystem
 {
 
@@ -98,7 +99,7 @@ namespace LoginSystem
 
         private void FetchOcrBlobFiles()
         {
-            // Fetch OCR blob files from the sources defined in AndroidManifest.xml
+            // Fetch OCR blob files (should be defined in Android.xml manifest, but not used right now because OCR works badly)
             Task.Run(() =>
             {
                 try

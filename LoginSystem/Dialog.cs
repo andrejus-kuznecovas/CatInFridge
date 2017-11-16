@@ -19,7 +19,6 @@ namespace LoginSystem
         private string email;
         private string password;
 
-
         public string Username
         {
             get { return username; }
@@ -51,6 +50,13 @@ namespace LoginSystem
         private EditText email;
 
         public EventHandler<OnSignUpEventArgs> signUpComplete;
+        /// <summary>
+        /// method used to collect information which is input in login screen
+        /// </summary>
+        /// <param name="inflater"></param>
+        /// <param name="container"></param>
+        /// <param name="savedInstanceState"></param>
+        /// <returns></returns>
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
@@ -68,6 +74,11 @@ namespace LoginSystem
             return view;
         }
 
+        /// <summary>
+        /// When user clicks Login button, his input is stored
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Login_Click(object sender, EventArgs e)
         {
            
@@ -77,7 +88,10 @@ namespace LoginSystem
             
         }
   
-
+        /// <summary>
+        /// Checks if input is correct (if matches our Regex in InputValidator class)
+        /// </summary>
+        /// <returns></returns>
         private bool isInputCorrect()
         {
             InputValidator validator = new InputValidator();

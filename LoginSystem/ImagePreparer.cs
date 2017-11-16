@@ -4,9 +4,9 @@ using ScanbotSDK.Xamarin.Android.Wrapper;
 
 namespace LoginSystem
 {
-    class ImagePreparer
+    public class ImagePreparer
     { /// <summary>
-      /// Prepare image for text recognition by applying grayscale filter
+      /// Prepare image for text recognition by applying grayscale filter ( to read it much easier )
       /// </summary>
       /// <param name="image">Image to be prepared</param>
       /// <returns></returns>

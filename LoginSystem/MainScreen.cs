@@ -90,7 +90,7 @@ namespace LoginSystem
         }
 
         /// <summary>
-        /// 
+        /// Displays a selected gallery image in ImageView under Upload button (doesnt need to be implemented, just for checking purposes)
         /// </summary>
         /// <param name="requestCode"></param>
         /// <param name="resultCode"></param>

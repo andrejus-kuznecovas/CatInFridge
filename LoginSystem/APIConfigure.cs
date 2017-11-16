@@ -11,16 +11,13 @@ namespace LoginSystem
         //Server name to avoid repetition
         protected static string baseURL = "URL TO BE HERE :)";
 
-
-
         /// <summary>
-        /// Performs specified request to the server
+        /// Does a request to server
         /// </summary>
         /// <param name="request">Request object</param>
-        /// <returns>User data if request was successful</returns>
+        /// <returns>User data if request was successfuly completed</returns>
         protected static async Task<JsonObject> MakeRequest(WebRequest request)
         {
-
             using (WebResponse response = await request.GetResponseAsync())
             {
                 using (Stream stream = response.GetResponseStream())
@@ -41,8 +38,7 @@ namespace LoginSystem
         /// <returns></returns>
         protected static bool CheckForSuccess(JsonObject data)
         {
-            // Server returns JSON object containing field "success", which indicates
-            // whether the request was successful
+            // Server should return JSON object containing field "success", which indicates whether the request was successful
             bool succeeded = Boolean.Parse(data["success"].ToString());
 
             return succeeded;
@@ -86,18 +82,4 @@ namespace LoginSystem
         LOGIN, REGISTER, GET_INFO
     }
 
-    public class LoginFailedException : Exception
-    {
-
-    }
-
-    public class RegistrationFailedException : Exception
-    {
-
-    }
-
-    public class GetInfoFailedException : Exception
-    {
-
-    }
 }

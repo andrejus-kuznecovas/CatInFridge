@@ -41,7 +41,7 @@ namespace LoginSystem
         public static async Task<JsonObject> RegistrationRequest
             (string email, string username, string password)
         {
-            // Save all the registration fields in an array of objects
+            // Save all the registration fields in a single array of objects
             var parameters = new object[] {email, username, password };
             var endpoint = String.Format("register/email/{0}/username/{1}/password/{2}", parameters);
             var request = FormRequest(endpoint, "GET");

@@ -16,9 +16,9 @@ namespace LoginSystem
     public class InputValidator
     {
         /// <summary>
-        /// Checks if entered name is in correct form
+        /// Checks if entered name is in correct form ( any character from a to Z)
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value"> user input</param>
         /// <returns></returns>
         public bool CheckName(string value)
         {
@@ -27,9 +27,9 @@ namespace LoginSystem
             return result.Success;
         }
         /// <summary>
-        /// Checks if entered password is in correct form
+        /// Checks if entered password is in correct form ( any character and special symbols [from 8 to 20 chars])
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">user input</param>
         /// <returns></returns>
         public bool CheckPassword(string value)
         {
@@ -39,9 +39,9 @@ namespace LoginSystem
         }
 
         /// <summary>
-        /// Checks if entered Email is in correct form
+        /// Checks if entered Email is in correct form (text + @ + text + . + text) 
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">user input</param>
         /// <returns></returns>
         public bool CheckEmail(string value)
         {

@@ -27,6 +27,7 @@ namespace LoginSystem
             int outWidth = options.OutWidth;
             int inSampleSize = 1;
 
+
             if (outHeight > height || outWidth > width)
             {
                 inSampleSize = outWidth > outHeight
