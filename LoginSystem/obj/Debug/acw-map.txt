@@ -1,0 +1,16 @@
+LoginSystem.Dialog, LoginSystem;md5c65fa0486ebee89dbb6f0bf37323cf0f.Dialog
+LoginSystem.Dialog, LoginSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5c65fa0486ebee89dbb6f0bf37323cf0f.Dialog
+LoginSystem.Dialog;md5c65fa0486ebee89dbb6f0bf37323cf0f.Dialog
+loginsystem.Dialog;md5c65fa0486ebee89dbb6f0bf37323cf0f.Dialog
+LoginSystem.MainActivity, LoginSystem;md5c65fa0486ebee89dbb6f0bf37323cf0f.MainActivity
+LoginSystem.MainActivity, LoginSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5c65fa0486ebee89dbb6f0bf37323cf0f.MainActivity
+LoginSystem.MainActivity;md5c65fa0486ebee89dbb6f0bf37323cf0f.MainActivity
+loginsystem.MainActivity;md5c65fa0486ebee89dbb6f0bf37323cf0f.MainActivity
+LoginSystem.MainScreen, LoginSystem;md5c65fa0486ebee89dbb6f0bf37323cf0f.MainScreen
+LoginSystem.MainScreen, LoginSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5c65fa0486ebee89dbb6f0bf37323cf0f.MainScreen
+LoginSystem.MainScreen;md5c65fa0486ebee89dbb6f0bf37323cf0f.MainScreen
+loginsystem.MainScreen;md5c65fa0486ebee89dbb6f0bf37323cf0f.MainScreen
+Tesseract.Droid.TesseractApi/ProgressHandler, Tesseract.Droid;md562a70c251d4aaaa78583868de357d309.TesseractApi_ProgressHandler
+Tesseract.Droid.TesseractApi+ProgressHandler, Tesseract.Droid, Version=0.3.2.0, Culture=neutral, PublicKeyToken=null;md562a70c251d4aaaa78583868de357d309.TesseractApi_ProgressHandler
+Tesseract.Droid.TesseractApi.ProgressHandler;md562a70c251d4aaaa78583868de357d309.TesseractApi_ProgressHandler
+tesseract.droid.TesseractApi_ProgressHandler;md562a70c251d4aaaa78583868de357d309.TesseractApi_ProgressHandler

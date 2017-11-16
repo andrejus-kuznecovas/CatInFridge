@@ -48,7 +48,11 @@ namespace LoginSystem
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Login_Click(object sender, System.EventArgs e)
-        { 
+        {
+            //displays a loading progress circle
+            circle.Visibility = Android.Views.ViewStates.Visible;
+            Thread thread = new Thread(actRequest);
+            thread.Start();
             //Starts new activity (Main Screen)
             Intent i = new Intent(this, typeof(MainScreen));
             StartActivity(i);
@@ -60,10 +64,7 @@ namespace LoginSystem
         /// <param name="e"></param>
         void signUpD_signUpComplete(object sender, OnSignUpEventArgs e)
         {
-            //displays a loading progress circle
-            circle.Visibility = Android.Views.ViewStates.Visible;
-            Thread thread = new Thread(actRequest);
-            thread.Start();
+
 
             //saves username and password ( later to use as an access to API)
             username = e.Username;

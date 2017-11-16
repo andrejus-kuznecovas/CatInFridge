@@ -97,9 +97,10 @@ D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\drawable\bu
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\drawable\icon.png
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\R.cs.flag
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\uploadflags.txt
-D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\LoginSystem.dll.mdb
-D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\LoginSystem.dll.mdb
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\Tesseract.Binding.Droid.dll
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\Tesseract.dll
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\Tesseract.Droid.dll
 D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\layout\login.xml
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\res\drawable\xmlfile3.xml
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\bin\Debug\LoginSystem.dll.mdb
+D:\cifxamarin\CatInFridge-andrejus_xamarin\LoginSystem\obj\Debug\android\assets\LoginSystem.dll.mdb
