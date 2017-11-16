@@ -34,18 +34,16 @@ namespace LoginSystem
         /// <summary>
         /// Makes asynchronous Registration request to the server and gets User ID and token from server
         /// </summary>
-        /// <param name="name">Name to register with</param>
-        /// <param name="surname">Surname to register with</param>
         /// <param name="email">Email to register with</param>
         /// <param name="username">Username to register with</param>
         /// <param name="password">Password to register with</param>
         /// <returns>JSON object containing user data if Login operation was successful</returns>
         public static async Task<JsonObject> RegistrationRequest
-            (string name, string surname, string email, string username, string password)
+            (string email, string username, string password)
         {
             // Save all the registration fields in an array of objects
-            var parameters = new object[] { name, surname, email, username, password };
-            var endpoint = String.Format("register/name/{0}/surname/{1}/email/{2}/username/{3}/password/{4}", parameters);
+            var parameters = new object[] {email, username, password };
+            var endpoint = String.Format("register/email/{0}/username/{1}/password/{2}", parameters);
             var request = FormRequest(endpoint, "GET");
 
             JsonObject userJson = await MakeRequest(request);

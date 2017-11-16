@@ -11,7 +11,7 @@ using Net.Doo.Snap.Util;
 using ScanbotSDK.Xamarin.Android.Wrapper;
 
 
-//Packages need to be downloaded manually
+//Packages need to be downloaded manually. Download Scanbot.
 namespace LoginSystem
 {
 

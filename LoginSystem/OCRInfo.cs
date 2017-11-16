@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Login.Source.Controllers.OCR
+namespace LoginSystem
 {
     /// <summary>
     /// Event Args that have Recognition text in it
