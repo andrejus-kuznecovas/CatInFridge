@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using System.Text.RegularExpressions;
 
-namespace Login.Source.Controllers
+namespace LoginSystem
 {
     class InputValidator
     {

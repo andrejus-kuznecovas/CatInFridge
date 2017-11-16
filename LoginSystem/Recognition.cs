@@ -10,7 +10,9 @@ using Android.Graphics;
 using Net.Doo.Snap.Util;
 using ScanbotSDK.Xamarin.Android.Wrapper;
 
-namespace Login.Source.Controllers.OCR
+
+//Packages need to be downloaded manually
+namespace LoginSystem
 {
 
     public class ImageRecognitionScanbot : ITextRecognizer
@@ -73,7 +75,7 @@ namespace Login.Source.Controllers.OCR
             // Create a collection of required OCR blobs:
             var blobs = new List<Blob>();
 
-            // Language detector blobs of the Scanbot SDK. (see "language_classifier_blob_path" in AndroidManifest.xml!)
+            // Language detector blobs of the Scanbot SDK.
             foreach (var b in blobFactory.LanguageDetectorBlobs())
             {
                 blobs.Add(b);
