@@ -21,16 +21,20 @@ namespace LoginSystem
     {
 
         ProgressBar circle;
-        private string pass;
-        static public string name;
+        private EditText name;
+        private EditText password;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Login);
+            name = FindViewById<EditText>(Resource.Id.txtUsername);
+            password = FindViewById<EditText>(Resource.Id.txtPassword);
+
             Button loginBtn = FindViewById<Button>(Resource.Id.btnLogin);
             circle = FindViewById<ProgressBar>(Resource.Id.progressBar1);
+
             loginBtn.Click += Login_Click;
 
 
@@ -44,8 +48,8 @@ namespace LoginSystem
             thread.Start();
 
             //saves username and password ( later to use as an access to API)
-            pass = e.Password;
-            name = e.UserName;
+            password = e.username;
+            name = e.password;
 
 
             //Starts new activity (Main Screen)

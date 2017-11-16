@@ -3,7 +3,7 @@
 namespace LoginSystem
 {
     /// <summary>
-    /// Event Args that have Recognition text in it
+    /// Event Args that have Recognition text
     /// </summary>
     public class OCRInfo : EventArgs
     {

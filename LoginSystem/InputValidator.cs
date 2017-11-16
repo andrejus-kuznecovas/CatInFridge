@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 
 namespace LoginSystem
 {
-    class InputValidator
+    public class InputValidator
     {
         /// <summary>
         /// Checks if entered name is in correct form
