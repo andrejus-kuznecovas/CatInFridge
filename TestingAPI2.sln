@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAPI2", "TestingAPI2\TestingAPI2.csproj", "{7BCDE105-85F8-490E-AFBD-FB95AB87E7A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAPI2Tests", "TestingAPI2Tests\TestingAPI2Tests.csproj", "{F75F1929-ABAC-4D21-94DB-973354B86049}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLService", "..\Testing Visual Studio\WCFService\BLService\BLService\BLService.csproj", "{4CE91409-708C-4B46-AAA2-AB47B24A674B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "..\Testing Visual Studio\WCFService\BLService\Host\Host.csproj", "{6313312F-CA5D-4420-8CD6-FB44F93588D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{F75F1929-ABAC-4D21-94DB-973354B86049}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F75F1929-ABAC-4D21-94DB-973354B86049}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F75F1929-ABAC-4D21-94DB-973354B86049}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CE91409-708C-4B46-AAA2-AB47B24A674B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE91409-708C-4B46-AAA2-AB47B24A674B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE91409-708C-4B46-AAA2-AB47B24A674B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE91409-708C-4B46-AAA2-AB47B24A674B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6313312F-CA5D-4420-8CD6-FB44F93588D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6313312F-CA5D-4420-8CD6-FB44F93588D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6313312F-CA5D-4420-8CD6-FB44F93588D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6313312F-CA5D-4420-8CD6-FB44F93588D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
