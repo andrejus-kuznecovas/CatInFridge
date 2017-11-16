@@ -11,7 +11,7 @@ using Android.Widget;
 using System.Text.RegularExpressions;
 using Android;
 
-namespace Login
+namespace LoginSystem
 {
     public class OnSignUpEventArgs : EventArgs
     {
@@ -36,7 +36,7 @@ namespace Login
             set { email = value; }
         }
 
-        public OnSignUpEventArgs(string name, string password, string email, string age, string height, /*string weight, */string gender) : base()
+        public OnSignUpEventArgs(string username, string password, string email) : base()
         {
             this.username = username;
             this.password = password;
@@ -58,11 +58,12 @@ namespace Login
 
             username = view.FindViewById<EditText>(Resource.Id.txtUsername);
             password = view.FindViewById<EditText>(Resource.Id.txtPassword);
-            email = view.FindViewById<EditText>(Resource.Id.txtEmail);
+            //email = view.FindViewById<EditText>(Resource.Id.txtEmail);
             InputValidator validator = new InputValidator();
 
-            signUpBtn = view.FindViewById<Button>(Resource.Id.btnDialogEmail);
-            signUpBtn.Click += SignUpBtn_Click;
+            Button loginBtn = view.FindViewById<Button>(Resource.Id.btnLogin);
+            
+            loginBtn.Click += Login_Click;
 
             return view;
         }
@@ -77,38 +78,17 @@ namespace Login
         
         }
 
-        public override void OnActivityCreated(Bundle savedInstanceState)
-        {
-            Dialog.Window.RequestFeature(WindowFeatures.NoTitle);
-            base.OnActivityCreated(savedInstanceState);
-            Dialog.Window.Attributes.WindowAnimations = Resource.Style.dialog_anim;
-        }
-
-        static public double GetHeight()
-        {
-            return Convert.ToDouble(height);
-        }
-        public static int GetAge()
-        {
-            return Convert.ToInt32(age);
-        }
-        public static bool GetGender()
-        {
-            if (gender.SelectedItem.ToString() == "Vyras")
-                return true;
-            else return false;
-        }
 
         private bool isInputCorrect()
         {
-            Validator validator = new Validator();
+            InputValidator validator = new InputValidator();
             bool validation = true;
             Android.Graphics.Color n = new Android.Graphics.Color(255, 0, 0);
 
-            if (!validator.CheckName(name.Text))
+            if (!validator.CheckName(username.Text))
             {
-                name.SetText("".ToCharArray(), 0, 0);
-                name.SetHintTextColor(n);
+                username.SetText("".ToCharArray(), 0, 0);
+                username.SetHintTextColor(n);
                 validation = false;
             }
 
@@ -126,19 +106,6 @@ namespace Login
                 validation = false;
             }
 
-            if (!validator.CheckHeight(height.Text))
-            {
-                height.SetText("".ToCharArray(), 0, 0);
-                height.SetHintTextColor(n);
-                validation = false;
-            }
-
-            if (!validator.CheckAge(age.Text))
-            {
-                age.SetText("".ToCharArray(), 0, 0);
-                age.SetHintTextColor(n);
-                validation = false;
-            }
 
             return validation;
         }
