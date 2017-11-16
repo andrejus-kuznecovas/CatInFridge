@@ -58,12 +58,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIConfigure.cs" />
     <Compile Include="BitmapHelpers.cs" />
     <Compile Include="ImagePreparer.cs" />
+    <Compile Include="InputValidat.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainScreen.cs" />
+    <Compile Include="OCRInfo.cs" />
+    <Compile Include="Recognition.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserAPIAuthentification.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -95,6 +100,7 @@
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\ButtonPhotoStyle.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\layout\XMLFile3.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
