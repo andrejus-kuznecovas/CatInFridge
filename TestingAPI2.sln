@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAPI2", "TestingAPI2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAPI2Tests", "TestingAPI2Tests\TestingAPI2Tests.csproj", "{F75F1929-ABAC-4D21-94DB-973354B86049}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLService", "..\Testing Visual Studio\WCFService\BLService\BLService\BLService.csproj", "{4CE91409-708C-4B46-AAA2-AB47B24A674B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLService", "BLService\BLService.csproj", "{4CE91409-708C-4B46-AAA2-AB47B24A674B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "..\Testing Visual Studio\WCFService\BLService\Host\Host.csproj", "{6313312F-CA5D-4420-8CD6-FB44F93588D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{6313312F-CA5D-4420-8CD6-FB44F93588D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
