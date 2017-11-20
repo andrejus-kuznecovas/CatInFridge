@@ -13,7 +13,7 @@ namespace BLService
     public interface IBLService
     {
         [OperationContract]
-        ArrayList GetPrices(HtmlDocument doc);
+        string GetPrices(string imageLoc);
 
         // TODO: Add your service operations here
     }
