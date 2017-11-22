@@ -13,8 +13,16 @@ namespace BLService
     public interface IBLService
     {
         [OperationContract]
-        string GetPrices(string imageLoc);
+        List<Product> GetPrices(string imageLoc);
+    }
 
-        // TODO: Add your service operations here
+    [DataContract]
+    public class Product
+    {
+        [DataMember]
+        public string Name { get; set; }
+
+        [DataMember]
+        public string Price { get; set; }
     }
 }

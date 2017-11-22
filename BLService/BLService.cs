@@ -15,7 +15,7 @@ namespace BLService
 {
     public class BLService : IBLService
     {
-        string IBLService.GetPrices(string imageLoc)
+        List<Product> IBLService.GetPrices(string imageLoc)
         {
             HtmlDocument html = OcrHtml(imageLoc);
             if (html == null)
@@ -25,8 +25,8 @@ namespace BLService
             if (checkmark == null)
                 return null;
 
-            ArrayList lines = new ArrayList();
-            Tuple<string, string, string> newProduct;
+            Product newProduct = new Product();
+            List<Product> productsList = new List<Product>();
             HtmlNode lineNode = checkmark.NextSibling.NextSibling;
             string product;
             if (Regex.Matches(lineNode.InnerText, @"[a-zA-Z]")
@@ -40,15 +40,15 @@ namespace BLService
                 if (match.Success)
                 {
                     product = lineNode.InnerText.Substring(0, match.Index);
-                    newProduct = new Tuple<string, string ,string>(product, "|" ,match.Value);
-                    if (!lines.Contains(newProduct))
-                        lines.Add(newProduct);
+                    newProduct.Name = product;
+                    newProduct.Price = match.Value;
+                    if (!productsList.Contains(newProduct))
+                        productsList.Add(new Product() { Name = product, Price = match.Value });
                 }
                 lineNode = lineNode.NextSibling.NextSibling;
             }
-           
-            String listString = String.Join("|", lines.ToArray());
-            return listString;
+            
+            return productsList;
         }
 
         public static HtmlDocument OcrHtml(string imageLoc)
