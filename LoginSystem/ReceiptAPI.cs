@@ -7,7 +7,7 @@ using System.Text;
 
 namespace LoginSystem
 {
-    public class ReceiptApiManager : IAPIConfiguration
+    public class ReceiptAPI : IAPIConfiguration
     {
         /// <summary>
         /// Creates new receipt in the database

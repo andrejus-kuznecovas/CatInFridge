@@ -18,6 +18,7 @@ namespace LoginSystem
 
     public class ImageRecognitionScanbot : ITextRecognition
     {
+
         private const string licenseKey = "QarRdq9Wq2yitCl2WG0aCme15JOLNb" +
       "cZmKpv/x7gxYuO6HkvY4+9IPff/xPH" +
       "C3lWm6if5r28+u/CofIkdEENrEE+T8" +
