@@ -6,7 +6,7 @@ using System.Json;
 
 namespace LoginSystem
 {
-    public class APIConfigure
+    public class APIConfigure: IAPIConfiguration
     {
         //Server name to avoid repetition
         protected static string baseURL = "URL TO BE HERE :)";
@@ -16,7 +16,7 @@ namespace LoginSystem
         /// </summary>
         /// <param name="request">Request object</param>
         /// <returns>User data if request was successfuly completed</returns>
-        protected static async Task<JsonObject> MakeRequest(WebRequest request)
+        public  async Task<JsonObject> MakeRequest(WebRequest request)
         {
             using (WebResponse response = await request.GetResponseAsync())
             {
@@ -36,7 +36,7 @@ namespace LoginSystem
         /// </summary>
         /// <param name="data">JSON Object - data from the server</param>
         /// <returns></returns>
-        protected static bool CheckForSuccess(JsonObject data)
+        public  bool CheckForSuccess(JsonObject data)
         {
             // Server should return JSON object containing field "success", which indicates whether the request was successful
             bool succeeded = Boolean.Parse(data["success"].ToString());
@@ -51,7 +51,7 @@ namespace LoginSystem
         /// <param name="url"></param>
         /// <param name="method"></param>
         /// <returns></returns>
-        internal static WebRequest FormRequest(string url, string method)
+        public  WebRequest FormRequest(string url, string method)
         {
             var request = HttpWebRequest.Create(
                 new Uri(baseURL + url)
