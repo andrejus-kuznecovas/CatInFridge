@@ -7,7 +7,7 @@ using System.Json;
 
 namespace LoginSystem
 {
-    interface IAPIConfiguration
+    public interface IAPIConfiguration
     {
         Task<JsonObject> MakeRequest(WebRequest request);
        
