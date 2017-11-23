@@ -2,24 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextureView
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textureView1" />
+        android:layout_height="match_parent"
+        android:id="@+id/listViewShop" />
     <LinearLayout
         android:orientation="horizontal"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/linearLayout1"
+        android:id="@+id/linearLayout6"
         android:gravity="bottom">
         <RelativeLayout
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/relativeLayout2"
+            android:id="@+id/relativeLayout4"
             android:gravity="bottom">
             <LinearLayout
                 android:orientation="horizontal"
@@ -27,30 +29,13 @@
                 android:minHeight="25px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/linearLayout3"
+                android:id="@+id/linearLayout7"
                 android:gravity="left">
                 <Button
-                    android:text="Dismiss"
+                    android:text="Back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonDismissPhoto"
-                    android:gravity="center"
-                    android:layout_centerHorizontal="false"
-                    android:visibility="invisible" />
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/linearLayout4"
-                android:gravity="center_horizontal">
-                <Button
-                    android:text="Take photo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buttonTakePhoto"
+                    android:id="@+id/buttonBack"
                     android:gravity="center"
                     android:layout_centerHorizontal="false" />
             </LinearLayout>
@@ -60,17 +45,16 @@
                 android:minHeight="25px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/linearLayout5"
+                android:id="@+id/linearLayout8"
                 android:gravity="right">
                 <Button
-                    android:text="Next"
+                    android:text="Result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonNext"
+                    android:id="@+id/buttonGetResult"
                     android:gravity="center"
                     android:layout_centerHorizontal="false"
-                    android:layout_toRightOf="@id/buttonTakePhoto"
-                    android:visibility="invisible" />
+                    android:layout_toRightOf="@id/buttonTakePhoto" />
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
