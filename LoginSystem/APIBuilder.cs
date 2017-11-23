@@ -11,9 +11,13 @@ namespace LoginSystem
     {
         private IAPIConfiguration _apiConfiguration;
 
-        public APIBuilder(IAPIConfiguration apiConfiguration, WebRequest request, JsonObject data, string url, string method)
+        public APIBuilder(IAPIConfiguration apiConfiguration)
         {
-            this._apiConfiguration = apiConfiguration;
+            apiConfiguration = new UserAPIAuthentification();
+            //apiConfiguration = new ReceiptAPI();
+
+
+            /*this._apiConfiguration = apiConfiguration;
             _apiConfiguration.CheckForSuccess(data);
             _apiConfiguration.MakeRequest(request);
             _apiConfiguration.FormRequest(url, method);
@@ -89,5 +93,5 @@ namespace LoginSystem
 
         }
     }*/
-}
+        }
 }

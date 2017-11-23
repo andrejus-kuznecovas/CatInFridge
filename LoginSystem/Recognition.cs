@@ -16,7 +16,7 @@ using ScanbotSDK.Xamarin.Android.Wrapper;
 namespace LoginSystem
 {
 
-    public class ImageRecognitionScanbot : ITextRecognition
+    public class Recognition : ITextRecognition
     {
 
         private const string licenseKey = "QarRdq9Wq2yitCl2WG0aCme15JOLNb" +

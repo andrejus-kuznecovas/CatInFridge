@@ -7,11 +7,15 @@ namespace LoginSystem
     {
         private ITextRecognition _itextregonition;
 
-        public RecognitionBuilder(ITextRecognition textRecognition, Bitmap image, EventHandler<OCRInfo> action)
+        public RecognitionBuilder(ITextRecognition textRecognition)
         {
-            this._itextregonition = textRecognition;
+            textRecognition = new RecognitionTesseract();
+            textRecognition = new Recognition();
+
+          /*this._itextregonition = textRecognition;
             textRecognition.GetTextFromImage(image);
-            textRecognition.AddOnCompleteHandler(action);
+            textRecognition.AddOnCompleteHandler(action);*/
+           /* , Bitmap image, EventHandler< OCRInfo > action*/
         }
     }
 
