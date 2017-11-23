@@ -19,10 +19,6 @@ namespace LoginSystem
     [Activity(Label = "LoginSystem", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        private ITextRecognition _itextregonition;
-    
-
-
         ProgressBar circle; //Loading bar in Login screen
         private string password;
         static public string username;
