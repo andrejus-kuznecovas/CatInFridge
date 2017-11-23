@@ -3,7 +3,7 @@ using System;
 
 namespace LoginSystem
 {
-    interface ITextRecognition
+    public interface ITextRecognition
     {
         void GetTextFromImage(Bitmap image);
 

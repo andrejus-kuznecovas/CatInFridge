@@ -9,6 +9,7 @@ namespace LoginSystem
 {
     public class RecognitionTesseract : ITextRecognition
     {
+        private ITextRecognition _itextregonition;
         // Event to be called after the recognition is done
         private EventHandler<OCRInfo> OnOCRComplete;
 
