@@ -18,7 +18,7 @@ namespace TestingAPI2
             string[] nameWords = Regex.Split(FixStrings(itemName), " ");
             /*itemList.Remove((from Product product in itemList
                              where product.category.type != category
-                             select product).ToList());*/       //kolkas neveikia
+                             select product).ToList()); */      //kolkas neveikia
 
             foreach(Product p in itemList)
             {

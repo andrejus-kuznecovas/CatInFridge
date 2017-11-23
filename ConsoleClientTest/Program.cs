@@ -1,12 +1,11 @@
-﻿using ApiService;
-using ConsoleClientTest.ServiceReference1;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleClientTest.BLService;
 
 namespace ConsoleClientTest
 {
@@ -14,20 +13,17 @@ namespace ConsoleClientTest
     {
         static void Main(string[] args)
         {
-            APIServiceClient client = new APIServiceClient();
-
-            Bitmap bitmap = new Bitmap("C://Users//Benas//Desktop//cekis.jpg");
+            BLService.BLServiceClient client = new BLService.BLServiceClient();
+            
+            Bitmap bitmap = new Bitmap("D:/cekis.jpg");
 
             MemoryStream ms = new MemoryStream();
             bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
             byte[] bitmapBytes = ms.GetBuffer();
 
-            Product[] products = client.GetPrices(bitmapBytes);
+            List<BLService.Product> products = client.GetPrices(bitmapBytes).ToList();
             
-            foreach(Product p in products)
-            {
-                Console.WriteLine(p.Name);
-            }
+            products.ForEach(p => Console.WriteLine(p.Name));
             Console.ReadKey();
         }
     }

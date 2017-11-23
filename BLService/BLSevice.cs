@@ -87,7 +87,6 @@ namespace BLService
 
         HtmlNode GetLineOfPVMKodas(HtmlDocument doc)
         {
-
             if (doc == null)
             {
                 return null;
@@ -96,7 +95,7 @@ namespace BLService
             try
             {
                 List<HtmlNode> items = doc.DocumentNode
-                    .SelectNodes("//*[text()='PVM']").ToList();
+                    .SelectNodes("//*[text()='pvm']").ToList();
 
                 foreach (HtmlNode node in items)
                 {
@@ -113,6 +112,42 @@ namespace BLService
                 Console.WriteLine("Nebuvo nuskaityta jokia preke! " + e);
                 return null;
             }
+        }
+
+        public List<Product> Search(string itemName, ArrayList itemList)
+        {
+            Dictionary<Product, int> dict = new Dictionary<Product, int>();
+            int points = 0;
+            string[] nameWords = Regex.Split(FixStrings(itemName), " ");
+
+            foreach (Product p in itemList)
+            {
+                points = 0;
+                foreach (string word in nameWords)
+                    if (FixStrings(p.Name).Contains(word))
+                        points++;
+                dict.Add(p, points);
+            }
+           
+            return (from entry in dict
+                    orderby entry.Value
+                    descending
+                    select entry.Key)
+                    .ToList();
+        }
+
+        public static string FixStrings(string str)
+        {
+            str = str.ToLower();
+            str = Regex.Replace(str, "ą", "a");
+            str = Regex.Replace(str, "č", "c");
+            str = Regex.Replace(str, "ę", "e");
+            str = Regex.Replace(str, "ė", "e");
+            str = Regex.Replace(str, "į", "i");
+            str = Regex.Replace(str, "š", "s");
+            str = Regex.Replace(str, "ų", "u");
+            str = Regex.Replace(str, "ū", "u");
+            return str;
         }
     }
 }

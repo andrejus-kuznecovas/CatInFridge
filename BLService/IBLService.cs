@@ -17,6 +17,9 @@ namespace BLService
 
         [OperationContract]
         List<Shop> GetShops();
+
+        [OperationContract]
+        List<Product> Search(string itemName, ArrayList itemList);
     }
 
     [DataContract]
