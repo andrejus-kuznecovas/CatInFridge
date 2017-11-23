@@ -52,10 +52,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLService\BLService.csproj">
-      <Project>{4ce91409-708c-4b46-aaa2-ab47b24a674b}</Project>
-      <Name>BLService</Name>
-    </ProjectReference>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
