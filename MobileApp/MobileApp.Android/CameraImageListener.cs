@@ -6,19 +6,51 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
+using Android.Hardware;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Java.IO;
+using Android.Text.Format;
 
 namespace MobileApp.Droid
 {
-    class CameraImageListener : Java.Lang.Object, TextureView.ISurfaceTextureListener
+    class CameraImageListener : Java.Lang.Object, TextureView.ISurfaceTextureListener, Android.Hardware.Camera.IPictureCallback
     {
         Android.Hardware.Camera _camera;
-                
-        public void OnSurfaceTextureAvailable(
-       Android.Graphics.SurfaceTexture surface, int w, int h)
+        string FILE_NAME = "temp.jpg";
+        File cacheDir;
+
+        public void OnPictureTaken(byte[] data, Android.Hardware.Camera camera)
+        {
+            _camera.StopPreview();
+
+            Time now = new Time();
+            now.SetToNow();
+            FILE_NAME = now.ToMillis(true).ToString();
+
+            FileOutputStream outStream = null;
+            if (data != null)
+            {
+                try
+                {
+                    outStream = new FileOutputStream(cacheDir + "/" + FILE_NAME);
+                    outStream.Write(data);
+                    outStream.Close();
+                }
+                catch (FileNotFoundException e)
+                {
+                    System.Console.Out.WriteLine(e.Message);
+                }
+                catch (IOException ie)
+                {
+                    System.Console.Out.WriteLine(ie.Message);
+                }
+            }
+        }
+
+        public void OnSurfaceTextureAvailable(SurfaceTexture surface, int w, int h)
         {
             _camera = Android.Hardware.Camera.Open();
             _camera.SetDisplayOrientation(90);            
@@ -31,7 +63,7 @@ namespace MobileApp.Droid
             }
             catch (Java.IO.IOException ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Console.WriteLine(ex.Message);
             }
         }
 
@@ -50,11 +82,27 @@ namespace MobileApp.Droid
 
         public void OnSurfaceTextureUpdated(SurfaceTexture surface)
         {
-
             Android.Hardware.Camera.Parameters mParameters = _camera.GetParameters();
             mParameters.FocusMode = Android.Hardware.Camera.Parameters.FocusModeContinuousPicture;
             _camera.SetParameters(mParameters);
+            
+        }
 
+        public string TakePhoto(File cacheDir)
+        {
+            this.cacheDir = cacheDir;
+            Android.Hardware.Camera.Parameters p = _camera.GetParameters();
+            p.PictureFormat = ImageFormatType.Jpeg;
+            _camera.SetParameters(p);
+            _camera.TakePicture(null, null, this);
+
+            //_camera.StopPreview();
+
+            return FILE_NAME;
+        }
+
+        public void StartPreview()
+        {
             _camera.StartPreview();
         }
         

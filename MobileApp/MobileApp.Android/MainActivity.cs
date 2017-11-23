@@ -1,35 +1,58 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using Android.Graphics;
-using Android.Hardware;
-using Android.Support.Design.Widget;
-using System.Threading;
+using Android.Support.V4.App;
 
 namespace MobileApp.Droid
 {
     [Activity(Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : Activity
+    public class MainActivity : FragmentActivity
     {
-        
         TextureView _textureView;
+        CameraImageListener listener;
+        string PHOTO_PATH;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
+            
 
-            Thread t = new Thread( () => new Main().GetShops() );
-            t.Start();
 
+            listener = new CameraImageListener();
             _textureView = (TextureView)FindViewById(Resource.Id.textureView1);
-            _textureView.SurfaceTextureListener = new CameraImageListener();
+            _textureView.SurfaceTextureListener = listener;
+
+            Button photoBtn = (Button)FindViewById(Resource.Id.buttonTakePhoto);
+            Button dismissBtn = (Button)FindViewById(Resource.Id.buttonDismissPhoto);
+            Button nextBtn = (Button)FindViewById(Resource.Id.buttonNext);
+
+            photoBtn.Click += delegate
+            {
+                PHOTO_PATH = CacheDir + "/" + listener.TakePhoto(CacheDir);
+
+                photoBtn.Visibility = ViewStates.Invisible;
+                dismissBtn.Visibility = ViewStates.Visible;
+                nextBtn.Visibility = ViewStates.Visible;
+            };
+
+            dismissBtn.Click += delegate
+            {
+                listener.StartPreview();
+
+                photoBtn.Visibility = ViewStates.Visible;
+                dismissBtn.Visibility = ViewStates.Invisible;
+                nextBtn.Visibility = ViewStates.Invisible;
+            };
+
+            nextBtn.Click += delegate
+            {
+                StartActivity(typeof(ShopSelectActivity));
+            };
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
