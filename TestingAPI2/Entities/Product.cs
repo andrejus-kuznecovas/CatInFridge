@@ -15,7 +15,7 @@ namespace TestingAPI2.Entities
         public DateTime date;
         public Shop shop;
 
-        public Product(string name, string price, Shop shop)
+        public Product(string name, string price , Shop shop)
         {
             this.date = DateTime.Now;
             this.name = name;

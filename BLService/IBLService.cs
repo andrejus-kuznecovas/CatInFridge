@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using HtmlAgilityPack;
 using System.Collections;
+using Statistics;
 
 namespace BLService
 {
@@ -14,6 +15,12 @@ namespace BLService
     {
         [OperationContract]
         string GetPrices(string imageLoc);
+
+        [OperationContract]
+        List<Product> Search(string itemName, string category, ArrayList itemList);
+
+        [OperationContract]
+        Stats GetStats(string command, List<Product> lst );
 
         // TODO: Add your service operations here
     }

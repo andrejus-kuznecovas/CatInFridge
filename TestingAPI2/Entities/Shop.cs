@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TestingAPI2.Entities
-{   [Serializable]
+{
+    [Serializable]
     public class Shop      //entity
     {
         public string name;
