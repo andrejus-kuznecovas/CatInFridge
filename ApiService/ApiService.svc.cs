@@ -81,7 +81,7 @@ namespace ApiService
             }
             catch (Exception e)
             {
-                Console.WriteLine("Unhandled error occured: " + OcrApi.PathToEngine);
+                Console.WriteLine("Unhandled error occured: " + e);
                 return null;
             }
         }
