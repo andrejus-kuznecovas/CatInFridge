@@ -26,12 +26,6 @@ namespace LoginSystem
         ProgressBar circle; //Loading bar in Login screen
         private string password;
         static public string username;
-
-
-        public MainActivity(ITextRecognition textRecognition)
-        {
-            this._itextregonition = textRecognition;
-        }
         /// <summary>
         /// Displays Login Screen when app starts
         /// </summary>
