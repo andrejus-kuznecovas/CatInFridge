@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Graphics;
 using Android.Hardware;
 using Android.Support.Design.Widget;
+using System.Threading;
 
 namespace MobileApp.Droid
 {
@@ -23,6 +24,9 @@ namespace MobileApp.Droid
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
+
+            Thread t = new Thread( () => new Main().GetShops() );
+            t.Start();
 
             _textureView = (TextureView)FindViewById(Resource.Id.textureView1);
             _textureView.SurfaceTextureListener = new CameraImageListener();
