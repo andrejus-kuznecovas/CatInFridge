@@ -54,26 +54,6 @@ namespace LoginSystem
             OnOCRComplete = action;
         }
 
-        public ImageRecognitionScanbot(Activity activity)
-        {
-
-            // Initialize all the components needed for the SDK
-
-            this.activity = activity;
-
-            // Set recognition languages
-            ocrLanguages.Add(Language.Lit); // OR ocrLanguages.Add(Language.Eng);
-        
-
-
-            var scanbotSDK = new Net.Doo.Snap.ScanbotSDK(activity);
-            pageFactory = scanbotSDK.PageFactory();
-            textRecognition = scanbotSDK.TextRecognition();
-            blobManager = scanbotSDK.BlobManager();
-            blobFactory = scanbotSDK.BlobFactory();
-            FetchOcrBlobFiles();
-        }
-
         private List<Blob> OcrBlobs()
         {
             // Create a collection of required OCR blobs:
@@ -96,6 +76,26 @@ namespace LoginSystem
 
             return blobs;
         }
+        public ImageRecognitionScanbot(Activity activity)
+        {
+
+            // Initialize all the components needed for the SDK
+
+            this.activity = activity;
+
+            // Set recognition languages
+            ocrLanguages.Add(Language.Lit); // OR ocrLanguages.Add(Language.Eng);
+        
+
+
+            var scanbotSDK = new Net.Doo.Snap.ScanbotSDK(activity);
+            pageFactory = scanbotSDK.PageFactory();
+            textRecognition = scanbotSDK.TextRecognition();
+            blobManager = scanbotSDK.BlobManager();
+            blobFactory = scanbotSDK.BlobFactory();
+            FetchOcrBlobFiles();
+        }
+
 
 
         private void FetchOcrBlobFiles()
