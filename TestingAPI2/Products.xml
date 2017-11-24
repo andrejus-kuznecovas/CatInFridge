@@ -3,6 +3,374 @@
   <anyType xsi:type="Product">
     <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
     <price> 0,62</price>
+    <date>2017-11-15T19:38:18.2191702+02:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-11-15T19:38:18.2191702+02:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-11-15T19:38:17.9854612+02:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-11-15T19:38:17.9854612+02:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-11-15T19:38:17.812028+02:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-11-15T19:38:17.812028+02:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-11-15T19:38:17.696853+02:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-11-15T19:38:17.696853+02:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-11-15T19:37:37.4226636+02:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-11-15T19:37:37.4236659+02:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T11:10:46.7055417+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>NEPTUNAS SPORT NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T11:10:46.7055417+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T11:09:04.3767247+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T11:09:04.3767247+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T11:03:36.4208341+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T11:03:36.4208341+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T11:03:01.0646958+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T11:03:01.0646958+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T11:02:59.4411936+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T11:02:59.4411936+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T11:02:59.278522+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T11:02:59.278522+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T11:02:59.0737977+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T11:02:59.0737977+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T11:02:51.2245214+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T11:02:51.2245214+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T11:02:14.4249534+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T11:02:14.4249534+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T10:56:22.0636118+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T10:56:22.0636118+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T10:55:36.97106+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T10:55:36.97106+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T10:54:36.0237983+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T10:54:36.0237983+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T10:54:07.3628328+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T10:54:07.3628328+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T10:52:25.4836275+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T10:52:25.4836275+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T10:51:43.6289156+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T10:51:43.6289156+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T10:48:34.6820759+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T10:48:34.6820759+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T10:48:09.7636848+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T10:48:09.7636848+03:00</date>
+    <shop>
+      <name>New shop</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
+    <date>2017-10-20T10:46:37.2701269+03:00</date>
+    <shop>
+      <name>New shop2</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>VIENKARTINE PLASTIKO PAK.</name>
+    <price> 0,10</price>
+    <date>2017-10-20T10:46:37.2701269+03:00</date>
+    <shop>
+      <name>New shop2</name>
+    </shop>
+  </anyType>
+  <anyType xsi:type="Product">
+    <name>„NEPTUNAS SPORT&amp;quot; NATURAL</name>
+    <price> 0,62</price>
     <date>2017-10-20T10:32:42.4542681+03:00</date>
     <shop>
       <name>New shop2</name>

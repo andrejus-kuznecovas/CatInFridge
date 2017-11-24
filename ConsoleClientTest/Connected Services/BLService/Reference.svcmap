@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2602beea-c5f9-4754-b4cf-e480bcc0e447" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51434/BLService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BLService.xsd" MetadataType="Schema" ID="62879c3a-17cd-4e37-beb0-105ee50abaff" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BLService1.xsd" MetadataType="Schema" ID="de47b3e9-752a-45af-8ab5-e4a2b8a4f5f4" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="e7fc67a4-3fa2-4470-a46a-b36ea049ab94" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BLService.wsdl" MetadataType="Wsdl" ID="f0ec9c40-bbaf-4fc6-8fed-4392a49a78ce" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?wsdl" />
+    <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="729b80c7-4128-4fba-87f1-23c069fa35e5" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
