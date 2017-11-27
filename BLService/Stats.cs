@@ -45,13 +45,13 @@ namespace Statistics
             //Set spendings in all categories to zeroes
             InitDict(spendingsByCategory, categories);
             //Find all spendings by category
-            FindAllSpendings(spendingsByCategory, prods, categories);
+            FindSpendings(spendingsByCategory, prods, categories, "category");
 
             spendingsByShop = new Dictionary<string, double>();
             //Set spendings in all shops to zeroes
             InitDict(spendingsByShop, shops);
             //Find all spendings by shop
-            FindAllSpendings(spendingsByShop, prods, shops);
+            FindSpendings(spendingsByShop, prods, shops, "shop");
 
             int distinctCount2 = prods.Count(pr => pr.category.ToString().Equals("DRINKS"));
             Console.WriteLine(distinctCount2);
@@ -92,16 +92,30 @@ namespace Statistics
             }
         }
 
-        public static void FindAllSpendings(Dictionary<string, double> dict, List<Product> prods, string[] strs)
+        public static void FindSpendings(Dictionary<string, double> dict, List<Product> prods, string[] strs, string command)
         {
             foreach (Product product in prods)
             {
-                //Console.WriteLine("Product category: " + product.category.ToString() );
+                //Console.WriteLine("Product category (or shop): " + product.category.ToString() );
                 foreach (string str in strs)
                 {
-                    if (product.category.ToString().Equals(str))
+                    switch (command)
                     {
-                        dict[str] += Convert.ToDouble(product.price);
+                        case "category":
+                            if (product.category.ToString().Equals(str))
+                            {
+                                dict[str] += Math.Round(Convert.ToDouble(product.price), 2);
+                            }
+                            break;
+                        case "shop":
+                            if (product.shop.ToString().Equals(str))
+                            {
+                                dict[str] += Math.Round(Convert.ToDouble(product.price), 2);
+                            }
+                            break;
+                        default:
+                            Console.WriteLine("wrong command!");
+                            break;
                     }
                 }
             }

@@ -48,8 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomDictComparer.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="SpendingsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
