@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b4422423-196e-43de-b570-51b16a372ef1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.24.3.27/BLService/BLService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BLService.xsd" MetadataType="Schema" ID="21262882-9d0c-4462-9c22-ebc69880285d" SourceId="1" SourceUrl="http://xiti/BLService/BLService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BLService1.xsd" MetadataType="Schema" ID="492eb739-9028-4248-9c8a-7bfb415c8ff9" SourceId="1" SourceUrl="http://xiti/BLService/BLService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BLService.wsdl" MetadataType="Wsdl" ID="c480d1d7-c595-470f-8437-6e78a02fb8bf" SourceId="1" SourceUrl="http://xiti/BLService/BLService.svc?wsdl" />
+    <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="db08e1e1-0f81-4625-8263-a3301adf347a" SourceId="1" SourceUrl="http://xiti/BLService/BLService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="7d7aa5a5-8cd8-4dee-97c8-ab1b860a746d" SourceId="1" SourceUrl="http://xiti/BLService/BLService.svc?disco" />
+    <MetadataFile FileName="BLService3.xsd" MetadataType="Schema" ID="3baf3050-2518-4e7c-b404-08b25869d4c9" SourceId="1" SourceUrl="http://xiti/BLService/BLService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,5 +1,4 @@
-﻿
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Views;
@@ -22,8 +21,7 @@ namespace MobileApp.Droid
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
 
-            Thread t = new Thread(() => new Main().GetShops());
-            t.Start();
+            Main a = new Main();
 
             listener = new CameraImageListener();
             _textureView = (TextureView)FindViewById(Resource.Id.textureView1);
