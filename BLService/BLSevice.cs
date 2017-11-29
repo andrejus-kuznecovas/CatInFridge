@@ -20,9 +20,12 @@ namespace BLService
         {
             MemoryStream ms = new MemoryStream(image);
 
-            HtmlDocument html = OcrHtml((Bitmap)Bitmap.FromStream(ms));
+            /*HtmlDocument html = OcrHtml((Bitmap)Bitmap.FromStream(ms));
             if (html == null)
-                return null;
+                return null;*/
+
+            HtmlDocument html = new HtmlDocument();
+            html.Load(@"D:\testing.html");
 
             HtmlNode checkmark = GetLineOfPVMKodas(html);
             if (checkmark == null)
@@ -51,7 +54,17 @@ namespace BLService
                 lineNode = lineNode.NextSibling.NextSibling;
             }
 
+            /*
+            productsList.Add(new Product() { Name = "Cukrus", Price = "1,65" });
+            productsList.Add(new Product() { Name = "Citrina", Price = "0,35" });
+            */
+
             return productsList;
+        }
+
+        string IBLService.GetString()
+        {
+            return "aaa";
         }
 
         List<Shop> IBLService.GetShops()
