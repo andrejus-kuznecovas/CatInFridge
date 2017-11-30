@@ -10,7 +10,8 @@ namespace Statistics
     {
         public static void Main()
         {
-        }
 
+
+        }
     }
 }

@@ -53,35 +53,12 @@ namespace Statistics
             //Find all spendings by shop
             FindSpendings(spendingsByShop, prods, shops, "shop");
 
-            int distinctCount2 = prods.Count(pr => pr.category.ToString().Equals("DRINKS"));
-            Console.WriteLine(distinctCount2);
+            FindAvgSpendingsByCategory(prods);
+            FindAvgSpendingsByShop(prods);
 
+            //FindMostPopularByShop(prods);
+            //FindMostPopularByCategory(prods);
 
-            averageByCategory = new Lazy<Dictionary<string, double>>(delegate
-            {
-                Dictionary<string, double> dict = new Dictionary<string, double>();
-                foreach (string str in categories)
-                {
-                    int distinctCount = prods.Count(pr => pr.category.ToString().Equals(str));
-                    double avg = Math.Round(spendingsByCategory[str] / distinctCount, 2);
-                    if (Double.IsNaN(avg)) avg = 0;
-                    dict[str] = avg;
-                }
-                return dict;
-            });
-
-            averageByShop = new Lazy<Dictionary<string, double>>(delegate
-            {
-                Dictionary<string, double> dict = new Dictionary<string, double>();
-                foreach (string str in categories)
-                {
-                    int distinctCount = prods.Count(pr => pr.shop.ToString().Equals(str));
-                    double avg = Math.Round(spendingsByCategory[str] / distinctCount, 2);
-                    if (Double.IsNaN(avg)) avg = 0;
-                    dict[str] = avg;
-                }
-                return dict;
-            });
         }
 
         public static void InitDict(Dictionary<string, double> dict, string[] strs)
@@ -120,9 +97,65 @@ namespace Statistics
                 }
             }
         }
+
+        public static void FindAvgSpendingsByCategory(List<Product> prods)
+        {
+            averageByCategory = new Lazy<Dictionary<string, double>>(delegate
+            {
+                Dictionary<string, double> dict = new Dictionary<string, double>();
+                foreach (string str in categories)
+                {
+                    int distinctCount = prods.Count(pr => pr.category.ToString().Equals(str));
+                    double avg = Math.Round(spendingsByCategory[str] / distinctCount, 2);
+                    if (Double.IsNaN(avg)) avg = 0; //prevent division by zero
+                    dict[str] = avg;
+                }
+                return dict;
+            });
+        }
+
+        public static void FindAvgSpendingsByShop(List<Product> prods)
+        {
+            averageByShop = new Lazy<Dictionary<string, double>>(delegate
+            {
+                Dictionary<string, double> dict = new Dictionary<string, double>();
+                foreach (string str in shops)
+                {
+                    int distinctCount = prods.Count(pr => pr.shop.ToString().Equals(str));
+                    double avg = Math.Round(spendingsByShop[str] / distinctCount, 2);
+                    if (Double.IsNaN(avg)) avg = 0; // prevent division by zero
+                    dict[str] = avg;
+                }
+                return dict;
+            });
+
+        }
+
+        public static void FindMostPopularByCategory(List<Product> prods)
+        {
+            mostPopularByCategory = new Lazy<Dictionary<string, string>>(delegate
+            {
+                Dictionary<string, string> dict = new Dictionary<string, string>();
+                Dictionary<string, Tuple<int, string>> tempDict = new Dictionary<string,Tuple<int, string>>();
+
+                foreach (Product pr in prods)
+                {
+                    if (tempDict.ContainsKey(pr.name))
+                    {
+                        tempDict[pr.name] = new Tuple<int, string>(tempDict[pr.name].Item1+1 , pr.category.ToString());
+                    }              
+                    else tempDict[pr.name] = new Tuple<int, string>(0, pr.category.ToString());
+                }
+                
+                   var biggest =tempDict.Keys.Max();
+                
+                return dict;
+            });
+
+        }
     }
 }
-
+    
 
 
 

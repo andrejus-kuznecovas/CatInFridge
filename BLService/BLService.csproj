@@ -118,7 +118,7 @@
     <WcfServiceModelTargetPath>$(VSToolsPath)\WCF</WcfServiceModelTargetPath>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>BLService.StatsTest</StartupObject>
+    <StartupObject>Statistics.StatsTest</StartupObject>
   </PropertyGroup>
   <Import Project="$(WcfServiceModelTargetPath)\Microsoft.VisualStudio.ServiceModel.targets" />
   <ProjectExtensions>

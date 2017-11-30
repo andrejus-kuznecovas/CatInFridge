@@ -81,5 +81,81 @@ namespace Statistics
                 else Assert.Fail();
             }
         }
+
+
+        [TestMethod]
+        public void AvgSpendingsByCategoryTest()
+        {
+            List<Product> prods = new List<Product>();
+            prods.Add(new Product("jautienos kumpis", "0.55", "RIMI", "MEAT"));
+            prods.Add(new Product("vistienos file", "1.09", "RIMI", "MEAT"));
+            prods.Add(new Product("kalakutienos file", "4.99", "IKI", "MEAT"));
+            prods.Add(new Product("pomidorai", "0.99", "RIMI", "VEGETABLES_FRUITS"));
+            prods.Add(new Product("konservuotos darzoves", "0.89", "NORFA", "VEGETABLES_FRUITS"));
+            prods.Add(new Product("raudonas vynas", "14.99", "NORFA", "ALCOHOL"));
+
+            Stats st = new Stats("", prods);
+            Dictionary<string, double> dict = Stats.averageByCategory.Value;
+
+            Dictionary<string, double> expectedDict = new Dictionary<string, double>()
+            {
+                { "MEAT", 2.21 },
+                { "VEGETABLES_FRUITS", 0.94  },
+                { "ALCOHOL", 14.99 },
+                { "DAIRY", 0 },
+                { "DRINKS", 0 },
+                { "BREAD", 0 },
+                { "SWEETS", 0 },
+                { "OTHER", 0 },
+                { "UNRECOGNIZED", 0 }
+            };
+
+            foreach (KeyValuePair<string, double> entry in dict)
+            {
+                if (expectedDict.ContainsKey(entry.Key))
+                {
+                    Assert.AreEqual(expectedDict[entry.Key], entry.Value, 0.0000001);
+                }
+                else Assert.Fail("expectedDict does not contain key: " + entry.Key + ", entry value: " + entry.Value);
+            }
+        }
+
+
+        [TestMethod]
+        public void AvgSpendingsByShopTest()
+        {
+            List<Product> prods = new List<Product>();
+            prods.Add(new Product("granatu sultys", "5.49", "IKI", "DRINKS"));
+            prods.Add(new Product("graikiskas jogurtas", "1.49", "IKI", "DAIRY"));
+            prods.Add(new Product("vistienos broileriu file", "2.63", "IKI", "MEAT"));
+            prods.Add(new Product("kalakutienos kepsnys", "7.95", "RIMI", "MEAT"));
+            prods.Add(new Product("konservuotos darzoves", "0.89", "NORFA", "VEGETABLES_FRUITS"));
+            prods.Add(new Product("raudonas vynas", "14.99", "NORFA", "ALCOHOL"));
+
+            Stats st = new Stats("", prods);
+            Dictionary<string, double> dict = Stats.averageByShop.Value;
+
+            Dictionary<string, double> expectedDict = new Dictionary<string, double>()
+            {
+                { "IKI", 3.20 },
+                { "RIMI", 7.95 },
+                { "NORFA", 7.94 },
+                { "MAXIMA", 0 },
+                { "OTHER", 0 },
+                { "UNRECOGNIZED", 0 }
+
+            };
+
+            foreach (KeyValuePair<string, double> entry in dict)
+            {
+                if (expectedDict.ContainsKey(entry.Key))
+                {
+                    Assert.AreEqual(expectedDict[entry.Key], entry.Value, 0.0000001, "failed at shop: " + entry.Key);
+                }
+                else Assert.Fail("expectedDict does not contain key: " + entry.Key + ", entry value: " + entry.Value);
+            }
+
+
+        }
     }
 }
