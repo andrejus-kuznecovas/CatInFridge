@@ -13,21 +13,17 @@ namespace MobileApp
     {
         String s;
         List<Shop> str;
-        BLServiceClient wcf;
+        public BLServiceClient wcf;
 
         public Main()
         {
-            var binding = new BasicHttpBinding
-            {
-                Name = "BasicHttpBinding_IBLService",
-                MaxBufferSize = 2147483647,
-                MaxReceivedMessageSize = 2147483647
-            };
 
-            wcf = new BLServiceClient(binding, new EndpointAddress("http://172.24.3.27/BLService/BLService.svc"));
-            //wcf.GetShopsCompleted += Wcf_GetShopsCompleted;
-
+            wcf = new BLServiceClient();
+            wcf.GetShopsCompleted += Wcf_GetShopsCompleted;
             wcf.GetStringCompleted += Wcf_GetStringCompleted;
+            wcf.GetStringAsync();
+
+            
         }
         
 
@@ -38,7 +34,7 @@ namespace MobileApp
 
         private void Wcf_GetStringCompleted(object sender, GetStringCompletedEventArgs e)
         {
-            var s = e.Result;
+            s = e.Result;
         }
 
     }
