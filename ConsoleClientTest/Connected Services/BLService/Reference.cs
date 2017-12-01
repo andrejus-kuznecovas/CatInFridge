@@ -150,6 +150,23 @@ namespace ConsoleClientTest.BLService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetShops", ReplyAction="http://tempuri.org/IBLService/GetShopsResponse")]
         System.Threading.Tasks.Task<ConsoleClientTest.BLService.Shop[]> GetShopsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Post", ReplyAction="http://tempuri.org/IBLService/PostResponse")]
+        void Post(ConsoleClientTest.BLService.Product[] products, ConsoleClientTest.BLService.Shop shop);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Post", ReplyAction="http://tempuri.org/IBLService/PostResponse")]
+        System.Threading.Tasks.Task PostAsync(ConsoleClientTest.BLService.Product[] products, ConsoleClientTest.BLService.Shop shop);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Search", ReplyAction="http://tempuri.org/IBLService/SearchResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleClientTest.BLService.Product[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleClientTest.BLService.Product))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleClientTest.BLService.Shop[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ConsoleClientTest.BLService.Shop))]
+        ConsoleClientTest.BLService.Product[] Search(string itemName, object[] itemList);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Search", ReplyAction="http://tempuri.org/IBLService/SearchResponse")]
+        System.Threading.Tasks.Task<ConsoleClientTest.BLService.Product[]> SearchAsync(string itemName, object[] itemList);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -193,6 +210,22 @@ namespace ConsoleClientTest.BLService {
         
         public System.Threading.Tasks.Task<ConsoleClientTest.BLService.Shop[]> GetShopsAsync() {
             return base.Channel.GetShopsAsync();
+        }
+        
+        public void Post(ConsoleClientTest.BLService.Product[] products, ConsoleClientTest.BLService.Shop shop) {
+            base.Channel.Post(products, shop);
+        }
+        
+        public System.Threading.Tasks.Task PostAsync(ConsoleClientTest.BLService.Product[] products, ConsoleClientTest.BLService.Shop shop) {
+            return base.Channel.PostAsync(products, shop);
+        }
+        
+        public ConsoleClientTest.BLService.Product[] Search(string itemName, object[] itemList) {
+            return base.Channel.Search(itemName, itemList);
+        }
+        
+        public System.Threading.Tasks.Task<ConsoleClientTest.BLService.Product[]> SearchAsync(string itemName, object[] itemList) {
+            return base.Channel.SearchAsync(itemName, itemList);
         }
     }
 }

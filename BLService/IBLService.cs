@@ -19,10 +19,13 @@ namespace BLService
         List<Shop> GetShops();
 
         [OperationContract]
-        string GetString();
+        void Post(List<Product> products, Shop shop);
 
         [OperationContract]
-        List<Product> Search(string itemName, ArrayList itemList);
+        string Test();
+
+        [OperationContract]
+        List<Product> Search(string itemName);
     }
 
     [DataContract]

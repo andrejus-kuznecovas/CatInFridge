@@ -16,6 +16,8 @@ namespace BLService
 {
     public class BLService : IBLService
     {
+        Repository repository;
+
         List<Product> IBLService.GetPrices(byte[] image)
         {
             MemoryStream ms = new MemoryStream(image);
@@ -62,11 +64,6 @@ namespace BLService
             return productsList;
         }
 
-        string IBLService.GetString()
-        {
-            return "aaa";
-        }
-
         List<Shop> IBLService.GetShops()
         {
             List<Shop> shops = new List<Shop>();
@@ -75,6 +72,22 @@ namespace BLService
             shops.Add(new Shop() { Id = 2, Name = "Rimi" });
             shops.Add(new Shop() { Id = 3, Name = "Norfa" });
             return shops;
+        }
+
+        void IBLService.Post(List<Product> products, Shop shop)
+        {
+            if (repository == null)
+                repository = new Repository();
+
+            repository.WriteProductsToXmlFile(products, shop);
+        }
+
+        string IBLService.Test()
+        {
+            if (repository == null)
+                repository = new Repository();
+
+            return Repository.productPath;
         }
 
         public static HtmlDocument OcrHtml(Bitmap image)
@@ -127,8 +140,10 @@ namespace BLService
             }
         }
 
-        public List<Product> Search(string itemName, ArrayList itemList)
+        public List<Product> Search(string itemName)
         {
+            ArrayList itemList = repository.ReadProductsFromXmlFile();
+
             Dictionary<Product, int> dict = new Dictionary<Product, int>();
             int points = 0;
             string[] nameWords = Regex.Split(FixStrings(itemName), " ");

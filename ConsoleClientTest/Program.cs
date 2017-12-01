@@ -13,17 +13,14 @@ namespace ConsoleClientTest
     {
         static void Main(string[] args)
         {
-            BLService.BLServiceClient client = new BLService.BLServiceClient();
-            
-            Bitmap bitmap = new Bitmap("D:/cekis.jpg");
+            BLServiceClient client = new BLServiceClient();
+            Product[] p = new Product[] {
+                new Product() { Name = "AAAAAA", Price = "1" },
+                new Product() { Name = "BBBBBB", Price = "2" }
+            };
 
-            MemoryStream ms = new MemoryStream();
-            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-            byte[] bitmapBytes = ms.GetBuffer();
+            client.Post(p, new Shop() { Name = "MAXIMA" });
 
-            List<BLService.Product> products = client.GetPrices(bitmapBytes).ToList();
-            
-            products.ForEach(p => Console.WriteLine(p.Name));
             Console.ReadKey();
         }
     }
