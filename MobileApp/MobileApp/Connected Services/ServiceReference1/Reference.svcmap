@@ -23,12 +23,11 @@
     <MetadataSource Address="http://192.168.11.204/BLService/BLService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="8a1903a7-d0c3-4340-9e64-0a1bd7c5a3b7" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?disco" />
     <MetadataFile FileName="BLService.xsd" MetadataType="Schema" ID="f39b6cd0-f7e7-4854-94ed-006d39e27618" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="8a1903a7-d0c3-4340-9e64-0a1bd7c5a3b7" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?disco" />
     <MetadataFile FileName="BLService.wsdl" MetadataType="Wsdl" ID="613c3bf6-fa58-434c-bb64-21bb0190deff" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?wsdl" />
     <MetadataFile FileName="BLService1.xsd" MetadataType="Schema" ID="7148e1d2-3217-4324-8d30-2921dd3c5b1a" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd1" />
     <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="f3d780d7-fc54-47fc-b598-57a9113db297" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd2" />
-    <MetadataFile FileName="BLService3.xsd" MetadataType="Schema" ID="c070455e-e496-460a-bf96-071605dd5a29" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

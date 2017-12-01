@@ -11,11 +11,6 @@ namespace MobileApp
         public App()
         {
             InitializeComponent();
-
-            if (Device.RuntimePlatform == Device.iOS)
-                MainPage = new Main();
-            else
-                MainPage = new Main();
         }
     }
 }

@@ -39,23 +39,6 @@
                     android:gravity="center"
                     android:layout_centerHorizontal="false" />
             </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/linearLayout8"
-                android:gravity="right">
-                <Button
-                    android:text="Result"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buttonGetResult"
-                    android:gravity="center"
-                    android:layout_centerHorizontal="false"
-                    android:layout_toRightOf="@id/buttonTakePhoto" />
-            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

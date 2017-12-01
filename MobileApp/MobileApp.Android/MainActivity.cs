@@ -21,7 +21,7 @@ namespace MobileApp.Droid
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
 
-            Main a = new Main();
+            Main.InitMain();
 
             listener = new CameraImageListener();
             _textureView = (TextureView)FindViewById(Resource.Id.textureView1);
@@ -51,7 +51,7 @@ namespace MobileApp.Droid
 
             nextBtn.Click += delegate
             {
-                StartActivity(typeof(ShopSelectActivity));
+                StartActivity(typeof(EditActivity));
             };
         }
 

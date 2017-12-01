@@ -116,18 +116,18 @@ namespace MobileApp.ServiceReference1 {
         
         System.Collections.Generic.List<MobileApp.ServiceReference1.Shop> EndGetShops(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/GetString", ReplyAction="http://tempuri.org/IBLService/GetStringResponse")]
-        System.IAsyncResult BeginGetString(System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/Post", ReplyAction="http://tempuri.org/IBLService/PostResponse")]
+        System.IAsyncResult BeginPost(System.Collections.Generic.List<MobileApp.ServiceReference1.Product> products, MobileApp.ServiceReference1.Shop shop, System.AsyncCallback callback, object asyncState);
         
-        string EndGetString(System.IAsyncResult result);
+        void EndPost(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/Test", ReplyAction="http://tempuri.org/IBLService/TestResponse")]
+        System.IAsyncResult BeginTest(System.AsyncCallback callback, object asyncState);
+        
+        string EndTest(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/Search", ReplyAction="http://tempuri.org/IBLService/SearchResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<MobileApp.ServiceReference1.Product>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MobileApp.ServiceReference1.Product))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<MobileApp.ServiceReference1.Shop>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MobileApp.ServiceReference1.Shop))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<object>))]
-        System.IAsyncResult BeginSearch(string itemName, System.Collections.Generic.List<object> itemList, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginSearch(string itemName, System.AsyncCallback callback, object asyncState);
         
         System.Collections.Generic.List<MobileApp.ServiceReference1.Product> EndSearch(System.IAsyncResult result);
     }
@@ -176,11 +176,11 @@ namespace MobileApp.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetStringCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class TestCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public GetStringCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public TestCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -228,11 +228,17 @@ namespace MobileApp.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onGetShopsCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetStringDelegate;
+        private BeginOperationDelegate onBeginPostDelegate;
         
-        private EndOperationDelegate onEndGetStringDelegate;
+        private EndOperationDelegate onEndPostDelegate;
         
-        private System.Threading.SendOrPostCallback onGetStringCompletedDelegate;
+        private System.Threading.SendOrPostCallback onPostCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginTestDelegate;
+        
+        private EndOperationDelegate onEndTestDelegate;
+        
+        private System.Threading.SendOrPostCallback onTestCompletedDelegate;
         
         private BeginOperationDelegate onBeginSearchDelegate;
         
@@ -298,7 +304,9 @@ namespace MobileApp.ServiceReference1 {
         
         public event System.EventHandler<GetShopsCompletedEventArgs> GetShopsCompleted;
         
-        public event System.EventHandler<GetStringCompletedEventArgs> GetStringCompleted;
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> PostCompleted;
+        
+        public event System.EventHandler<TestCompletedEventArgs> TestCompleted;
         
         public event System.EventHandler<SearchCompletedEventArgs> SearchCompleted;
         
@@ -397,52 +405,99 @@ namespace MobileApp.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult MobileApp.ServiceReference1.IBLService.BeginGetString(System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetString(callback, asyncState);
+        System.IAsyncResult MobileApp.ServiceReference1.IBLService.BeginPost(System.Collections.Generic.List<MobileApp.ServiceReference1.Product> products, MobileApp.ServiceReference1.Shop shop, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginPost(products, shop, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string MobileApp.ServiceReference1.IBLService.EndGetString(System.IAsyncResult result) {
-            return base.Channel.EndGetString(result);
+        void MobileApp.ServiceReference1.IBLService.EndPost(System.IAsyncResult result) {
+            base.Channel.EndPost(result);
         }
         
-        private System.IAsyncResult OnBeginGetString(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            return ((MobileApp.ServiceReference1.IBLService)(this)).BeginGetString(callback, asyncState);
+        private System.IAsyncResult OnBeginPost(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.Generic.List<MobileApp.ServiceReference1.Product> products = ((System.Collections.Generic.List<MobileApp.ServiceReference1.Product>)(inValues[0]));
+            MobileApp.ServiceReference1.Shop shop = ((MobileApp.ServiceReference1.Shop)(inValues[1]));
+            return ((MobileApp.ServiceReference1.IBLService)(this)).BeginPost(products, shop, callback, asyncState);
         }
         
-        private object[] OnEndGetString(System.IAsyncResult result) {
-            string retVal = ((MobileApp.ServiceReference1.IBLService)(this)).EndGetString(result);
+        private object[] OnEndPost(System.IAsyncResult result) {
+            ((MobileApp.ServiceReference1.IBLService)(this)).EndPost(result);
+            return null;
+        }
+        
+        private void OnPostCompleted(object state) {
+            if ((this.PostCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.PostCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void PostAsync(System.Collections.Generic.List<MobileApp.ServiceReference1.Product> products, MobileApp.ServiceReference1.Shop shop) {
+            this.PostAsync(products, shop, null);
+        }
+        
+        public void PostAsync(System.Collections.Generic.List<MobileApp.ServiceReference1.Product> products, MobileApp.ServiceReference1.Shop shop, object userState) {
+            if ((this.onBeginPostDelegate == null)) {
+                this.onBeginPostDelegate = new BeginOperationDelegate(this.OnBeginPost);
+            }
+            if ((this.onEndPostDelegate == null)) {
+                this.onEndPostDelegate = new EndOperationDelegate(this.OnEndPost);
+            }
+            if ((this.onPostCompletedDelegate == null)) {
+                this.onPostCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPostCompleted);
+            }
+            base.InvokeAsync(this.onBeginPostDelegate, new object[] {
+                        products,
+                        shop}, this.onEndPostDelegate, this.onPostCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult MobileApp.ServiceReference1.IBLService.BeginTest(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginTest(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string MobileApp.ServiceReference1.IBLService.EndTest(System.IAsyncResult result) {
+            return base.Channel.EndTest(result);
+        }
+        
+        private System.IAsyncResult OnBeginTest(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return ((MobileApp.ServiceReference1.IBLService)(this)).BeginTest(callback, asyncState);
+        }
+        
+        private object[] OnEndTest(System.IAsyncResult result) {
+            string retVal = ((MobileApp.ServiceReference1.IBLService)(this)).EndTest(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnGetStringCompleted(object state) {
-            if ((this.GetStringCompleted != null)) {
+        private void OnTestCompleted(object state) {
+            if ((this.TestCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetStringCompleted(this, new GetStringCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.TestCompleted(this, new TestCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void GetStringAsync() {
-            this.GetStringAsync(null);
+        public void TestAsync() {
+            this.TestAsync(null);
         }
         
-        public void GetStringAsync(object userState) {
-            if ((this.onBeginGetStringDelegate == null)) {
-                this.onBeginGetStringDelegate = new BeginOperationDelegate(this.OnBeginGetString);
+        public void TestAsync(object userState) {
+            if ((this.onBeginTestDelegate == null)) {
+                this.onBeginTestDelegate = new BeginOperationDelegate(this.OnBeginTest);
             }
-            if ((this.onEndGetStringDelegate == null)) {
-                this.onEndGetStringDelegate = new EndOperationDelegate(this.OnEndGetString);
+            if ((this.onEndTestDelegate == null)) {
+                this.onEndTestDelegate = new EndOperationDelegate(this.OnEndTest);
             }
-            if ((this.onGetStringCompletedDelegate == null)) {
-                this.onGetStringCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetStringCompleted);
+            if ((this.onTestCompletedDelegate == null)) {
+                this.onTestCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnTestCompleted);
             }
-            base.InvokeAsync(this.onBeginGetStringDelegate, null, this.onEndGetStringDelegate, this.onGetStringCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginTestDelegate, null, this.onEndTestDelegate, this.onTestCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult MobileApp.ServiceReference1.IBLService.BeginSearch(string itemName, System.Collections.Generic.List<object> itemList, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSearch(itemName, itemList, callback, asyncState);
+        System.IAsyncResult MobileApp.ServiceReference1.IBLService.BeginSearch(string itemName, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSearch(itemName, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -452,8 +507,7 @@ namespace MobileApp.ServiceReference1 {
         
         private System.IAsyncResult OnBeginSearch(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string itemName = ((string)(inValues[0]));
-            System.Collections.Generic.List<object> itemList = ((System.Collections.Generic.List<object>)(inValues[1]));
-            return ((MobileApp.ServiceReference1.IBLService)(this)).BeginSearch(itemName, itemList, callback, asyncState);
+            return ((MobileApp.ServiceReference1.IBLService)(this)).BeginSearch(itemName, callback, asyncState);
         }
         
         private object[] OnEndSearch(System.IAsyncResult result) {
@@ -469,11 +523,11 @@ namespace MobileApp.ServiceReference1 {
             }
         }
         
-        public void SearchAsync(string itemName, System.Collections.Generic.List<object> itemList) {
-            this.SearchAsync(itemName, itemList, null);
+        public void SearchAsync(string itemName) {
+            this.SearchAsync(itemName, null);
         }
         
-        public void SearchAsync(string itemName, System.Collections.Generic.List<object> itemList, object userState) {
+        public void SearchAsync(string itemName, object userState) {
             if ((this.onBeginSearchDelegate == null)) {
                 this.onBeginSearchDelegate = new BeginOperationDelegate(this.OnBeginSearch);
             }
@@ -484,8 +538,7 @@ namespace MobileApp.ServiceReference1 {
                 this.onSearchCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSearchCompleted);
             }
             base.InvokeAsync(this.onBeginSearchDelegate, new object[] {
-                        itemName,
-                        itemList}, this.onEndSearchDelegate, this.onSearchCompletedDelegate, userState);
+                        itemName}, this.onEndSearchDelegate, this.onSearchCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -614,22 +667,34 @@ namespace MobileApp.ServiceReference1 {
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetString(System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[0];
-                System.IAsyncResult _result = base.BeginInvoke("GetString", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public string EndGetString(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("GetString", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginSearch(string itemName, System.Collections.Generic.List<object> itemList, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginPost(System.Collections.Generic.List<MobileApp.ServiceReference1.Product> products, MobileApp.ServiceReference1.Shop shop, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[2];
+                _args[0] = products;
+                _args[1] = shop;
+                System.IAsyncResult _result = base.BeginInvoke("Post", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndPost(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("Post", _args, result);
+            }
+            
+            public System.IAsyncResult BeginTest(System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[0];
+                System.IAsyncResult _result = base.BeginInvoke("Test", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndTest(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("Test", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginSearch(string itemName, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
                 _args[0] = itemName;
-                _args[1] = itemList;
                 System.IAsyncResult _result = base.BeginInvoke("Search", _args, callback, asyncState);
                 return _result;
             }

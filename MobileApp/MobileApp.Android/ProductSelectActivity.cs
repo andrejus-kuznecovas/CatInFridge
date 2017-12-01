@@ -13,8 +13,8 @@ using MobileApp.ServiceReference1;
 
 namespace MobileApp.Droid
 {
-    [Activity(Label = "ShopSelectActivity")]
-    public class ShopSelectActivity : Activity
+    [Activity(Label = "ProductSelectActivity")]
+    public class ProductSelectActivity : Activity
     {
         List<string> listItems = new List<string>();
         ArrayAdapter<String> adapter;
@@ -22,31 +22,24 @@ namespace MobileApp.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.ShopSelect);
+            SetContentView(Resource.Layout.ProductSelect);
 
-            ListView lv = (ListView)FindViewById(Resource.Id.listViewShop);
+            ListView lv = (ListView)FindViewById(Resource.Id.listViewProduct);
             adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, listItems);
             lv.Adapter = adapter;
 
-            Button backBtn = (Button)FindViewById(Resource.Id.buttonBack);
-
-            backBtn.Click += delegate
-            {
-                StartActivity(typeof(EditActivity));
-            };
-
-            foreach (Shop shop in Main.shops)
-                adapter.Add(shop.Name);
+            foreach (Product p in Main.products)
+                adapter.Add(p.Name);
 
             lv.ItemClick += listView_ItemClick;
+
         }
 
         void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             string item = adapter.GetItem(e.Position);
-            Main.wcf.PostAsync(Main.products, new Shop() { Name = item });
-            StartActivity(typeof(ProductSelectActivity));
+            Main.wcf.SearchAsync(item);
+            StartActivity(typeof(ProductResultActivity));
         }
-
     }
 }

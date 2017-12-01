@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BLService" />
-  <xs:import schemaLocation="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="GetPrices">
     <xs:complexType>
       <xs:sequence>
@@ -28,15 +27,28 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetString">
+  <xs:element name="Post">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="products" nillable="true" type="q3:ArrayOfProduct" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="shop" nillable="true" type="q4:Shop" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetStringResponse">
+  <xs:element name="Test">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetStringResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TestResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -44,14 +56,13 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="itemName" nillable="true" type="xs:string" />
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="itemList" nillable="true" type="q3:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SearchResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="SearchResult" nillable="true" type="q4:ArrayOfProduct" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="SearchResult" nillable="true" type="q5:ArrayOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

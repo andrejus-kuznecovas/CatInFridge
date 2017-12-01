@@ -5,7 +5,6 @@
       <xsd:import schemaLocation="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BLService" />
-      <xsd:import schemaLocation="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IBLService_GetPrices_InputMessage">
@@ -20,11 +19,17 @@
   <wsdl:message name="IBLService_GetShops_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetShopsResponse" />
   </wsdl:message>
-  <wsdl:message name="IBLService_GetString_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetString" />
+  <wsdl:message name="IBLService_Post_InputMessage">
+    <wsdl:part name="parameters" element="tns:Post" />
   </wsdl:message>
-  <wsdl:message name="IBLService_GetString_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetStringResponse" />
+  <wsdl:message name="IBLService_Post_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBLService_Test_InputMessage">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="IBLService_Test_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
   </wsdl:message>
   <wsdl:message name="IBLService_Search_InputMessage">
     <wsdl:part name="parameters" element="tns:Search" />
@@ -41,9 +46,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IBLService/GetShops" message="tns:IBLService_GetShops_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBLService/GetShopsResponse" message="tns:IBLService_GetShops_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetString">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBLService/GetString" message="tns:IBLService_GetString_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBLService/GetStringResponse" message="tns:IBLService_GetString_OutputMessage" />
+    <wsdl:operation name="Post">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBLService/Post" message="tns:IBLService_Post_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBLService/PostResponse" message="tns:IBLService_Post_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBLService/Test" message="tns:IBLService_Test_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBLService/TestResponse" message="tns:IBLService_Test_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Search">
       <wsdl:input wsaw:Action="http://tempuri.org/IBLService/Search" message="tns:IBLService_Search_InputMessage" />
@@ -70,8 +79,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetString">
-      <soap:operation soapAction="http://tempuri.org/IBLService/GetString" style="document" />
+    <wsdl:operation name="Post">
+      <soap:operation soapAction="http://tempuri.org/IBLService/Post" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/IBLService/Test" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

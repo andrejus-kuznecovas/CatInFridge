@@ -13,8 +13,8 @@ using MobileApp.ServiceReference1;
 
 namespace MobileApp.Droid
 {
-    [Activity(Label = "ShopSelectActivity")]
-    public class ShopSelectActivity : Activity
+    [Activity(Label = "ProductResultActivity")]
+    public class ProductResultActivity : Activity
     {
         List<string> listItems = new List<string>();
         ArrayAdapter<String> adapter;
@@ -30,23 +30,11 @@ namespace MobileApp.Droid
 
             Button backBtn = (Button)FindViewById(Resource.Id.buttonBack);
 
-            backBtn.Click += delegate
-            {
-                StartActivity(typeof(EditActivity));
-            };
+            backBtn.Click += (e, a) => StartActivity(typeof(ProductSelectActivity));
 
-            foreach (Shop shop in Main.shops)
-                adapter.Add(shop.Name);
-
-            lv.ItemClick += listView_ItemClick;
+            Main.wcf.SearchCompleted += (s, e) => {
+                foreach(Product p in e.Result)
+                    adapter.Add(p.Name + "|" + p.Price); };
         }
-
-        void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
-            string item = adapter.GetItem(e.Position);
-            Main.wcf.PostAsync(Main.products, new Shop() { Name = item });
-            StartActivity(typeof(ProductSelectActivity));
-        }
-
     }
 }

@@ -1,40 +1,21 @@
 ﻿using MobileApp.ServiceReference1;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.ServiceModel;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace MobileApp
 {
-    public class Main : Page
+    public static class Main
     {
-        String s;
-        List<Shop> str;
-        public BLServiceClient wcf;
-
-        public Main()
-        {
-
-            wcf = new BLServiceClient();
-            wcf.GetShopsCompleted += Wcf_GetShopsCompleted;
-            wcf.GetStringCompleted += Wcf_GetStringCompleted;
-            wcf.GetStringAsync();
-
-            
-        }
+        public static List<Shop> shops;
+        public static List<Product> products;
+        static public BLServiceClient wcf;
         
 
-        private void Wcf_GetShopsCompleted(object sender, GetShopsCompletedEventArgs e)
+        public static void InitMain()
         {
-            object str = e.Result;
-        }
-
-        private void Wcf_GetStringCompleted(object sender, GetStringCompletedEventArgs e)
-        {
-            s = e.Result;
+            wcf = new BLServiceClient();
+            wcf.GetShopsCompleted += (s, e) => { shops = e.Result; };
+            wcf.GetShopsAsync();
         }
 
     }
