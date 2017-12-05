@@ -91,7 +91,7 @@
   </wsdl:binding>
   <wsdl:service name="BLService">
     <wsdl:port name="BasicHttpBinding_IBLService" binding="tns:BasicHttpBinding_IBLService">
-      <soap:address location="http://localhost:51434/BLService.svc/BLService" />
+      <soap:address location="http://localhost:51868/BLService.svc/BLService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

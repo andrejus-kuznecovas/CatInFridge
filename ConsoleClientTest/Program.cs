@@ -19,7 +19,8 @@ namespace ConsoleClientTest
                 new Product() { Name = "BBBBBB", Price = "2" }
             };
 
-            client.Post(p, new Shop() { Name = "MAXIMA" });
+            //client.Post(p, new Shop() { Name = "MAXIMA" });
+            Console.WriteLine(client.GetShops().ElementAt(0));
 
             Console.ReadKey();
         }

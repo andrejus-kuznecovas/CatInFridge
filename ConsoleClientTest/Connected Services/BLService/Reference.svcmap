@@ -19,7 +19,7 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:51434/BLService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:51868/BLService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="94c74b3c-f322-4f4a-9e5c-5f5f8fd8b68c" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?disco" />
