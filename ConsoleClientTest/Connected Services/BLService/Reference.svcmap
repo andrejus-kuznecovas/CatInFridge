@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2602beea-c5f9-4754-b4cf-e480bcc0e447" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="04a3b508-85c0-4950-b117-13ad9d8dbec1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:51434/BLService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:51868/BLService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="BLService.xsd" MetadataType="Schema" ID="62879c3a-17cd-4e37-beb0-105ee50abaff" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd2" />
-    <MetadataFile FileName="BLService1.xsd" MetadataType="Schema" ID="de47b3e9-752a-45af-8ab5-e4a2b8a4f5f4" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd1" />
-    <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="e7fc67a4-3fa2-4470-a46a-b36ea049ab94" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd0" />
-    <MetadataFile FileName="BLService.wsdl" MetadataType="Wsdl" ID="f0ec9c40-bbaf-4fc6-8fed-4392a49a78ce" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?wsdl" />
-    <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="729b80c7-4128-4fba-87f1-23c069fa35e5" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?disco" />
+    <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="94c74b3c-f322-4f4a-9e5c-5f5f8fd8b68c" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?disco" />
+    <MetadataFile FileName="BLService.xsd" MetadataType="Schema" ID="5b5afd8a-e1b8-4a0d-b679-4750bb839539" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BLService1.xsd" MetadataType="Schema" ID="94a9de76-0ed1-4849-8c0c-f6fcefb949e6" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="a02350fc-b22c-4caf-a459-40db81ce8586" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BLService3.xsd" MetadataType="Schema" ID="57a8e6c4-622e-41ed-8a1e-37a5d22d04dc" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BLService.wsdl" MetadataType="Wsdl" ID="4717a62e-8949-4247-a61a-40b6bc980bd4" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
