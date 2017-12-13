@@ -74,15 +74,100 @@ namespace Client.BLService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Shop", Namespace="http://schemas.datacontract.org/2004/07/BLService")]
+    [System.SerializableAttribute()]
+    public partial class Shop : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BLService.IBLService")]
     public interface IBLService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetPrices", ReplyAction="http://tempuri.org/IBLService/GetPricesResponse")]
-        System.Collections.Generic.List<Client.BLService.Product> GetPrices(string imageLoc);
+        System.Collections.Generic.List<Client.BLService.Product> GetPrices(byte[] image);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetPrices", ReplyAction="http://tempuri.org/IBLService/GetPricesResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Product>> GetPricesAsync(string imageLoc);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Product>> GetPricesAsync(byte[] image);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetShops", ReplyAction="http://tempuri.org/IBLService/GetShopsResponse")]
+        System.Collections.Generic.List<Client.BLService.Shop> GetShops();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetShops", ReplyAction="http://tempuri.org/IBLService/GetShopsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Shop>> GetShopsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Post", ReplyAction="http://tempuri.org/IBLService/PostResponse")]
+        void Post(System.Collections.Generic.List<Client.BLService.Product> products, Client.BLService.Shop shop);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Post", ReplyAction="http://tempuri.org/IBLService/PostResponse")]
+        System.Threading.Tasks.Task PostAsync(System.Collections.Generic.List<Client.BLService.Product> products, Client.BLService.Shop shop);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Test", ReplyAction="http://tempuri.org/IBLService/TestResponse")]
+        string Test();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Test", ReplyAction="http://tempuri.org/IBLService/TestResponse")]
+        System.Threading.Tasks.Task<string> TestAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Search", ReplyAction="http://tempuri.org/IBLService/SearchResponse")]
+        System.Collections.Generic.List<Client.BLService.Product> Search(string itemName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Search", ReplyAction="http://tempuri.org/IBLService/SearchResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Product>> SearchAsync(string itemName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -112,12 +197,44 @@ namespace Client.BLService {
                 base(binding, remoteAddress) {
         }
         
-        public System.Collections.Generic.List<Client.BLService.Product> GetPrices(string imageLoc) {
-            return base.Channel.GetPrices(imageLoc);
+        public System.Collections.Generic.List<Client.BLService.Product> GetPrices(byte[] image) {
+            return base.Channel.GetPrices(image);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Product>> GetPricesAsync(string imageLoc) {
-            return base.Channel.GetPricesAsync(imageLoc);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Product>> GetPricesAsync(byte[] image) {
+            return base.Channel.GetPricesAsync(image);
+        }
+        
+        public System.Collections.Generic.List<Client.BLService.Shop> GetShops() {
+            return base.Channel.GetShops();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Shop>> GetShopsAsync() {
+            return base.Channel.GetShopsAsync();
+        }
+        
+        public void Post(System.Collections.Generic.List<Client.BLService.Product> products, Client.BLService.Shop shop) {
+            base.Channel.Post(products, shop);
+        }
+        
+        public System.Threading.Tasks.Task PostAsync(System.Collections.Generic.List<Client.BLService.Product> products, Client.BLService.Shop shop) {
+            return base.Channel.PostAsync(products, shop);
+        }
+        
+        public string Test() {
+            return base.Channel.Test();
+        }
+        
+        public System.Threading.Tasks.Task<string> TestAsync() {
+            return base.Channel.TestAsync();
+        }
+        
+        public System.Collections.Generic.List<Client.BLService.Product> Search(string itemName) {
+            return base.Channel.Search(itemName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Product>> SearchAsync(string itemName) {
+            return base.Channel.SearchAsync(itemName);
         }
     }
 }

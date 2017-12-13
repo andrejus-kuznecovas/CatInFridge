@@ -27,7 +27,7 @@ namespace BLService
                 return null;*/
 
             HtmlDocument html = new HtmlDocument();
-            html.Load(@"D:\testing.html");
+            html.Load(@"C:\testing.html");
 
             HtmlNode checkmark = GetLineOfPVMKodas(html);
             if (checkmark == null)

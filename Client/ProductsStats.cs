@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 /*CLIENT EXAMPLE*/
 /*while adding service reference go to advanced and select System.Collections.Generic.List*/
@@ -27,7 +28,13 @@ namespace Client
             }
 
             BLService.BLServiceClient client = new BLService.BLServiceClient(); //may need to specify binding here: ... = new BLService.BLServiceClient(basiHttpBinding_IBLService);
-            List<BLService.Product> productsList = client.GetPrices(openedPictureTxt.Text);
+
+            Bitmap img = new Bitmap(openedPictureTxt.Text);
+            MemoryStream stream = new MemoryStream();
+            img.Save(stream, img.RawFormat);
+            byte[] result = stream.ToArray();
+
+            List<BLService.Product> productsList = client.GetPrices(result);
 
             itemListView1.View = View.Details;
             itemListView1.GridLines = true;

@@ -36,6 +36,18 @@ namespace BLService
 
         [DataMember]
         public string Price { get; set; }
+
+        [DataMember]
+        public Cat Category { get; set; }
+
+        [DataMember]
+        public DateTime Date { get; set }
+    }
+
+    [DataContract]
+    public enum Cat
+    {
+        MEAT, VEGETABLES_FRUITS, DAIRY, DRINKS, ALCOHOL, BREAD, SWEETS, OTHER, UNRECOGNIZED
     }
 
     [DataContract]
@@ -47,4 +59,5 @@ namespace BLService
         [DataMember]
         public string Name { get; set; }
     }
+
 }
