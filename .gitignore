@@ -286,7 +286,7 @@ __pycache__/
 *.pyc
 =======
 *.pyc
-© 2017 GitHub, Inc.
+ï¿½ 2017 GitHub, Inc.
 Terms
 Privacy
 Security
@@ -299,3 +299,10 @@ Shop
 Blog
 About
 >>>>>>> api_branch
+ConsoleClientTest/Connected Services/ServiceReference1/ConsoleClientTest.ServiceReference1.Shop.datasource
+ConsoleClientTest/Connected Services/ServiceReference1/ConsoleClientTest.ServiceReference1.Product.datasource
+ConsoleClientTest/Connected Services/ServiceReference1/BLService2.xsd
+ConsoleClientTest/Connected Services/ServiceReference1/BLService1.xsd
+ConsoleClientTest/Connected Services/ServiceReference1/BLService.xsd
+ConsoleClientTest/Connected Services/ServiceReference1/BLService.wsdl
+ConsoleClientTest/Connected Services/ServiceReference1/BLService.disco

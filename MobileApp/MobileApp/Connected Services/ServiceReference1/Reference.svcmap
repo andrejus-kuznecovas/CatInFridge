@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d211b86f-cb05-450d-9c7c-a9eb41deecdb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="75ca9258-9dc9-4b09-98c9-daa8175d0ad7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -20,14 +20,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://192.168.11.204/BLService/BLService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://desktop-iu70sn1/BLService/BLService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="BLService.xsd" MetadataType="Schema" ID="f39b6cd0-f7e7-4854-94ed-006d39e27618" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd0" />
-    <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="8a1903a7-d0c3-4340-9e64-0a1bd7c5a3b7" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?disco" />
-    <MetadataFile FileName="BLService.wsdl" MetadataType="Wsdl" ID="613c3bf6-fa58-434c-bb64-21bb0190deff" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?wsdl" />
-    <MetadataFile FileName="BLService1.xsd" MetadataType="Schema" ID="7148e1d2-3217-4324-8d30-2921dd3c5b1a" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd1" />
-    <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="f3d780d7-fc54-47fc-b598-57a9113db297" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BLService.xsd" MetadataType="Schema" ID="e3019b6e-cc98-46c8-9241-f1e0c7606153" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="8178013d-daa4-459f-81c9-d2ff0aa59639" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?disco" />
+    <MetadataFile FileName="BLService.wsdl" MetadataType="Wsdl" ID="ef251c15-452b-48d1-bf61-adeeca2bd07d" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?wsdl" />
+    <MetadataFile FileName="BLService1.xsd" MetadataType="Schema" ID="eb07b1b5-1673-4ef8-932f-49cea2739698" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="3942e355-519e-4414-a21e-2efea3848821" SourceId="1" SourceUrl="http://desktop-iu70sn1/BLService/BLService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
+    <configSections>
+    </configSections>
     <startup> 
         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
     </startup>
-    <system.serviceModel>
-        <bindings>
-            <basicHttpBinding>
-                <binding name="BasicHttpBinding_IBLService" />
-            </basicHttpBinding>
-        </bindings>
-        <client>
-            <endpoint address="http://172.24.2.108/BLService.svc/BLService"
-                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IBLService"
-                contract="BLService.IBLService" name="BasicHttpBinding_IBLService" />
-        </client>
-    </system.serviceModel>
 </configuration>
