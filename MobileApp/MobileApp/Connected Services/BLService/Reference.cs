@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MobileApp.ServiceReference1 {
+namespace MobileApp.BLService {
     using System.Runtime.Serialization;
     
     
@@ -17,9 +17,39 @@ namespace MobileApp.ServiceReference1 {
     [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="http://schemas.datacontract.org/2004/07/BLService")]
     public partial class Product : object, System.ComponentModel.INotifyPropertyChanged {
         
+        private string CategoryField;
+        
+        private System.DateTime DateField;
+        
         private string NameField;
         
         private string PriceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Date {
+            get {
+                return this.DateField;
+            }
+            set {
+                if ((this.DateField.Equals(value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
@@ -103,21 +133,21 @@ namespace MobileApp.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IBLService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BLService.IBLService")]
     public interface IBLService {
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/GetPrices", ReplyAction="http://tempuri.org/IBLService/GetPricesResponse")]
         System.IAsyncResult BeginGetPrices(byte[] image, System.AsyncCallback callback, object asyncState);
         
-        System.Collections.Generic.List<MobileApp.ServiceReference1.Product> EndGetPrices(System.IAsyncResult result);
+        System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> EndGetPrices(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/GetShops", ReplyAction="http://tempuri.org/IBLService/GetShopsResponse")]
         System.IAsyncResult BeginGetShops(System.AsyncCallback callback, object asyncState);
         
-        System.Collections.Generic.List<MobileApp.ServiceReference1.Shop> EndGetShops(System.IAsyncResult result);
+        System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Shop> EndGetShops(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/Post", ReplyAction="http://tempuri.org/IBLService/PostResponse")]
-        System.IAsyncResult BeginPost(System.Collections.Generic.List<MobileApp.ServiceReference1.Product> products, MobileApp.ServiceReference1.Shop shop, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginPost(System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> products, MobileApp.BLService.Shop shop, System.AsyncCallback callback, object asyncState);
         
         void EndPost(System.IAsyncResult result);
         
@@ -129,11 +159,11 @@ namespace MobileApp.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/Search", ReplyAction="http://tempuri.org/IBLService/SearchResponse")]
         System.IAsyncResult BeginSearch(string itemName, System.AsyncCallback callback, object asyncState);
         
-        System.Collections.Generic.List<MobileApp.ServiceReference1.Product> EndSearch(System.IAsyncResult result);
+        System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> EndSearch(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IBLServiceChannel : MobileApp.ServiceReference1.IBLService, System.ServiceModel.IClientChannel {
+    public interface IBLServiceChannel : MobileApp.BLService.IBLService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -147,10 +177,10 @@ namespace MobileApp.ServiceReference1 {
             this.results = results;
         }
         
-        public System.Collections.Generic.List<MobileApp.ServiceReference1.Product> Result {
+        public System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.Generic.List<MobileApp.ServiceReference1.Product>)(this.results[0]));
+                return ((System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product>)(this.results[0]));
             }
         }
     }
@@ -166,10 +196,10 @@ namespace MobileApp.ServiceReference1 {
             this.results = results;
         }
         
-        public System.Collections.Generic.List<MobileApp.ServiceReference1.Shop> Result {
+        public System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Shop> Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.Generic.List<MobileApp.ServiceReference1.Shop>)(this.results[0]));
+                return ((System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Shop>)(this.results[0]));
             }
         }
     }
@@ -204,17 +234,17 @@ namespace MobileApp.ServiceReference1 {
             this.results = results;
         }
         
-        public System.Collections.Generic.List<MobileApp.ServiceReference1.Product> Result {
+        public System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.Generic.List<MobileApp.ServiceReference1.Product>)(this.results[0]));
+                return ((System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product>)(this.results[0]));
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class BLServiceClient : System.ServiceModel.ClientBase<MobileApp.ServiceReference1.IBLService>, MobileApp.ServiceReference1.IBLService {
+    public partial class BLServiceClient : System.ServiceModel.ClientBase<MobileApp.BLService.IBLService>, MobileApp.BLService.IBLService {
         
         private BeginOperationDelegate onBeginGetPricesDelegate;
         
@@ -315,22 +345,22 @@ namespace MobileApp.ServiceReference1 {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult MobileApp.ServiceReference1.IBLService.BeginGetPrices(byte[] image, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult MobileApp.BLService.IBLService.BeginGetPrices(byte[] image, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetPrices(image, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.Generic.List<MobileApp.ServiceReference1.Product> MobileApp.ServiceReference1.IBLService.EndGetPrices(System.IAsyncResult result) {
+        System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> MobileApp.BLService.IBLService.EndGetPrices(System.IAsyncResult result) {
             return base.Channel.EndGetPrices(result);
         }
         
         private System.IAsyncResult OnBeginGetPrices(object[] inValues, System.AsyncCallback callback, object asyncState) {
             byte[] image = ((byte[])(inValues[0]));
-            return ((MobileApp.ServiceReference1.IBLService)(this)).BeginGetPrices(image, callback, asyncState);
+            return ((MobileApp.BLService.IBLService)(this)).BeginGetPrices(image, callback, asyncState);
         }
         
         private object[] OnEndGetPrices(System.IAsyncResult result) {
-            System.Collections.Generic.List<MobileApp.ServiceReference1.Product> retVal = ((MobileApp.ServiceReference1.IBLService)(this)).EndGetPrices(result);
+            System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> retVal = ((MobileApp.BLService.IBLService)(this)).EndGetPrices(result);
             return new object[] {
                     retVal};
         }
@@ -361,21 +391,21 @@ namespace MobileApp.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult MobileApp.ServiceReference1.IBLService.BeginGetShops(System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult MobileApp.BLService.IBLService.BeginGetShops(System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetShops(callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.Generic.List<MobileApp.ServiceReference1.Shop> MobileApp.ServiceReference1.IBLService.EndGetShops(System.IAsyncResult result) {
+        System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Shop> MobileApp.BLService.IBLService.EndGetShops(System.IAsyncResult result) {
             return base.Channel.EndGetShops(result);
         }
         
         private System.IAsyncResult OnBeginGetShops(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            return ((MobileApp.ServiceReference1.IBLService)(this)).BeginGetShops(callback, asyncState);
+            return ((MobileApp.BLService.IBLService)(this)).BeginGetShops(callback, asyncState);
         }
         
         private object[] OnEndGetShops(System.IAsyncResult result) {
-            System.Collections.Generic.List<MobileApp.ServiceReference1.Shop> retVal = ((MobileApp.ServiceReference1.IBLService)(this)).EndGetShops(result);
+            System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Shop> retVal = ((MobileApp.BLService.IBLService)(this)).EndGetShops(result);
             return new object[] {
                     retVal};
         }
@@ -405,23 +435,23 @@ namespace MobileApp.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult MobileApp.ServiceReference1.IBLService.BeginPost(System.Collections.Generic.List<MobileApp.ServiceReference1.Product> products, MobileApp.ServiceReference1.Shop shop, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult MobileApp.BLService.IBLService.BeginPost(System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> products, MobileApp.BLService.Shop shop, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginPost(products, shop, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void MobileApp.ServiceReference1.IBLService.EndPost(System.IAsyncResult result) {
+        void MobileApp.BLService.IBLService.EndPost(System.IAsyncResult result) {
             base.Channel.EndPost(result);
         }
         
         private System.IAsyncResult OnBeginPost(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            System.Collections.Generic.List<MobileApp.ServiceReference1.Product> products = ((System.Collections.Generic.List<MobileApp.ServiceReference1.Product>)(inValues[0]));
-            MobileApp.ServiceReference1.Shop shop = ((MobileApp.ServiceReference1.Shop)(inValues[1]));
-            return ((MobileApp.ServiceReference1.IBLService)(this)).BeginPost(products, shop, callback, asyncState);
+            System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> products = ((System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product>)(inValues[0]));
+            MobileApp.BLService.Shop shop = ((MobileApp.BLService.Shop)(inValues[1]));
+            return ((MobileApp.BLService.IBLService)(this)).BeginPost(products, shop, callback, asyncState);
         }
         
         private object[] OnEndPost(System.IAsyncResult result) {
-            ((MobileApp.ServiceReference1.IBLService)(this)).EndPost(result);
+            ((MobileApp.BLService.IBLService)(this)).EndPost(result);
             return null;
         }
         
@@ -432,11 +462,11 @@ namespace MobileApp.ServiceReference1 {
             }
         }
         
-        public void PostAsync(System.Collections.Generic.List<MobileApp.ServiceReference1.Product> products, MobileApp.ServiceReference1.Shop shop) {
+        public void PostAsync(System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> products, MobileApp.BLService.Shop shop) {
             this.PostAsync(products, shop, null);
         }
         
-        public void PostAsync(System.Collections.Generic.List<MobileApp.ServiceReference1.Product> products, MobileApp.ServiceReference1.Shop shop, object userState) {
+        public void PostAsync(System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> products, MobileApp.BLService.Shop shop, object userState) {
             if ((this.onBeginPostDelegate == null)) {
                 this.onBeginPostDelegate = new BeginOperationDelegate(this.OnBeginPost);
             }
@@ -452,21 +482,21 @@ namespace MobileApp.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult MobileApp.ServiceReference1.IBLService.BeginTest(System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult MobileApp.BLService.IBLService.BeginTest(System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginTest(callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string MobileApp.ServiceReference1.IBLService.EndTest(System.IAsyncResult result) {
+        string MobileApp.BLService.IBLService.EndTest(System.IAsyncResult result) {
             return base.Channel.EndTest(result);
         }
         
         private System.IAsyncResult OnBeginTest(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            return ((MobileApp.ServiceReference1.IBLService)(this)).BeginTest(callback, asyncState);
+            return ((MobileApp.BLService.IBLService)(this)).BeginTest(callback, asyncState);
         }
         
         private object[] OnEndTest(System.IAsyncResult result) {
-            string retVal = ((MobileApp.ServiceReference1.IBLService)(this)).EndTest(result);
+            string retVal = ((MobileApp.BLService.IBLService)(this)).EndTest(result);
             return new object[] {
                     retVal};
         }
@@ -496,22 +526,22 @@ namespace MobileApp.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult MobileApp.ServiceReference1.IBLService.BeginSearch(string itemName, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult MobileApp.BLService.IBLService.BeginSearch(string itemName, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginSearch(itemName, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.Generic.List<MobileApp.ServiceReference1.Product> MobileApp.ServiceReference1.IBLService.EndSearch(System.IAsyncResult result) {
+        System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> MobileApp.BLService.IBLService.EndSearch(System.IAsyncResult result) {
             return base.Channel.EndSearch(result);
         }
         
         private System.IAsyncResult OnBeginSearch(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string itemName = ((string)(inValues[0]));
-            return ((MobileApp.ServiceReference1.IBLService)(this)).BeginSearch(itemName, callback, asyncState);
+            return ((MobileApp.BLService.IBLService)(this)).BeginSearch(itemName, callback, asyncState);
         }
         
         private object[] OnEndSearch(System.IAsyncResult result) {
-            System.Collections.Generic.List<MobileApp.ServiceReference1.Product> retVal = ((MobileApp.ServiceReference1.IBLService)(this)).EndSearch(result);
+            System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> retVal = ((MobileApp.BLService.IBLService)(this)).EndSearch(result);
             return new object[] {
                     retVal};
         }
@@ -607,7 +637,7 @@ namespace MobileApp.ServiceReference1 {
             base.InvokeAsync(this.onBeginCloseDelegate, null, this.onEndCloseDelegate, this.onCloseCompletedDelegate, userState);
         }
         
-        protected override MobileApp.ServiceReference1.IBLService CreateChannel() {
+        protected override MobileApp.BLService.IBLService CreateChannel() {
             return new BLServiceClientChannel(this);
         }
         
@@ -623,7 +653,7 @@ namespace MobileApp.ServiceReference1 {
         
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration) {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IBLService)) {
-                return new System.ServiceModel.EndpointAddress("http://desktop-iu70sn1/BLService/BLService.svc/BLService");
+                return new System.ServiceModel.EndpointAddress("http://horse/BLService/BLService.svc/BLService");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
@@ -636,9 +666,9 @@ namespace MobileApp.ServiceReference1 {
             return BLServiceClient.GetEndpointAddress(EndpointConfiguration.BasicHttpBinding_IBLService);
         }
         
-        private class BLServiceClientChannel : ChannelBase<MobileApp.ServiceReference1.IBLService>, MobileApp.ServiceReference1.IBLService {
+        private class BLServiceClientChannel : ChannelBase<MobileApp.BLService.IBLService>, MobileApp.BLService.IBLService {
             
-            public BLServiceClientChannel(System.ServiceModel.ClientBase<MobileApp.ServiceReference1.IBLService> client) : 
+            public BLServiceClientChannel(System.ServiceModel.ClientBase<MobileApp.BLService.IBLService> client) : 
                     base(client) {
             }
             
@@ -649,9 +679,9 @@ namespace MobileApp.ServiceReference1 {
                 return _result;
             }
             
-            public System.Collections.Generic.List<MobileApp.ServiceReference1.Product> EndGetPrices(System.IAsyncResult result) {
+            public System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> EndGetPrices(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                System.Collections.Generic.List<MobileApp.ServiceReference1.Product> _result = ((System.Collections.Generic.List<MobileApp.ServiceReference1.Product>)(base.EndInvoke("GetPrices", _args, result)));
+                System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> _result = ((System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product>)(base.EndInvoke("GetPrices", _args, result)));
                 return _result;
             }
             
@@ -661,13 +691,13 @@ namespace MobileApp.ServiceReference1 {
                 return _result;
             }
             
-            public System.Collections.Generic.List<MobileApp.ServiceReference1.Shop> EndGetShops(System.IAsyncResult result) {
+            public System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Shop> EndGetShops(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                System.Collections.Generic.List<MobileApp.ServiceReference1.Shop> _result = ((System.Collections.Generic.List<MobileApp.ServiceReference1.Shop>)(base.EndInvoke("GetShops", _args, result)));
+                System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Shop> _result = ((System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Shop>)(base.EndInvoke("GetShops", _args, result)));
                 return _result;
             }
             
-            public System.IAsyncResult BeginPost(System.Collections.Generic.List<MobileApp.ServiceReference1.Product> products, MobileApp.ServiceReference1.Shop shop, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginPost(System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> products, MobileApp.BLService.Shop shop, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[2];
                 _args[0] = products;
                 _args[1] = shop;
@@ -699,9 +729,9 @@ namespace MobileApp.ServiceReference1 {
                 return _result;
             }
             
-            public System.Collections.Generic.List<MobileApp.ServiceReference1.Product> EndSearch(System.IAsyncResult result) {
+            public System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> EndSearch(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                System.Collections.Generic.List<MobileApp.ServiceReference1.Product> _result = ((System.Collections.Generic.List<MobileApp.ServiceReference1.Product>)(base.EndInvoke("Search", _args, result)));
+                System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product> _result = ((System.Collections.ObjectModel.ObservableCollection<MobileApp.BLService.Product>)(base.EndInvoke("Search", _args, result)));
                 return _result;
             }
         }

@@ -8,11 +8,17 @@
   <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
   <xs:complexType name="Product">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Category" type="tns:Cat" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Price" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:simpleType name="Cat">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:element name="Cat" nillable="true" type="tns:Cat" />
   <xs:complexType name="ArrayOfShop">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Shop" nillable="true" type="tns:Shop" />

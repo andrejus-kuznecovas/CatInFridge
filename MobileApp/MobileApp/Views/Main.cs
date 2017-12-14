@@ -1,5 +1,4 @@
-﻿using MobileApp.ServiceReference1;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace MobileApp
@@ -7,6 +6,7 @@ namespace MobileApp
     public static class Main
     {
         public static List<Shop> shops;
+        //public static List<Cat> categories;
         public static List<Product> products;
         static public BLServiceClient wcf;
         
@@ -15,6 +15,8 @@ namespace MobileApp
         {
             wcf = new BLServiceClient();
             wcf.GetShopsCompleted += (s, e) => { shops = e.Result; };
+            wcf.GetShopsAsync();
+           // wcf.GetCategoriesCompleted += (s, e) => { shops = e.Result; };
             wcf.GetShopsAsync();
         }
 

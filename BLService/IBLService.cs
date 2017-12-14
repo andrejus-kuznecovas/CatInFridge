@@ -41,7 +41,7 @@ namespace BLService
         public Cat Category { get; set; }
 
         [DataMember]
-        public DateTime Date { get; set }
+        public DateTime Date { get; set; }
     }
 
     [DataContract]
