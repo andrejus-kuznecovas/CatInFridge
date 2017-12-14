@@ -17,6 +17,8 @@ namespace BLService
     public class BLService : IBLService
     {
         Repository repository;
+        private static string[] categories = { "MEAT", "VEGETABLES_FRUITS", "DAIRY", "DRINKS", "ALCOHOL", "BREAD", "SWEETS", "OTHER", "UNRECOGNIZED" };
+        private static string[] shops = { "Maxima", "Iki", "Rimi", "Norfa" };
 
         List<Product> IBLService.GetPrices(byte[] image)
         {
@@ -49,9 +51,9 @@ namespace BLService
                 {
                     product = lineNode.InnerText.Substring(0, match.Index);
                     newProduct.Name = product;
-                    newProduct.Price = match.Value;
+                    newProduct.Price = Convert.ToDouble(match.Value);
                     if (!productsList.Contains(newProduct))
-                        productsList.Add(new Product() { Name = product, Price = match.Value });
+                        productsList.Add(new Product() { Name = product, Price = Convert.ToDouble(match.Value) });
                 }
                 lineNode = lineNode.NextSibling.NextSibling;
             }
@@ -176,6 +178,159 @@ namespace BLService
             str = Regex.Replace(str, "ų", "u");
             str = Regex.Replace(str, "ū", "u");
             return str;
+        }
+
+        public Stats GetStats(List<Product> prods)
+        {
+            Stats st = new Stats();
+            st.spendingsByCategory   = FindSpendingsByCategory(prods);     
+            st.spendingsByShop       = FindSpendingsByShop(prods);
+            st.averageByCategory     = FindAvgSpendingsByCategory(prods, st.spendingsByCategory);
+            st.averageByShop         = FindAvgSpendingsByShop(prods, st.spendingsByShop);
+            //st.mostPopularByCategory = FindMostPopularByCategory(prods);
+            //st.mostPopularByShop     = FindMostPopularByShop(prods);
+            st.cheapestByCategory    = FindCheapestByCategory(prods);
+            st.cheapestByShop        = FindCheapestByShop(prods);
+            return st;
+        }
+
+        // METHODS FOR CALCULATING STATISTICS
+        public static void InitDict(Dictionary<string, double> dict, string[] strs)
+        {
+            foreach (string str in strs)
+            {
+                dict[str] = 0;
+            }
+        }
+
+        public static Dictionary<string, double> FindSpendingsByCategory(List<Product> prods)
+        {
+            Dictionary<string, double> dict = new Dictionary<string, double>();
+            InitDict(dict, categories);
+            foreach (Product product in prods)
+            {
+                foreach (string str in categories)
+                {
+                    if (product.Category.ToString().Equals(str))
+                    {
+                        dict[str] += Math.Round(Convert.ToDouble(product.Price), 2);
+                    }
+                }
+            }
+            return dict;
+        }
+
+        public static Dictionary<string, double> FindSpendingsByShop(List<Product> prods)
+        {
+            Dictionary<string, double> dict = new Dictionary<string, double>();
+            InitDict(dict, shops);
+            foreach (Product product in prods)
+            {
+                foreach (string str in shops)
+                {
+                    if (product.ProductShop.Name.Equals(str))
+                    {
+                        dict[str] += Math.Round(Convert.ToDouble(product.Price), 2);
+                    }
+                }
+            }
+            return dict;
+        }
+
+        public static Dictionary<string, double> FindAvgSpendingsByCategory(List<Product> prods, Dictionary<string, double> spendsByCat)
+        {
+            Dictionary<string, double> dict = new Dictionary<string, double>();
+            foreach (string str in categories)
+            {
+                int distinctCount = prods.Count(pr => pr.Category.ToString().Equals(str));
+                double avg = Math.Round(spendsByCat[str] / distinctCount, 2);
+                if (Double.IsNaN(avg)) avg = 0; //prevent division by zero
+                dict[str] = avg;
+            }
+            return dict;
+        }
+
+        public static Dictionary<string, double> FindAvgSpendingsByShop(List<Product> prods, Dictionary<string, double> spendingsByShop)
+        {
+            Dictionary<string, double> dict = new Dictionary<string, double>();
+            foreach (string str in shops)
+            {
+               int distinctCount = prods.Count(pr => pr.ProductShop.Name.Equals(str));
+               double avg = Math.Round(spendingsByShop[str] / distinctCount, 2);
+               if (Double.IsNaN(avg)) avg = 0; // prevent division by zero
+               dict[str] = avg;
+            }
+            return dict;
+        }
+
+        public static Dictionary<string, string> FindMostPopularByCategory(List<Product> prods)
+        {
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            foreach (string str in categories)
+            {
+              //for each category get all products that belong to the category
+              var catprods = prods.FindAll(pr => pr.Category.ToString().Equals(str));
+
+              //look for the most repeated product
+              var mostpop = catprods.GroupBy(pr => pr.Name).Where(x => x.Count() > 1).SelectMany(pr => pr).ToList();
+
+              //add to dictionary
+              dict[str] = mostpop.FirstOrDefault().Name;
+            }
+            return dict;
+        }
+
+        public static Dictionary<string, string> FindMostPopularByShop(List<Product> prods)
+        {
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            foreach (string str in shops)
+            {
+              //for each category get all products that belong to the shop
+              var shopprods = prods.FindAll(pr => pr.ProductShop.Name.Equals(str));
+
+              //look for the most repeated product
+              var mostpop = shopprods.GroupBy(pr => pr.Name).Where(x => x.Count() > 1).SelectMany(pr => pr).ToList();
+
+                //add to the dictionary
+                //dict[str] = mostpop.FirstOr().Name;
+                dict[str] = mostpop.DefaultIfEmpty(new Product() { Name = "Nera tokiu elementu" }).First().Name;
+
+            }
+            return dict;
+        }
+
+        public static Dictionary<string, Product> FindCheapestByCategory(List<Product> prods)
+        {
+            Dictionary<string, Product> dict = new Dictionary<string, Product>();
+            foreach (string str in categories)
+                {
+                    //for each category get all products that belong to the shop
+                    var catprods = prods.FindAll(pr => pr.Category.ToString().Equals(str));
+
+                    //look for the most repeated (common) product
+                    var mostpop = catprods.OrderBy(pr => pr.Price).DefaultIfEmpty(new Product() {Name = "N/A", Price = 0 }).First();
+
+                    //add to dict
+                    dict[str] = mostpop;
+                }
+            return dict;
+        }
+
+        public static Dictionary<string, Product> FindCheapestByShop(List<Product> prods)
+        {
+            Dictionary<string, Product> dict = new Dictionary<string, Product>();
+            foreach (string str in shops)
+                {
+                //for each category get all products that belong to the shop
+                var catprods = prods.FindAll(pr => pr.ProductShop.Name.Equals(str));
+
+                //look for the most cheapest
+                var mostpop = catprods.OrderBy(pr => pr.Price).DefaultIfEmpty(new Product() { Name = "N/A", Price = 0 }).First();
+          
+                //add to dict
+                dict[str] = mostpop;
+                }
+            return dict;
         }
     }
 }

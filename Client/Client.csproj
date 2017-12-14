@@ -82,10 +82,16 @@
     <None Include="Connected Services\BLService\BLService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\BLService\BLService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\BLService\Client.BLService.Product.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\BLService\Client.BLService.Shop.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\BLService\Client.BLService.Stats.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
