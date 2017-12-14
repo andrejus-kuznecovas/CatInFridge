@@ -26,9 +26,10 @@
   <Metadata>
     <MetadataFile FileName="BLService.xsd" MetadataType="Schema" ID="39d5cd35-0992-4017-81a2-ca2b940cf882" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?xsd=xsd1" />
     <MetadataFile FileName="BLService1.xsd" MetadataType="Schema" ID="7613a3ab-d634-47ee-bdd7-32c7362a6e91" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?xsd=xsd0" />
-    <MetadataFile FileName="BLService1.wsdl" MetadataType="Wsdl" ID="2c6e4a48-7993-4317-b1af-8c577954620e" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?wsdl" />
-    <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="afbb6b8d-986f-4764-b2ad-e4b95e4d14a3" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?xsd=xsd2" />
     <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="db45b342-a91f-45ac-b0a6-1b75bed67343" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?disco" />
+    <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="afbb6b8d-986f-4764-b2ad-e4b95e4d14a3" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BLService1.wsdl" MetadataType="Wsdl" ID="2c6e4a48-7993-4317-b1af-8c577954620e" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?wsdl" />
+    <MetadataFile FileName="BLService3.xsd" MetadataType="Schema" ID="5384a69a-5b8b-4506-bd7a-cf9102cfb1b6" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

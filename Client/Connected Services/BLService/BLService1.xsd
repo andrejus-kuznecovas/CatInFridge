@@ -66,4 +66,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetStats">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="prods" nillable="true" type="q6:ArrayOfProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="GetStatsResult" nillable="true" type="q7:Stats" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
