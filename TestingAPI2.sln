@@ -14,6 +14,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileApp.iOS", "MobileApp\MobileApp.iOS\MobileApp.iOS.csproj", "{0FDABCF3-4401-4957-AB83-C66BDA887F70}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLService", "BLService\BLService.csproj", "{4CE91409-708C-4B46-AAA2-AB47B24A674B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D282D1C3-D296-43A0-8EC1-44FB827875C9} = {D282D1C3-D296-43A0-8EC1-44FB827875C9}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{6313312F-CA5D-4420-8CD6-FB44F93588D2}"
 EndProject
