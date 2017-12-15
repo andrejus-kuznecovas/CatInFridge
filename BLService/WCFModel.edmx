@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WCFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TProduct">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Price" Type="nvarchar(max)" />
+          <Property Name="Category" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="ShopId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TShop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_TProduct_TShop">
+          <End Role="TShop" Type="Self.TShop" Multiplicity="1" />
+          <End Role="TProduct" Type="Self.TProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TShop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TProduct">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WCFModelStoreContainer">
+          <EntitySet Name="TProduct" EntityType="Self.TProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TShop" EntityType="Self.TShop" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TProduct_TShop" Association="Self.FK_TProduct_TShop">
+            <End Role="TShop" EntitySet="TShop" />
+            <End Role="TProduct" EntitySet="TProduct" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WCFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TProduct">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="ShopId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TShop" Relationship="Self.FK_TProduct_TShop" FromRole="TProduct" ToRole="TShop" />
+        </EntityType>
+        <EntityType Name="TShop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TProducts" Relationship="Self.FK_TProduct_TShop" FromRole="TShop" ToRole="TProduct" />
+        </EntityType>
+        <Association Name="FK_TProduct_TShop">
+          <End Role="TShop" Type="Self.TShop" Multiplicity="1" />
+          <End Role="TProduct" Type="Self.TProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TShop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TProduct">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WCFEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TProducts" EntityType="Self.TProduct" />
+          <EntitySet Name="TShops" EntityType="Self.TShop" />
+          <AssociationSet Name="FK_TProduct_TShop" Association="Self.FK_TProduct_TShop">
+            <End Role="TShop" EntitySet="TShops" />
+            <End Role="TProduct" EntitySet="TProducts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WCFModelStoreContainer" CdmEntityContainer="WCFEntities">
+          <EntitySetMapping Name="TProducts">
+            <EntityTypeMapping TypeName="WCFModel.TProduct">
+              <MappingFragment StoreEntitySet="TProduct">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TShops">
+            <EntityTypeMapping TypeName="WCFModel.TShop">
+              <MappingFragment StoreEntitySet="TShop">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
