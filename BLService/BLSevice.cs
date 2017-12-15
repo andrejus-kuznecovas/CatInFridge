@@ -6,17 +6,207 @@ using System.ServiceModel;
 using System.Text;
 using Patagames.Ocr;
 using Patagames.Ocr.Enums;
-using HtmlAgilityPack;
 using System.Collections;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Drawing;
+using HtmlAgilityPack;
+using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace BLService
 {
     public class BLService : IBLService
     {
+        public BLService()
+        {
+            ConnectToDb();
+        }
+
         Repository repository;
+        
+        SqlConnection conn;
+        SqlCommand comm;
+
+        SqlConnectionStringBuilder connStringBuilder;
+
+        void ConnectToDb()
+        {
+            connStringBuilder = new SqlConnectionStringBuilder();
+            connStringBuilder.DataSource = @"XITI\SQLEXPRESS";
+            connStringBuilder.InitialCatalog = "WCF";
+            connStringBuilder.Encrypt = true;
+            connStringBuilder.TrustServerCertificate = true;
+            connStringBuilder.ConnectTimeout = 30;
+            connStringBuilder.AsynchronousProcessing = true;
+            connStringBuilder.MultipleActiveResultSets = true;
+            connStringBuilder.IntegratedSecurity = true;
+
+            conn = new SqlConnection(connStringBuilder.ToString());
+            comm = conn.CreateCommand();
+        }
+        public int InsertProduct(Product p)
+        {
+            try
+            {
+                comm.CommandText = "INSERT INTO TProduct VALUES (@ID, @Name, @Price, @Category, @Date, @ShopId)";
+                comm.Parameters.AddWithValue("ID", p.ID);
+                comm.Parameters.AddWithValue("Name", p.Name);
+                comm.Parameters.AddWithValue("Price", p.Price);
+                comm.Parameters.AddWithValue("Category", p.Category);
+                comm.Parameters.AddWithValue("Date", p.Date);
+                comm.Parameters.AddWithValue("ShopId", p.ShopId);
+
+                comm.CommandType = System.Data.CommandType.Text;
+                conn.Open();
+
+                return comm.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public int UpdateProduct(Product p)
+        {
+            try
+            {
+                comm.CommandText = "UPDATE TProduct SET Price=@Price, Date=@Date WHERE Name=@Name AND Category=@Category AND ShopId=@ShopId";
+                comm.Parameters.AddWithValue("Name", p.Name);
+                comm.Parameters.AddWithValue("Price", p.Price);
+                comm.Parameters.AddWithValue("Category", p.Category);
+                comm.Parameters.AddWithValue("Date", p.Date);
+                comm.Parameters.AddWithValue("ShopId", p.ShopId);
+
+                conn.Open();
+
+                return comm.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public int InsertShop(Shop s)
+        {
+            try
+            {
+                comm.CommandText = "INSERT INTO TShop VALUES (@Id, @Name)";
+                comm.Parameters.AddWithValue("Id", s.Id);
+                comm.Parameters.AddWithValue("Name", s.Name);
+                comm.CommandType = System.Data.CommandType.Text;
+                conn.Open();
+
+                return comm.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public int DeleteShop(Shop s)
+        {
+            try
+            {
+                comm.CommandText = "DELETE TShop WHERE Id=@Id";
+                comm.Parameters.AddWithValue("Id", s.Id);
+                comm.CommandType = System.Data.CommandType.Text;
+                conn.Open();
+
+                return comm.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public List<Product> GetSimilarProducts(Product p)      //pratestuok sita, nu gall ir ok bus
+        {
+            List<Product> productL = new List<Product>();
+            try
+            {
+                comm.CommandText = "SELECT * FROM TProduct WHERE Category=@Category";
+                comm.Parameters.AddWithValue("Category", p.Category);
+                comm.CommandType = System.Data.CommandType.Text;
+                conn.Open();
+
+                SqlDataReader reader = comm.ExecuteReader();
+                while (reader.Read())
+                {
+                    Product product = new Product()
+                    {
+                        ID = reader[0].ToString(),
+                        Name = reader[1].ToString(),
+                        Price = reader[2].ToString(),
+                        Category = Convert.ToInt32(reader[3]),
+                        Date = Convert.ToDateTime(reader[4]),
+                        ShopId = Convert.ToInt32(reader[5])
+                    };
+                    productL.Add(product);
+                }
+                Dictionary<Product, int> dict = new Dictionary<Product, int>();
+                int points = 0;
+                string[] nameWords = Regex.Split(FixStrings(p.Name), " ");
+
+                foreach (Product prod in productL)
+                {
+                    points = 0;
+                    foreach (string word in nameWords)
+                        if (FixStrings(prod.Name).Contains(word))
+                            points++;
+                    dict.Add(prod, points);
+                }
+
+                return (from entry in dict
+                        orderby entry.Value
+                        descending
+                        select entry.Key)
+                        .ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
 
         List<Product> IBLService.GetPrices(byte[] image)
         {

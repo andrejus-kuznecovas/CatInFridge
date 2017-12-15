@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Util;
-using MobileApp.ServiceReference1;
+using MobileApp.BLService;
 
 namespace MobileApp.Droid
 {
