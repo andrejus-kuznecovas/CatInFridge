@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BLService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BLService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://horse/BLService/BLService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="ArrayOfProduct">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
@@ -11,9 +10,11 @@
     <xs:sequence>
       <xs:element name="Category" type="tns:Category" />
       <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Price" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Shop" nillable="true" type="tns:Shop" />
+      <xs:element minOccurs="0" name="ShopId" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Product" nillable="true" type="tns:Product" />
@@ -33,7 +34,7 @@
   <xs:element name="Category" nillable="true" type="tns:Category" />
   <xs:complexType name="Shop">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -44,17 +45,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfShop" nillable="true" type="tns:ArrayOfShop" />
-  <xs:complexType name="Stats">
-    <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="averageByCategory" nillable="true" type="q1:ArrayOfKeyValueOfstringdouble" />
-      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="averageByShop" nillable="true" type="q2:ArrayOfKeyValueOfstringdouble" />
-      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="cheapestByCategory" nillable="true" type="q3:ArrayOfKeyValueOfstringProductJF8akkI0" />
-      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="cheapestByShop" nillable="true" type="q4:ArrayOfKeyValueOfstringProductJF8akkI0" />
-      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="mostPopularByCategory" nillable="true" type="q5:ArrayOfKeyValueOfstringstring" />
-      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="mostPopularByShop" nillable="true" type="q6:ArrayOfKeyValueOfstringstring" />
-      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="spendingsByCategory" nillable="true" type="q7:ArrayOfKeyValueOfstringdouble" />
-      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="spendingsByShop" nillable="true" type="q8:ArrayOfKeyValueOfstringdouble" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Stats" nillable="true" type="tns:Stats" />
 </xs:schema>

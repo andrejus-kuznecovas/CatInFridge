@@ -22,20 +22,22 @@ namespace ConsoleClientTest.BLService {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CategoryField;
+        private ConsoleClientTest.BLService.Category CategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime DateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IDField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ConsoleClientTest.BLService.Shop ShopField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ShopIdField;
@@ -50,8 +52,8 @@ namespace ConsoleClientTest.BLService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Category {
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public ConsoleClientTest.BLService.Category Category {
             get {
                 return this.CategoryField;
             }
@@ -77,14 +79,14 @@ namespace ConsoleClientTest.BLService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ID {
+        public int Id {
             get {
-                return this.IDField;
+                return this.IdField;
             }
             set {
-                if ((object.ReferenceEquals(this.IDField, value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -111,6 +113,19 @@ namespace ConsoleClientTest.BLService {
                 if ((object.ReferenceEquals(this.PriceField, value) != true)) {
                     this.PriceField = value;
                     this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ConsoleClientTest.BLService.Shop Shop {
+            get {
+                return this.ShopField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShopField, value) != true)) {
+                    this.ShopField = value;
+                    this.RaisePropertyChanged("Shop");
                 }
             }
         }
@@ -148,7 +163,7 @@ namespace ConsoleClientTest.BLService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IdField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -164,7 +179,7 @@ namespace ConsoleClientTest.BLService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Id {
+        public int Id {
             get {
                 return this.IdField;
             }
@@ -199,6 +214,38 @@ namespace ConsoleClientTest.BLService {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/BLService")]
+    public enum Category : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MEAT = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        VEGETABLES_FRUITS = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DAIRY = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DRINKS = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ALCOHOL = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BREAD = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SWEETS = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OTHER = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UNRECOGNIZED = 8,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BLService.IBLService")]
     public interface IBLService {
@@ -216,10 +263,10 @@ namespace ConsoleClientTest.BLService {
         System.Threading.Tasks.Task<System.Collections.Generic.List<ConsoleClientTest.BLService.Shop>> GetShopsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Post", ReplyAction="http://tempuri.org/IBLService/PostResponse")]
-        void Post(System.Collections.Generic.List<ConsoleClientTest.BLService.Product> products, ConsoleClientTest.BLService.Shop shop);
+        System.Collections.Generic.List<ConsoleClientTest.BLService.Product> Post(ConsoleClientTest.BLService.Product product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Post", ReplyAction="http://tempuri.org/IBLService/PostResponse")]
-        System.Threading.Tasks.Task PostAsync(System.Collections.Generic.List<ConsoleClientTest.BLService.Product> products, ConsoleClientTest.BLService.Shop shop);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ConsoleClientTest.BLService.Product>> PostAsync(ConsoleClientTest.BLService.Product product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Test", ReplyAction="http://tempuri.org/IBLService/TestResponse")]
         string Test();
@@ -228,10 +275,10 @@ namespace ConsoleClientTest.BLService {
         System.Threading.Tasks.Task<string> TestAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Search", ReplyAction="http://tempuri.org/IBLService/SearchResponse")]
-        System.Collections.Generic.List<ConsoleClientTest.BLService.Product> Search(string itemName);
+        System.Collections.Generic.List<ConsoleClientTest.BLService.Product> Search(ConsoleClientTest.BLService.Product product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Search", ReplyAction="http://tempuri.org/IBLService/SearchResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<ConsoleClientTest.BLService.Product>> SearchAsync(string itemName);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ConsoleClientTest.BLService.Product>> SearchAsync(ConsoleClientTest.BLService.Product product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/InsertProduct", ReplyAction="http://tempuri.org/IBLService/InsertProductResponse")]
         int InsertProduct(ConsoleClientTest.BLService.Product p);
@@ -256,18 +303,6 @@ namespace ConsoleClientTest.BLService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/DeleteShop", ReplyAction="http://tempuri.org/IBLService/DeleteShopResponse")]
         System.Threading.Tasks.Task<int> DeleteShopAsync(ConsoleClientTest.BLService.Shop s);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetSimilarProducts", ReplyAction="http://tempuri.org/IBLService/GetSimilarProductsResponse")]
-        System.Collections.Generic.List<ConsoleClientTest.BLService.Product> GetSimilarProducts(ConsoleClientTest.BLService.Product p);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetSimilarProducts", ReplyAction="http://tempuri.org/IBLService/GetSimilarProductsResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<ConsoleClientTest.BLService.Product>> GetSimilarProductsAsync(ConsoleClientTest.BLService.Product p);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/ShopQuery", ReplyAction="http://tempuri.org/IBLService/ShopQueryResponse")]
-        void ShopQuery();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/ShopQuery", ReplyAction="http://tempuri.org/IBLService/ShopQueryResponse")]
-        System.Threading.Tasks.Task ShopQueryAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -313,12 +348,12 @@ namespace ConsoleClientTest.BLService {
             return base.Channel.GetShopsAsync();
         }
         
-        public void Post(System.Collections.Generic.List<ConsoleClientTest.BLService.Product> products, ConsoleClientTest.BLService.Shop shop) {
-            base.Channel.Post(products, shop);
+        public System.Collections.Generic.List<ConsoleClientTest.BLService.Product> Post(ConsoleClientTest.BLService.Product product) {
+            return base.Channel.Post(product);
         }
         
-        public System.Threading.Tasks.Task PostAsync(System.Collections.Generic.List<ConsoleClientTest.BLService.Product> products, ConsoleClientTest.BLService.Shop shop) {
-            return base.Channel.PostAsync(products, shop);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ConsoleClientTest.BLService.Product>> PostAsync(ConsoleClientTest.BLService.Product product) {
+            return base.Channel.PostAsync(product);
         }
         
         public string Test() {
@@ -329,12 +364,12 @@ namespace ConsoleClientTest.BLService {
             return base.Channel.TestAsync();
         }
         
-        public System.Collections.Generic.List<ConsoleClientTest.BLService.Product> Search(string itemName) {
-            return base.Channel.Search(itemName);
+        public System.Collections.Generic.List<ConsoleClientTest.BLService.Product> Search(ConsoleClientTest.BLService.Product product) {
+            return base.Channel.Search(product);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<ConsoleClientTest.BLService.Product>> SearchAsync(string itemName) {
-            return base.Channel.SearchAsync(itemName);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ConsoleClientTest.BLService.Product>> SearchAsync(ConsoleClientTest.BLService.Product product) {
+            return base.Channel.SearchAsync(product);
         }
         
         public int InsertProduct(ConsoleClientTest.BLService.Product p) {
@@ -367,22 +402,6 @@ namespace ConsoleClientTest.BLService {
         
         public System.Threading.Tasks.Task<int> DeleteShopAsync(ConsoleClientTest.BLService.Shop s) {
             return base.Channel.DeleteShopAsync(s);
-        }
-        
-        public System.Collections.Generic.List<ConsoleClientTest.BLService.Product> GetSimilarProducts(ConsoleClientTest.BLService.Product p) {
-            return base.Channel.GetSimilarProducts(p);
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<ConsoleClientTest.BLService.Product>> GetSimilarProductsAsync(ConsoleClientTest.BLService.Product p) {
-            return base.Channel.GetSimilarProductsAsync(p);
-        }
-        
-        public void ShopQuery() {
-            base.Channel.ShopQuery();
-        }
-        
-        public System.Threading.Tasks.Task ShopQueryAsync() {
-            return base.Channel.ShopQueryAsync();
         }
     }
 }

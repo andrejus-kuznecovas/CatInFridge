@@ -21,11 +21,15 @@ namespace MobileApp.BLService {
         
         private System.DateTime DateField;
         
+        private int IdField;
+        
         private string NameField;
         
         private string PriceField;
         
         private MobileApp.BLService.Shop ShopField;
+        
+        private int ShopIdField;
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public MobileApp.BLService.Category Category {
@@ -49,6 +53,19 @@ namespace MobileApp.BLService {
                 if ((this.DateField.Equals(value) != true)) {
                     this.DateField = value;
                     this.RaisePropertyChanged("Date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -92,6 +109,19 @@ namespace MobileApp.BLService {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ShopId {
+            get {
+                return this.ShopIdField;
+            }
+            set {
+                if ((this.ShopIdField.Equals(value) != true)) {
+                    this.ShopIdField = value;
+                    this.RaisePropertyChanged("ShopId");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -107,12 +137,12 @@ namespace MobileApp.BLService {
     [System.Runtime.Serialization.DataContractAttribute(Name="Shop", Namespace="http://schemas.datacontract.org/2004/07/BLService")]
     public partial class Shop : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private long IdField;
+        private int IdField;
         
         private string NameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Id {
+        public int Id {
             get {
                 return this.IdField;
             }
@@ -179,141 +209,6 @@ namespace MobileApp.BLService {
         UNRECOGNIZED = 8,
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Stats", Namespace="http://schemas.datacontract.org/2004/07/BLService")]
-    public partial class Stats : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.Collections.Generic.Dictionary<string, double> averageByCategoryField;
-        
-        private System.Collections.Generic.Dictionary<string, double> averageByShopField;
-        
-        private System.Collections.Generic.Dictionary<string, MobileApp.BLService.Product> cheapestByCategoryField;
-        
-        private System.Collections.Generic.Dictionary<string, MobileApp.BLService.Product> cheapestByShopField;
-        
-        private System.Collections.Generic.Dictionary<string, string> mostPopularByCategoryField;
-        
-        private System.Collections.Generic.Dictionary<string, string> mostPopularByShopField;
-        
-        private System.Collections.Generic.Dictionary<string, double> spendingsByCategoryField;
-        
-        private System.Collections.Generic.Dictionary<string, double> spendingsByShopField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<string, double> averageByCategory {
-            get {
-                return this.averageByCategoryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.averageByCategoryField, value) != true)) {
-                    this.averageByCategoryField = value;
-                    this.RaisePropertyChanged("averageByCategory");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<string, double> averageByShop {
-            get {
-                return this.averageByShopField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.averageByShopField, value) != true)) {
-                    this.averageByShopField = value;
-                    this.RaisePropertyChanged("averageByShop");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<string, MobileApp.BLService.Product> cheapestByCategory {
-            get {
-                return this.cheapestByCategoryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cheapestByCategoryField, value) != true)) {
-                    this.cheapestByCategoryField = value;
-                    this.RaisePropertyChanged("cheapestByCategory");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<string, MobileApp.BLService.Product> cheapestByShop {
-            get {
-                return this.cheapestByShopField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cheapestByShopField, value) != true)) {
-                    this.cheapestByShopField = value;
-                    this.RaisePropertyChanged("cheapestByShop");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<string, string> mostPopularByCategory {
-            get {
-                return this.mostPopularByCategoryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.mostPopularByCategoryField, value) != true)) {
-                    this.mostPopularByCategoryField = value;
-                    this.RaisePropertyChanged("mostPopularByCategory");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<string, string> mostPopularByShop {
-            get {
-                return this.mostPopularByShopField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.mostPopularByShopField, value) != true)) {
-                    this.mostPopularByShopField = value;
-                    this.RaisePropertyChanged("mostPopularByShop");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<string, double> spendingsByCategory {
-            get {
-                return this.spendingsByCategoryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.spendingsByCategoryField, value) != true)) {
-                    this.spendingsByCategoryField = value;
-                    this.RaisePropertyChanged("spendingsByCategory");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<string, double> spendingsByShop {
-            get {
-                return this.spendingsByShopField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.spendingsByShopField, value) != true)) {
-                    this.spendingsByShopField = value;
-                    this.RaisePropertyChanged("spendingsByShop");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BLService.IBLService")]
     public interface IBLService {
@@ -338,10 +233,30 @@ namespace MobileApp.BLService {
         
         string EndTest(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/GetStats", ReplyAction="http://tempuri.org/IBLService/GetStatsResponse")]
-        System.IAsyncResult BeginGetStats(System.Collections.Generic.List<MobileApp.BLService.Product> prods, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/Search", ReplyAction="http://tempuri.org/IBLService/SearchResponse")]
+        System.IAsyncResult BeginSearch(MobileApp.BLService.Product product, System.AsyncCallback callback, object asyncState);
         
-        MobileApp.BLService.Stats EndGetStats(System.IAsyncResult result);
+        System.Collections.Generic.List<MobileApp.BLService.Product> EndSearch(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/InsertProduct", ReplyAction="http://tempuri.org/IBLService/InsertProductResponse")]
+        System.IAsyncResult BeginInsertProduct(MobileApp.BLService.Product p, System.AsyncCallback callback, object asyncState);
+        
+        int EndInsertProduct(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/UpdateProduct", ReplyAction="http://tempuri.org/IBLService/UpdateProductResponse")]
+        System.IAsyncResult BeginUpdateProduct(MobileApp.BLService.Product p, System.AsyncCallback callback, object asyncState);
+        
+        int EndUpdateProduct(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/InsertShop", ReplyAction="http://tempuri.org/IBLService/InsertShopResponse")]
+        System.IAsyncResult BeginInsertShop(MobileApp.BLService.Shop s, System.AsyncCallback callback, object asyncState);
+        
+        int EndInsertShop(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IBLService/DeleteShop", ReplyAction="http://tempuri.org/IBLService/DeleteShopResponse")]
+        System.IAsyncResult BeginDeleteShop(MobileApp.BLService.Shop s, System.AsyncCallback callback, object asyncState);
+        
+        int EndDeleteShop(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -426,19 +341,95 @@ namespace MobileApp.BLService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetStatsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class SearchCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public GetStatsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public SearchCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
-        public MobileApp.BLService.Stats Result {
+        public System.Collections.Generic.List<MobileApp.BLService.Product> Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((MobileApp.BLService.Stats)(this.results[0]));
+                return ((System.Collections.Generic.List<MobileApp.BLService.Product>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class InsertProductCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public InsertProductCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UpdateProductCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UpdateProductCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class InsertShopCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public InsertShopCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class DeleteShopCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public DeleteShopCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -471,11 +462,35 @@ namespace MobileApp.BLService {
         
         private System.Threading.SendOrPostCallback onTestCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetStatsDelegate;
+        private BeginOperationDelegate onBeginSearchDelegate;
         
-        private EndOperationDelegate onEndGetStatsDelegate;
+        private EndOperationDelegate onEndSearchDelegate;
         
-        private System.Threading.SendOrPostCallback onGetStatsCompletedDelegate;
+        private System.Threading.SendOrPostCallback onSearchCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginInsertProductDelegate;
+        
+        private EndOperationDelegate onEndInsertProductDelegate;
+        
+        private System.Threading.SendOrPostCallback onInsertProductCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUpdateProductDelegate;
+        
+        private EndOperationDelegate onEndUpdateProductDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdateProductCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginInsertShopDelegate;
+        
+        private EndOperationDelegate onEndInsertShopDelegate;
+        
+        private System.Threading.SendOrPostCallback onInsertShopCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginDeleteShopDelegate;
+        
+        private EndOperationDelegate onEndDeleteShopDelegate;
+        
+        private System.Threading.SendOrPostCallback onDeleteShopCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -539,7 +554,15 @@ namespace MobileApp.BLService {
         
         public event System.EventHandler<TestCompletedEventArgs> TestCompleted;
         
-        public event System.EventHandler<GetStatsCompletedEventArgs> GetStatsCompleted;
+        public event System.EventHandler<SearchCompletedEventArgs> SearchCompleted;
+        
+        public event System.EventHandler<InsertProductCompletedEventArgs> InsertProductCompleted;
+        
+        public event System.EventHandler<UpdateProductCompletedEventArgs> UpdateProductCompleted;
+        
+        public event System.EventHandler<InsertShopCompletedEventArgs> InsertShopCompleted;
+        
+        public event System.EventHandler<DeleteShopCompletedEventArgs> DeleteShopCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -726,49 +749,233 @@ namespace MobileApp.BLService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult MobileApp.BLService.IBLService.BeginGetStats(System.Collections.Generic.List<MobileApp.BLService.Product> prods, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetStats(prods, callback, asyncState);
+        System.IAsyncResult MobileApp.BLService.IBLService.BeginSearch(MobileApp.BLService.Product product, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSearch(product, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MobileApp.BLService.Stats MobileApp.BLService.IBLService.EndGetStats(System.IAsyncResult result) {
-            return base.Channel.EndGetStats(result);
+        System.Collections.Generic.List<MobileApp.BLService.Product> MobileApp.BLService.IBLService.EndSearch(System.IAsyncResult result) {
+            return base.Channel.EndSearch(result);
         }
         
-        private System.IAsyncResult OnBeginGetStats(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            System.Collections.Generic.List<MobileApp.BLService.Product> prods = ((System.Collections.Generic.List<MobileApp.BLService.Product>)(inValues[0]));
-            return ((MobileApp.BLService.IBLService)(this)).BeginGetStats(prods, callback, asyncState);
+        private System.IAsyncResult OnBeginSearch(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            MobileApp.BLService.Product product = ((MobileApp.BLService.Product)(inValues[0]));
+            return ((MobileApp.BLService.IBLService)(this)).BeginSearch(product, callback, asyncState);
         }
         
-        private object[] OnEndGetStats(System.IAsyncResult result) {
-            MobileApp.BLService.Stats retVal = ((MobileApp.BLService.IBLService)(this)).EndGetStats(result);
+        private object[] OnEndSearch(System.IAsyncResult result) {
+            System.Collections.Generic.List<MobileApp.BLService.Product> retVal = ((MobileApp.BLService.IBLService)(this)).EndSearch(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnGetStatsCompleted(object state) {
-            if ((this.GetStatsCompleted != null)) {
+        private void OnSearchCompleted(object state) {
+            if ((this.SearchCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetStatsCompleted(this, new GetStatsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.SearchCompleted(this, new SearchCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void GetStatsAsync(System.Collections.Generic.List<MobileApp.BLService.Product> prods) {
-            this.GetStatsAsync(prods, null);
+        public void SearchAsync(MobileApp.BLService.Product product) {
+            this.SearchAsync(product, null);
         }
         
-        public void GetStatsAsync(System.Collections.Generic.List<MobileApp.BLService.Product> prods, object userState) {
-            if ((this.onBeginGetStatsDelegate == null)) {
-                this.onBeginGetStatsDelegate = new BeginOperationDelegate(this.OnBeginGetStats);
+        public void SearchAsync(MobileApp.BLService.Product product, object userState) {
+            if ((this.onBeginSearchDelegate == null)) {
+                this.onBeginSearchDelegate = new BeginOperationDelegate(this.OnBeginSearch);
             }
-            if ((this.onEndGetStatsDelegate == null)) {
-                this.onEndGetStatsDelegate = new EndOperationDelegate(this.OnEndGetStats);
+            if ((this.onEndSearchDelegate == null)) {
+                this.onEndSearchDelegate = new EndOperationDelegate(this.OnEndSearch);
             }
-            if ((this.onGetStatsCompletedDelegate == null)) {
-                this.onGetStatsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetStatsCompleted);
+            if ((this.onSearchCompletedDelegate == null)) {
+                this.onSearchCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSearchCompleted);
             }
-            base.InvokeAsync(this.onBeginGetStatsDelegate, new object[] {
-                        prods}, this.onEndGetStatsDelegate, this.onGetStatsCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginSearchDelegate, new object[] {
+                        product}, this.onEndSearchDelegate, this.onSearchCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult MobileApp.BLService.IBLService.BeginInsertProduct(MobileApp.BLService.Product p, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginInsertProduct(p, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        int MobileApp.BLService.IBLService.EndInsertProduct(System.IAsyncResult result) {
+            return base.Channel.EndInsertProduct(result);
+        }
+        
+        private System.IAsyncResult OnBeginInsertProduct(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            MobileApp.BLService.Product p = ((MobileApp.BLService.Product)(inValues[0]));
+            return ((MobileApp.BLService.IBLService)(this)).BeginInsertProduct(p, callback, asyncState);
+        }
+        
+        private object[] OnEndInsertProduct(System.IAsyncResult result) {
+            int retVal = ((MobileApp.BLService.IBLService)(this)).EndInsertProduct(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnInsertProductCompleted(object state) {
+            if ((this.InsertProductCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.InsertProductCompleted(this, new InsertProductCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void InsertProductAsync(MobileApp.BLService.Product p) {
+            this.InsertProductAsync(p, null);
+        }
+        
+        public void InsertProductAsync(MobileApp.BLService.Product p, object userState) {
+            if ((this.onBeginInsertProductDelegate == null)) {
+                this.onBeginInsertProductDelegate = new BeginOperationDelegate(this.OnBeginInsertProduct);
+            }
+            if ((this.onEndInsertProductDelegate == null)) {
+                this.onEndInsertProductDelegate = new EndOperationDelegate(this.OnEndInsertProduct);
+            }
+            if ((this.onInsertProductCompletedDelegate == null)) {
+                this.onInsertProductCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnInsertProductCompleted);
+            }
+            base.InvokeAsync(this.onBeginInsertProductDelegate, new object[] {
+                        p}, this.onEndInsertProductDelegate, this.onInsertProductCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult MobileApp.BLService.IBLService.BeginUpdateProduct(MobileApp.BLService.Product p, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateProduct(p, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        int MobileApp.BLService.IBLService.EndUpdateProduct(System.IAsyncResult result) {
+            return base.Channel.EndUpdateProduct(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdateProduct(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            MobileApp.BLService.Product p = ((MobileApp.BLService.Product)(inValues[0]));
+            return ((MobileApp.BLService.IBLService)(this)).BeginUpdateProduct(p, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdateProduct(System.IAsyncResult result) {
+            int retVal = ((MobileApp.BLService.IBLService)(this)).EndUpdateProduct(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUpdateProductCompleted(object state) {
+            if ((this.UpdateProductCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdateProductCompleted(this, new UpdateProductCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdateProductAsync(MobileApp.BLService.Product p) {
+            this.UpdateProductAsync(p, null);
+        }
+        
+        public void UpdateProductAsync(MobileApp.BLService.Product p, object userState) {
+            if ((this.onBeginUpdateProductDelegate == null)) {
+                this.onBeginUpdateProductDelegate = new BeginOperationDelegate(this.OnBeginUpdateProduct);
+            }
+            if ((this.onEndUpdateProductDelegate == null)) {
+                this.onEndUpdateProductDelegate = new EndOperationDelegate(this.OnEndUpdateProduct);
+            }
+            if ((this.onUpdateProductCompletedDelegate == null)) {
+                this.onUpdateProductCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateProductCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdateProductDelegate, new object[] {
+                        p}, this.onEndUpdateProductDelegate, this.onUpdateProductCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult MobileApp.BLService.IBLService.BeginInsertShop(MobileApp.BLService.Shop s, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginInsertShop(s, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        int MobileApp.BLService.IBLService.EndInsertShop(System.IAsyncResult result) {
+            return base.Channel.EndInsertShop(result);
+        }
+        
+        private System.IAsyncResult OnBeginInsertShop(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            MobileApp.BLService.Shop s = ((MobileApp.BLService.Shop)(inValues[0]));
+            return ((MobileApp.BLService.IBLService)(this)).BeginInsertShop(s, callback, asyncState);
+        }
+        
+        private object[] OnEndInsertShop(System.IAsyncResult result) {
+            int retVal = ((MobileApp.BLService.IBLService)(this)).EndInsertShop(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnInsertShopCompleted(object state) {
+            if ((this.InsertShopCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.InsertShopCompleted(this, new InsertShopCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void InsertShopAsync(MobileApp.BLService.Shop s) {
+            this.InsertShopAsync(s, null);
+        }
+        
+        public void InsertShopAsync(MobileApp.BLService.Shop s, object userState) {
+            if ((this.onBeginInsertShopDelegate == null)) {
+                this.onBeginInsertShopDelegate = new BeginOperationDelegate(this.OnBeginInsertShop);
+            }
+            if ((this.onEndInsertShopDelegate == null)) {
+                this.onEndInsertShopDelegate = new EndOperationDelegate(this.OnEndInsertShop);
+            }
+            if ((this.onInsertShopCompletedDelegate == null)) {
+                this.onInsertShopCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnInsertShopCompleted);
+            }
+            base.InvokeAsync(this.onBeginInsertShopDelegate, new object[] {
+                        s}, this.onEndInsertShopDelegate, this.onInsertShopCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult MobileApp.BLService.IBLService.BeginDeleteShop(MobileApp.BLService.Shop s, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteShop(s, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        int MobileApp.BLService.IBLService.EndDeleteShop(System.IAsyncResult result) {
+            return base.Channel.EndDeleteShop(result);
+        }
+        
+        private System.IAsyncResult OnBeginDeleteShop(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            MobileApp.BLService.Shop s = ((MobileApp.BLService.Shop)(inValues[0]));
+            return ((MobileApp.BLService.IBLService)(this)).BeginDeleteShop(s, callback, asyncState);
+        }
+        
+        private object[] OnEndDeleteShop(System.IAsyncResult result) {
+            int retVal = ((MobileApp.BLService.IBLService)(this)).EndDeleteShop(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnDeleteShopCompleted(object state) {
+            if ((this.DeleteShopCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DeleteShopCompleted(this, new DeleteShopCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DeleteShopAsync(MobileApp.BLService.Shop s) {
+            this.DeleteShopAsync(s, null);
+        }
+        
+        public void DeleteShopAsync(MobileApp.BLService.Shop s, object userState) {
+            if ((this.onBeginDeleteShopDelegate == null)) {
+                this.onBeginDeleteShopDelegate = new BeginOperationDelegate(this.OnBeginDeleteShop);
+            }
+            if ((this.onEndDeleteShopDelegate == null)) {
+                this.onEndDeleteShopDelegate = new EndOperationDelegate(this.OnEndDeleteShop);
+            }
+            if ((this.onDeleteShopCompletedDelegate == null)) {
+                this.onDeleteShopCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteShopCompleted);
+            }
+            base.InvokeAsync(this.onBeginDeleteShopDelegate, new object[] {
+                        s}, this.onEndDeleteShopDelegate, this.onDeleteShopCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -922,16 +1129,68 @@ namespace MobileApp.BLService {
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetStats(System.Collections.Generic.List<MobileApp.BLService.Product> prods, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginSearch(MobileApp.BLService.Product product, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
-                _args[0] = prods;
-                System.IAsyncResult _result = base.BeginInvoke("GetStats", _args, callback, asyncState);
+                _args[0] = product;
+                System.IAsyncResult _result = base.BeginInvoke("Search", _args, callback, asyncState);
                 return _result;
             }
             
-            public MobileApp.BLService.Stats EndGetStats(System.IAsyncResult result) {
+            public System.Collections.Generic.List<MobileApp.BLService.Product> EndSearch(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                MobileApp.BLService.Stats _result = ((MobileApp.BLService.Stats)(base.EndInvoke("GetStats", _args, result)));
+                System.Collections.Generic.List<MobileApp.BLService.Product> _result = ((System.Collections.Generic.List<MobileApp.BLService.Product>)(base.EndInvoke("Search", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginInsertProduct(MobileApp.BLService.Product p, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = p;
+                System.IAsyncResult _result = base.BeginInvoke("InsertProduct", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public int EndInsertProduct(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                int _result = ((int)(base.EndInvoke("InsertProduct", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginUpdateProduct(MobileApp.BLService.Product p, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = p;
+                System.IAsyncResult _result = base.BeginInvoke("UpdateProduct", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public int EndUpdateProduct(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                int _result = ((int)(base.EndInvoke("UpdateProduct", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginInsertShop(MobileApp.BLService.Shop s, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = s;
+                System.IAsyncResult _result = base.BeginInvoke("InsertShop", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public int EndInsertShop(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                int _result = ((int)(base.EndInvoke("InsertShop", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginDeleteShop(MobileApp.BLService.Shop s, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = s;
+                System.IAsyncResult _result = base.BeginInvoke("DeleteShop", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public int EndDeleteShop(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                int _result = ((int)(base.EndInvoke("DeleteShop", _args, result)));
                 return _result;
             }
         }

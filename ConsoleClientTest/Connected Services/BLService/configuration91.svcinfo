@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="6zB2e5KHulMgNtKI+fbYDDk5QW4=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="1ipMePFCC+KnKo6xg0H6ScFxHYY=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IBLService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IBLService" contract="BLService.IBLService" bindingType="basicHttpBinding" address="http://localhost:51434/BLService.svc/BLService" bindingConfiguration="BasicHttpBinding_IBLService">
+    <endpoint name="BasicHttpBinding_IBLService" contract="BLService.IBLService" bindingType="basicHttpBinding" address="http://horse/BLService/BLService.svc/BLService" bindingConfiguration="BasicHttpBinding_IBLService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:51434/BLService.svc/BLService</serializedValue>
+          <serializedValue>http://horse/BLService/BLService.svc/BLService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

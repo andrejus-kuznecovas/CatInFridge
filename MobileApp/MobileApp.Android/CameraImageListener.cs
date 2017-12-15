@@ -19,7 +19,7 @@ namespace MobileApp.Droid
     class CameraImageListener : Java.Lang.Object, TextureView.ISurfaceTextureListener, Android.Hardware.Camera.IPictureCallback
     {
         Android.Hardware.Camera _camera;
-        string FILE_NAME = "temp.jpg";
+        public string FILE_NAME = "temp.jpg";
         File cacheDir;
 
         public void OnPictureTaken(byte[] data, Android.Hardware.Camera camera)

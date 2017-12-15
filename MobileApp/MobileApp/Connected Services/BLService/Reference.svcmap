@@ -23,12 +23,11 @@
     <MetadataSource Address="http://horse/BLService/BLService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="c308f8b1-3cbe-424f-98c9-b35a62f6763b" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?xsd=xsd1" />
-    <MetadataFile FileName="BLService.xsd" MetadataType="Schema" ID="4674670a-c4e9-48f7-a314-d1c3245738a6" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?xsd=xsd2" />
-    <MetadataFile FileName="BLService3.xsd" MetadataType="Schema" ID="b0b9768e-885c-4729-8767-4646cd08bc4f" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?xsd=xsd3" />
-    <MetadataFile FileName="BLService1.xsd" MetadataType="Schema" ID="b5f54b35-2492-431d-8bb6-589dd2642cb6" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?xsd=xsd0" />
-    <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="c2a21657-75f6-41b0-b633-607667271d63" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?disco" />
     <MetadataFile FileName="BLService.wsdl" MetadataType="Wsdl" ID="3b42f2d2-05e2-4511-8ebc-c417d27423df" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?wsdl" />
+    <MetadataFile FileName="BLService.xsd" MetadataType="Schema" ID="4674670a-c4e9-48f7-a314-d1c3245738a6" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="c2a21657-75f6-41b0-b633-607667271d63" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?disco" />
+    <MetadataFile FileName="BLService1.xsd" MetadataType="Schema" ID="b5f54b35-2492-431d-8bb6-589dd2642cb6" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="c308f8b1-3cbe-424f-98c9-b35a62f6763b" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

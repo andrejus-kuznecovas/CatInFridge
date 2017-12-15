@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b5c2b2b8-7d0b-46b5-b56a-93428051f58c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ef93c4ac-f3f0-443d-a4c5-13281ba19744" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -21,14 +21,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:51434/BLService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://horse/BLService/BLService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="BLService.xsd" MetadataType="Schema" ID="17cfd946-dae2-4e3c-8038-43f0fe24ba54" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd2" />
-    <MetadataFile FileName="BLService1.xsd" MetadataType="Schema" ID="8cb7411e-6dae-45c4-8fa6-8b9f1e0cc37a" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd1" />
-    <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="64b1c0d5-0f25-4bd9-9ac0-478abc8c38ca" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?xsd=xsd0" />
-    <MetadataFile FileName="BLService.wsdl" MetadataType="Wsdl" ID="e3d58d1e-812f-4ffa-82fb-78857d4f8f38" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?wsdl" />
-    <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="9dbd5619-5b99-4f6f-a7a1-cf461c91bd3d" SourceId="1" SourceUrl="http://localhost:51434/BLService.svc?disco" />
+    <MetadataFile FileName="BLService1.wsdl" MetadataType="Wsdl" ID="bd338eda-3d9b-46e8-863c-94e6eb5bf34b" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?wsdl" />
+    <MetadataFile FileName="BLService3.xsd" MetadataType="Schema" ID="4ec9be21-88d5-4011-8c7e-b69dda91cee6" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BLService1.disco" MetadataType="Disco" ID="605f9976-4799-4b27-891c-aaf4494a5c68" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?disco" />
+    <MetadataFile FileName="BLService31.xsd" MetadataType="Schema" ID="3fd08e14-28e5-4086-84c2-22198c23ae4e" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BLService32.xsd" MetadataType="Schema" ID="887bdb22-3598-4021-b939-209921065f05" SourceId="1" SourceUrl="http://horse/BLService/BLService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

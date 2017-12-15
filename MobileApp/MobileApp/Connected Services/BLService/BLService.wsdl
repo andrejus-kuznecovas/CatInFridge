@@ -5,7 +5,6 @@
       <xsd:import schemaLocation="http://horse/BLService/BLService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://horse/BLService/BLService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://horse/BLService/BLService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BLService" />
-      <xsd:import schemaLocation="http://horse/BLService/BLService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IBLService_GetPrices_InputMessage">
@@ -32,11 +31,35 @@
   <wsdl:message name="IBLService_Test_OutputMessage">
     <wsdl:part name="parameters" element="tns:TestResponse" />
   </wsdl:message>
-  <wsdl:message name="IBLService_GetStats_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetStats" />
+  <wsdl:message name="IBLService_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search" />
   </wsdl:message>
-  <wsdl:message name="IBLService_GetStats_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetStatsResponse" />
+  <wsdl:message name="IBLService_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBLService_InsertProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertProduct" />
+  </wsdl:message>
+  <wsdl:message name="IBLService_InsertProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBLService_UpdateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProduct" />
+  </wsdl:message>
+  <wsdl:message name="IBLService_UpdateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBLService_InsertShop_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertShop" />
+  </wsdl:message>
+  <wsdl:message name="IBLService_InsertShop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBLService_DeleteShop_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteShop" />
+  </wsdl:message>
+  <wsdl:message name="IBLService_DeleteShop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteShopResponse" />
   </wsdl:message>
   <wsdl:portType name="IBLService">
     <wsdl:operation name="GetPrices">
@@ -55,9 +78,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IBLService/Test" message="tns:IBLService_Test_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBLService/TestResponse" message="tns:IBLService_Test_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetStats">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBLService/GetStats" message="tns:IBLService_GetStats_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBLService/GetStatsResponse" message="tns:IBLService_GetStats_OutputMessage" />
+    <wsdl:operation name="Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBLService/Search" message="tns:IBLService_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBLService/SearchResponse" message="tns:IBLService_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBLService/InsertProduct" message="tns:IBLService_InsertProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBLService/InsertProductResponse" message="tns:IBLService_InsertProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBLService/UpdateProduct" message="tns:IBLService_UpdateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBLService/UpdateProductResponse" message="tns:IBLService_UpdateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertShop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBLService/InsertShop" message="tns:IBLService_InsertShop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBLService/InsertShopResponse" message="tns:IBLService_InsertShop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBLService/DeleteShop" message="tns:IBLService_DeleteShop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBLService/DeleteShopResponse" message="tns:IBLService_DeleteShop_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IBLService" type="tns:IBLService">
@@ -98,8 +137,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetStats">
-      <soap:operation soapAction="http://tempuri.org/IBLService/GetStats" style="document" />
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/IBLService/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertProduct">
+      <soap:operation soapAction="http://tempuri.org/IBLService/InsertProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <soap:operation soapAction="http://tempuri.org/IBLService/UpdateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertShop">
+      <soap:operation soapAction="http://tempuri.org/IBLService/InsertShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShop">
+      <soap:operation soapAction="http://tempuri.org/IBLService/DeleteShop" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

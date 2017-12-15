@@ -72,6 +72,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BLSevice.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="TProduct.cs">
+      <DependentUpon>WCFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TShop.cs">
+      <DependentUpon>WCFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="WCFModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -139,19 +145,19 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="WCFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>WCFModel.Context.cs</LastGenOutput>
       <DependentUpon>WCFModel.edmx</DependentUpon>
+      <LastGenOutput>WCFModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="WCFModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>WCFModel.edmx</DependentUpon>
       <LastGenOutput>WCFModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

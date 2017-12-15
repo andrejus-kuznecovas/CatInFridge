@@ -13,10 +13,10 @@ namespace BLService
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WCFEntities : DbContext
+    public partial class WCFEntities2 : DbContext
     {
-        public WCFEntities()
-            : base("name=WCFEntities")
+        public WCFEntities2()
+            : base("name=WCFEntities2")
         {
         }
     
@@ -25,7 +25,7 @@ namespace BLService
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<TProduct> TProduct { get; set; }
-        public virtual DbSet<TShop> TShop { get; set; }
+        public virtual DbSet<TProduct> TProducts { get; set; }
+        public virtual DbSet<TShop> TShops { get; set; }
     }
 }

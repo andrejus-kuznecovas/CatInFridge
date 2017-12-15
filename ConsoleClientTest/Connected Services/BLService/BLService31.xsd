@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:51434/BLService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BLService" />
+  <xs:import schemaLocation="http://horse/BLService/BLService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BLService" />
   <xs:element name="GetPrices">
     <xs:complexType>
       <xs:sequence>
@@ -30,14 +30,15 @@
   <xs:element name="Post">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="products" nillable="true" type="q3:ArrayOfProduct" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="shop" nillable="true" type="q4:Shop" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="product" nillable="true" type="q3:Product" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="PostResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="PostResult" nillable="true" type="q4:ArrayOfProduct" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Test">
@@ -55,21 +56,21 @@
   <xs:element name="Search">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="itemName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="product" nillable="true" type="q5:Product" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SearchResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="SearchResult" nillable="true" type="q5:ArrayOfProduct" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="SearchResult" nillable="true" type="q6:ArrayOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertProduct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="p" nillable="true" type="q6:Product" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="p" nillable="true" type="q7:Product" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -83,7 +84,7 @@
   <xs:element name="UpdateProduct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="p" nillable="true" type="q7:Product" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="p" nillable="true" type="q8:Product" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -97,7 +98,7 @@
   <xs:element name="InsertShop">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="s" nillable="true" type="q8:Shop" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="s" nillable="true" type="q9:Shop" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -111,7 +112,7 @@
   <xs:element name="DeleteShop">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="s" nillable="true" type="q9:Shop" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="s" nillable="true" type="q10:Shop" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -120,30 +121,6 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="DeleteShopResult" type="xs:int" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetSimilarProducts">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="p" nillable="true" type="q10:Product" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetSimilarProductsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="GetSimilarProductsResult" nillable="true" type="q11:ArrayOfProduct" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ShopQuery">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ShopQueryResponse">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

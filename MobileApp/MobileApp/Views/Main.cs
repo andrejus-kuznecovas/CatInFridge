@@ -18,12 +18,6 @@ namespace MobileApp
         {
             wcf = new BLServiceClient();
             wcf.GetShopsCompleted += (s, e) => { shops = e.Result; };
-            //wcf.PostCompleted += ProductResultActivity.SetResult();
-                /*(s, e) => {
-                StartActivity()
-                foreach (Product p in e.Result)
-                    adapter.Add(p.Name + "|" + p.Price);
-            };*/
             wcf.GetShopsAsync();
         }
 

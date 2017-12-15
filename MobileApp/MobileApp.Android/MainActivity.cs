@@ -1,11 +1,12 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.Content.PM;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Android.Support.V4.App;
-using System.Threading;
+using System.IO;
+using Android.Graphics;
+using Java.IO;
 
 namespace MobileApp.Droid
 {
@@ -33,7 +34,7 @@ namespace MobileApp.Droid
 
             photoBtn.Click += delegate
             {
-                PHOTO_PATH = CacheDir + "/" + listener.TakePhoto(CacheDir);
+                listener.TakePhoto(CacheDir);
 
                 photoBtn.Visibility = ViewStates.Invisible;
                 dismissBtn.Visibility = ViewStates.Visible;
@@ -51,6 +52,17 @@ namespace MobileApp.Droid
 
             nextBtn.Click += delegate
             {
+                PHOTO_PATH = CacheDir + "/" + listener.FILE_NAME;
+
+                Java.IO.File file = new Java.IO.File(PHOTO_PATH);
+                bool a = file.Exists();
+
+                Bitmap bitmap = BitmapFactory.DecodeFile(PHOTO_PATH);
+                MemoryStream ms = new MemoryStream();
+                bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, ms);
+                byte[] bitmapBytes = ms.GetBuffer();
+                Main.wcf.GetPricesAsync(bitmapBytes);
+
                 StartActivity(typeof(EditActivity));
             };
         }        

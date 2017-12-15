@@ -14,13 +14,11 @@ namespace BLService
     
     public partial class TProduct
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
+        public int ShopId { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
         public Nullable<int> Category { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-        public int ShopId { get; set; }
-    
-        public virtual TShop TShop { get; set; }
     }
 }

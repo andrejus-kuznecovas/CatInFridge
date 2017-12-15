@@ -33,7 +33,7 @@ namespace BLService
         void ConnectToDb()
         {
             connStringBuilder = new SqlConnectionStringBuilder();
-            connStringBuilder.DataSource = @"XITI\SQLEXPRESS";
+            connStringBuilder.DataSource = @"HORSE\SQLEXPRESS";
             connStringBuilder.InitialCatalog = "WCF";
             connStringBuilder.Encrypt = true;
             connStringBuilder.TrustServerCertificate = true;
@@ -49,12 +49,12 @@ namespace BLService
         {
             try
             {
-                comm.CommandText = "INSERT INTO TProduct VALUES (@ID, @Name, @Price, @Category, @Date, @ShopId)";
-                comm.Parameters.AddWithValue("ID", p.ID);
+                comm.CommandText = "INSERT INTO TProduct (Name, Price, Category, Date, ShopId) VALUES (@Name, @Price, @Category, @Date, @ShopId)";
+                //comm.Parameters.AddWithValue("ID", p.ID);
                 comm.Parameters.AddWithValue("Name", p.Name);
                 comm.Parameters.AddWithValue("Price", p.Price);
                 comm.Parameters.AddWithValue("Category", p.Category);
-                comm.Parameters.AddWithValue("Date", p.Date);
+                comm.Parameters.AddWithValue("Date", DateTime.Now);
                 comm.Parameters.AddWithValue("ShopId", p.ShopId);
 
                 comm.CommandType = System.Data.CommandType.Text;
@@ -157,8 +157,9 @@ namespace BLService
             List<Product> productL = new List<Product>();
             try
             {
-                comm.CommandText = "SELECT * FROM TProduct WHERE Category=@Category";
-                comm.Parameters.AddWithValue("Category", p.Category);
+                comm.CommandText = "SELECT * FROM TProduct WHERE Category=@Category1 AND NOT ShopId=@ShopId1";
+                comm.Parameters.AddWithValue("Category1", p.Category);
+                comm.Parameters.AddWithValue("ShopId1", p.ShopId);
                 comm.CommandType = System.Data.CommandType.Text;
                 conn.Open();
 
@@ -167,18 +168,20 @@ namespace BLService
                 {
                     Product product = new Product()
                     {
-                        ID = reader[0].ToString(),
-                        Name = reader[1].ToString(),
-                        Price = reader[2].ToString(),
-                        Category = Convert.ToInt32(reader[3]),
-                        Date = Convert.ToDateTime(reader[4]),
-                        ShopId = Convert.ToInt32(reader[5])
+                        Id = Convert.ToInt32(reader[0]),
+                        ShopId = Convert.ToInt32(reader[1]),
+                        Name = reader[2].ToString(),
+                        Price = reader[3].ToString(),
+                        Category = (Category)Convert.ToInt32(reader[4]),
+                        Date = Convert.ToDateTime(reader[5])                        
                     };
                     productL.Add(product);
                 }
                 Dictionary<Product, int> dict = new Dictionary<Product, int>();
                 int points = 0;
                 string[] nameWords = Regex.Split(FixStrings(p.Name), " ");
+                conn.Close();
+                List<Shop> shops = GetShops();
 
                 foreach (Product prod in productL)
                 {
@@ -186,14 +189,52 @@ namespace BLService
                     foreach (string word in nameWords)
                         if (FixStrings(prod.Name).Contains(word))
                             points++;
+                    prod.Shop = shops.Where(s => s.Id == prod.ShopId).First();
                     dict.Add(prod, points);
                 }
-
-                return (from entry in dict
-                        orderby entry.Value
-                        descending
-                        select entry.Key)
+                if (dict.Count > 0)
+                    return (from entry in dict
+                            orderby entry.Value
+                            descending
+                            select entry.Key)
                         .ToList();
+                else return new List<Product>();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public List<Shop> GetShops()
+        {
+            List<Shop> shops = new List<Shop>();
+            try
+            {
+                comm.CommandText = "SELECT * FROM TShop";
+                comm.CommandType = System.Data.CommandType.Text;
+                conn.Open();
+
+                SqlDataReader reader = comm.ExecuteReader();
+                while (reader.Read())
+                {
+                    Shop shop = new Shop()
+                    {
+                        Id = (int)reader[0],
+                        Name = reader[1].ToString(),
+                    };
+                    shops.Add(shop);
+                }
+
+                return shops;
             }
             catch (Exception)
             {
@@ -212,12 +253,9 @@ namespace BLService
         {
             MemoryStream ms = new MemoryStream(image);
 
-            /*HtmlDocument html = OcrHtml((Bitmap)Bitmap.FromStream(ms));
+            HtmlDocument html = OcrHtml((Bitmap)Bitmap.FromStream(ms));
             if (html == null)
-                return null;*/
-
-            HtmlDocument html = new HtmlDocument();
-            html.Load(@"C:\testing.html");
+                return null;
 
             HtmlNode checkmark = GetLineOfPVMKodas(html);
             if (checkmark == null)
@@ -254,7 +292,7 @@ namespace BLService
             return productsList;
         }
 
-        List<Shop> IBLService.GetShops()
+        /*List<Shop> IBLService.GetShops()
         {
             List<Shop> shops = new List<Shop>();
             shops.Add(new Shop() { Id = 0, Name = "Iki" });
@@ -262,16 +300,15 @@ namespace BLService
             shops.Add(new Shop() { Id = 2, Name = "Rimi" });
             shops.Add(new Shop() { Id = 3, Name = "Norfa" });
             return shops;
-        }
+        }*/
 
         List<Product> IBLService.Post(Product product)
         {
             if (repository == null)
                 repository = new Repository();
 
-            repository.WriteProductsToXmlFile(product);
-            return new List<Product>() { product };
-            //return Search(product);
+            InsertProduct(product);
+            return GetSimilarProducts(product);
         }
 
         string IBLService.Test()
@@ -369,7 +406,7 @@ namespace BLService
             str = Regex.Replace(str, "ū", "u");
             return str;
         }
-
+        /*
         public Stats GetStats(List<Product> prods)
         {
             Stats st = new Stats();
@@ -383,7 +420,7 @@ namespace BLService
             st.cheapestByShop        = FindCheapestByShop(prods);
             return st;
         }
-
+        */
         // METHODS FOR CALCULATING STATISTICS
         public static void InitDict(Dictionary<string, double> dict, string[] strs)
         {
@@ -392,7 +429,7 @@ namespace BLService
                 dict[str] = 0;
             }
         }
-
+        /*
         public static Dictionary<string, double> FindSpendingsByCategory(List<Product> prods)
         {
             Dictionary<string, double> dict = new Dictionary<string, double>();
@@ -521,6 +558,6 @@ namespace BLService
                 dict[str] = mostpop;
                 }
             return dict;
-        }
+        }*/
     }
 }
