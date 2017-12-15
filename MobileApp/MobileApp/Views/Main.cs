@@ -1,5 +1,5 @@
-﻿using MobileApp.ServiceReference1;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using MobileApp.BLService;
 using Xamarin.Forms;
 
 namespace MobileApp

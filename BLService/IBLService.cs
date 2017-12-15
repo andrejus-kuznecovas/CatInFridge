@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using HtmlAgilityPack;
 using System.Collections;
+using System.ComponentModel.DataAnnotations;
 
 namespace BLService
 {
@@ -26,16 +27,45 @@ namespace BLService
 
         [OperationContract]
         List<Product> Search(string itemName);
+
+        [OperationContract]
+        int InsertProduct(Product p);
+
+        [OperationContract]
+        int UpdateProduct(Product p);
+
+        [OperationContract]
+        int InsertShop(Shop s);
+
+        [OperationContract]
+        int DeleteShop(Shop s);
+
+        [OperationContract] 
+        List<Product> GetSimilarProducts(Product p);
+        
     }
 
     [DataContract]
     public class Product
     {
         [DataMember]
+        public string ID { get; set; }
+
+        [DataMember]
         public string Name { get; set; }
 
         [DataMember]
         public string Price { get; set; }
+
+        [DataMember]
+        public int Category { get; set; }
+
+        [DataMember]
+        public DateTime Date { get; set; }
+
+        [DataMember]
+        [Required]
+        public int ShopId { get; set; }
     }
 
     [DataContract]

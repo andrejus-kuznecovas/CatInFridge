@@ -54,7 +54,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\BLService\BLService.wsdl" />
     <None Include="Connected Services\BLService\BLService.xsd">
       <SubType>Designer</SubType>
@@ -63,9 +65,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\BLService\BLService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\BLService\BLService3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\BLService\ConsoleClientTest.BLService.Product.datasource">
