@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BLService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BLService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://horse/BLService/BLService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="ArrayOfProduct">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
@@ -8,23 +9,28 @@
   <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
   <xs:complexType name="Product">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Category" type="tns:Cat" />
+      <xs:element name="Category" type="tns:Category" />
       <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Price" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shop" nillable="true" type="tns:Shop" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Product" nillable="true" type="tns:Product" />
-  <xs:simpleType name="Cat">
-    <xs:restriction base="xs:string" />
+  <xs:simpleType name="Category">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MEAT" />
+      <xs:enumeration value="VEGETABLES_FRUITS" />
+      <xs:enumeration value="DAIRY" />
+      <xs:enumeration value="DRINKS" />
+      <xs:enumeration value="ALCOHOL" />
+      <xs:enumeration value="BREAD" />
+      <xs:enumeration value="SWEETS" />
+      <xs:enumeration value="OTHER" />
+      <xs:enumeration value="UNRECOGNIZED" />
+    </xs:restriction>
   </xs:simpleType>
-  <xs:element name="Cat" nillable="true" type="tns:Cat" />
-  <xs:complexType name="ArrayOfShop">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Shop" nillable="true" type="tns:Shop" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfShop" nillable="true" type="tns:ArrayOfShop" />
+  <xs:element name="Category" nillable="true" type="tns:Category" />
   <xs:complexType name="Shop">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:long" />
@@ -32,4 +38,23 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Shop" nillable="true" type="tns:Shop" />
+  <xs:complexType name="ArrayOfShop">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Shop" nillable="true" type="tns:Shop" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShop" nillable="true" type="tns:ArrayOfShop" />
+  <xs:complexType name="Stats">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="averageByCategory" nillable="true" type="q1:ArrayOfKeyValueOfstringdouble" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="averageByShop" nillable="true" type="q2:ArrayOfKeyValueOfstringdouble" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="cheapestByCategory" nillable="true" type="q3:ArrayOfKeyValueOfstringProductJF8akkI0" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="cheapestByShop" nillable="true" type="q4:ArrayOfKeyValueOfstringProductJF8akkI0" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="mostPopularByCategory" nillable="true" type="q5:ArrayOfKeyValueOfstringstring" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="mostPopularByShop" nillable="true" type="q6:ArrayOfKeyValueOfstringstring" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="spendingsByCategory" nillable="true" type="q7:ArrayOfKeyValueOfstringdouble" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="spendingsByShop" nillable="true" type="q8:ArrayOfKeyValueOfstringdouble" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Stats" nillable="true" type="tns:Stats" />
 </xs:schema>

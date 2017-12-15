@@ -51,9 +51,9 @@ namespace BLService
                 {
                     product = lineNode.InnerText.Substring(0, match.Index);
                     newProduct.Name = product;
-                    newProduct.Price = Convert.ToDouble(match.Value);
+                    newProduct.Price = match.Value;
                     if (!productsList.Contains(newProduct))
-                        productsList.Add(new Product() { Name = product, Price = Convert.ToDouble(match.Value) });
+                        productsList.Add(new Product() { Name = product, Price = match.Value });
                 }
                 lineNode = lineNode.NextSibling.NextSibling;
             }
@@ -76,12 +76,14 @@ namespace BLService
             return shops;
         }
 
-        void IBLService.Post(List<Product> products, Shop shop)
+        List<Product> IBLService.Post(Product product)
         {
             if (repository == null)
                 repository = new Repository();
 
-            repository.WriteProductsToXmlFile(products, shop);
+            repository.WriteProductsToXmlFile(product);
+            return new List<Product>() { product };
+            //return Search(product);
         }
 
         string IBLService.Test()
@@ -142,13 +144,13 @@ namespace BLService
             }
         }
 
-        public List<Product> Search(string itemName)
+        public List<Product> Search(Product product)
         {
             ArrayList itemList = repository.ReadProductsFromXmlFile();
 
             Dictionary<Product, int> dict = new Dictionary<Product, int>();
             int points = 0;
-            string[] nameWords = Regex.Split(FixStrings(itemName), " ");
+            string[] nameWords = Regex.Split(FixStrings(product.Name), " ");
 
             foreach (Product p in itemList)
             {
@@ -228,7 +230,7 @@ namespace BLService
             {
                 foreach (string str in shops)
                 {
-                    if (product.ProductShop.Name.Equals(str))
+                    if (product.Shop.Name.Equals(str))
                     {
                         dict[str] += Math.Round(Convert.ToDouble(product.Price), 2);
                     }
@@ -255,7 +257,7 @@ namespace BLService
             Dictionary<string, double> dict = new Dictionary<string, double>();
             foreach (string str in shops)
             {
-               int distinctCount = prods.Count(pr => pr.ProductShop.Name.Equals(str));
+               int distinctCount = prods.Count(pr => pr.Shop.Name.Equals(str));
                double avg = Math.Round(spendingsByShop[str] / distinctCount, 2);
                if (Double.IsNaN(avg)) avg = 0; // prevent division by zero
                dict[str] = avg;
@@ -286,7 +288,7 @@ namespace BLService
             foreach (string str in shops)
             {
               //for each category get all products that belong to the shop
-              var shopprods = prods.FindAll(pr => pr.ProductShop.Name.Equals(str));
+              var shopprods = prods.FindAll(pr => pr.Shop.Name.Equals(str));
 
               //look for the most repeated product
               var mostpop = shopprods.GroupBy(pr => pr.Name).Where(x => x.Count() > 1).SelectMany(pr => pr).ToList();
@@ -308,7 +310,7 @@ namespace BLService
                     var catprods = prods.FindAll(pr => pr.Category.ToString().Equals(str));
 
                     //look for the most repeated (common) product
-                    var mostpop = catprods.OrderBy(pr => pr.Price).DefaultIfEmpty(new Product() {Name = "N/A", Price = 0 }).First();
+                    var mostpop = catprods.OrderBy(pr => pr.Price).DefaultIfEmpty(new Product() {Name = "N/A", Price = "0" }).First();
 
                     //add to dict
                     dict[str] = mostpop;
@@ -322,10 +324,10 @@ namespace BLService
             foreach (string str in shops)
                 {
                 //for each category get all products that belong to the shop
-                var catprods = prods.FindAll(pr => pr.ProductShop.Name.Equals(str));
+                var catprods = prods.FindAll(pr => pr.Shop.Name.Equals(str));
 
                 //look for the most cheapest
-                var mostpop = catprods.OrderBy(pr => pr.Price).DefaultIfEmpty(new Product() { Name = "N/A", Price = 0 }).First();
+                var mostpop = catprods.OrderBy(pr => pr.Price).DefaultIfEmpty(new Product() { Name = "N/A", Price = "0" }).First();
           
                 //add to dict
                 dict[str] = mostpop;

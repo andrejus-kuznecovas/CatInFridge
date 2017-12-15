@@ -19,14 +19,11 @@ namespace BLService
         List<Shop> GetShops();
 
         [OperationContract]
-        void Post(List<Product> products, Shop shop);
+        List<Product> Post(Product product);
 
         [OperationContract]
         string Test();
-
-        [OperationContract]
-        List<Product> Search(string itemName);
-
+        
         [OperationContract]
         Stats GetStats(List<Product> prods);
     }
@@ -38,16 +35,16 @@ namespace BLService
         public string Name { get; set; }
 
         [DataMember]
-        public double Price { get; set; }
+        public string Price { get; set; }
 
         [DataMember(IsRequired = true)]
-        public Cat Category { get; set; }
+        public Category Category { get; set; }
 
         [DataMember]
         public DateTime Date { get; set; }
 
         [DataMember]
-        public Shop ProductShop { get; set; }
+        public Shop Shop { get; set; }
 
         /*
         public Product(string name, double price, string cat, DateTime date, string shop )
@@ -62,7 +59,7 @@ namespace BLService
     }
 
     [DataContract]
-    public enum Cat
+    public enum Category
     {
         [EnumMember]
         MEAT,

@@ -30,14 +30,15 @@
   <xs:element name="Post">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="products" nillable="true" type="q3:ArrayOfProduct" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="shop" nillable="true" type="q4:Shop" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="product" nillable="true" type="q3:Product" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="PostResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="PostResult" nillable="true" type="q4:ArrayOfProduct" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Test">
@@ -52,17 +53,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Search">
+  <xs:element name="GetStats">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="itemName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="prods" nillable="true" type="q5:ArrayOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SearchResponse">
+  <xs:element name="GetStatsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="SearchResult" nillable="true" type="q5:ArrayOfProduct" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BLService" minOccurs="0" name="GetStatsResult" nillable="true" type="q6:Stats" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

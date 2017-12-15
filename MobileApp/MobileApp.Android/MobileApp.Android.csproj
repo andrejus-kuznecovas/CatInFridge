@@ -138,16 +138,13 @@
     <AndroidResource Include="Resources\layout\Main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\ShopSelect.axml">
+    <AndroidResource Include="Resources\layout\SelectList.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\EditLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\ProductSelect.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\CategorySelect.axml">
+    <AndroidResource Include="Resources\layout\customListItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

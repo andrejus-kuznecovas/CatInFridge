@@ -7,21 +7,21 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/listViewShop" />
+        android:id="@+id/listView" />
     <LinearLayout
         android:orientation="horizontal"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/linearLayout6"
+        android:id="@+id/linearLayout"
         android:gravity="bottom">
         <RelativeLayout
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/relativeLayout4"
+            android:id="@+id/relativeLayout"
             android:gravity="bottom">
             <LinearLayout
                 android:orientation="horizontal"
@@ -29,13 +29,29 @@
                 android:minHeight="25px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/linearLayout7"
+                android:id="@+id/linearLayout"
                 android:gravity="left">
                 <Button
                     android:text="Back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonBack"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="false" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout"
+                android:gravity="right">
+                <Button
+                    android:text="Next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonNext"
                     android:gravity="center"
                     android:layout_centerHorizontal="false" />
             </LinearLayout>

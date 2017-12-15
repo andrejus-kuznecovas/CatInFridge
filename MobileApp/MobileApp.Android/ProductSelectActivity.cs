@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using MobileApp.ServiceReference1;
+using MobileApp.BLService;
 
 namespace MobileApp.Droid
 {
@@ -22,11 +22,17 @@ namespace MobileApp.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.ProductSelect);
+            SetContentView(Resource.Layout.SelectList);
 
-            ListView lv = (ListView)FindViewById(Resource.Id.listViewProduct);
+            ListView lv = (ListView)FindViewById(Resource.Id.listView);
             adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, listItems);
             lv.Adapter = adapter;
+
+            Button backBtn = (Button)FindViewById(Resource.Id.buttonBack);
+            Button nextBtn = (Button)FindViewById(Resource.Id.buttonNext);
+            nextBtn.Visibility = ViewStates.Gone;
+
+            backBtn.Click += (e, a) => { StartActivity(typeof(ShopSelectActivity)); };
 
             foreach (Product p in Main.products)
                 adapter.Add(p.Name);
@@ -38,7 +44,7 @@ namespace MobileApp.Droid
         void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             string item = adapter.GetItem(e.Position);
-            Main.wcf.SearchAsync(item);
+            Main.productToPost = Main.products.Where(p => p.Name.Equals(item)).First();
             StartActivity(typeof(CategorySelectActivity));
         }
     }

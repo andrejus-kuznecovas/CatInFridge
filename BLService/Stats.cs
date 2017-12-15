@@ -77,7 +77,7 @@ namespace BLService
             {
                 foreach (string str in categories)
                 {
-                    if (product.ProductShop.Name.Equals(str))
+                    if (product.Shop.Name.Equals(str))
                     {
                         dict[str] += Math.Round(Convert.ToDouble(product.Price), 2);
                     }
@@ -108,7 +108,7 @@ namespace BLService
                 Dictionary<string, double> dict = new Dictionary<string, double>();
                 foreach (string str in shops)
                 {
-                    int distinctCount = prods.Count(pr => pr.ProductShop.Name.Equals(str));
+                    int distinctCount = prods.Count(pr => pr.Shop.Name.Equals(str));
                     double avg = Math.Round(spendingsByShop[str] / distinctCount, 2);
                     if (Double.IsNaN(avg)) avg = 0; // prevent division by zero
                     dict[str] = avg;
@@ -146,7 +146,7 @@ namespace BLService
                 foreach (string str in shops)
                 {
                     //for each category get all products that belong to the shop
-                    var catprods = prods.FindAll(pr => pr.ProductShop.Name.Equals(str));
+                    var catprods = prods.FindAll(pr => pr.Shop.Name.Equals(str));
 
                     //look for the most repeated product
                     var mostpop = catprods.OrderByDescending(pr => pr.Name).First();
@@ -186,7 +186,7 @@ namespace BLService
                 foreach (string str in shops)
                 {
                     //for each category get all products that belong to the shop
-                    var catprods = prods.FindAll(pr => pr.ProductShop.Name.Equals(str));
+                    var catprods = prods.FindAll(pr => pr.Shop.Name.Equals(str));
                   
                     //look for the most repeated (common) product
                     var mostpop = catprods.OrderBy(pr => pr.Price).First();

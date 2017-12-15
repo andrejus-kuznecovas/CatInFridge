@@ -17,15 +17,13 @@ namespace BLService
             shopPath = @"C:\Users\Ben\Desktop\serviceTest\shops.xml";
         }
 
-        public bool WriteProductsToXmlFile(List<Product> objs, Shop shop)        //TODO: category
+        public bool WriteProductsToXmlFile(Product obj)
         {
-            if(objs == null || shop == null)
+            if(obj == null)
                 return false;
 
             ArrayList objectToWrite = new ArrayList();
-
-            foreach (Product obj in objs)
-                objectToWrite.Add(obj);
+            objectToWrite.Add(obj);
 
             StreamWriter theStreamWriter = null;
             try
