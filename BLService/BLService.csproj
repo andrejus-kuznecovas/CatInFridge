@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Stats.cs" />
     <Compile Include="IBLService.cs" />
     <Compile Include="Migrations\201712132005273_Initial.cs" />
     <Compile Include="Migrations\201712132005273_Initial.Designer.cs">

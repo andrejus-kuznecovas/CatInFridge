@@ -22,11 +22,19 @@ namespace Client.BLService {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        private Client.BLService.Cat CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateField;
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PriceField;
+        private double PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.BLService.Shop ProductShopField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -35,6 +43,32 @@ namespace Client.BLService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Client.BLService.Cat Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((this.CategoryField.Equals(value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Date {
+            get {
+                return this.DateField;
+            }
+            set {
+                if ((this.DateField.Equals(value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
+                }
             }
         }
         
@@ -52,14 +86,277 @@ namespace Client.BLService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Price {
+        public double Price {
             get {
                 return this.PriceField;
             }
             set {
-                if ((object.ReferenceEquals(this.PriceField, value) != true)) {
+                if ((this.PriceField.Equals(value) != true)) {
                     this.PriceField = value;
                     this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Client.BLService.Shop ProductShop {
+            get {
+                return this.ProductShopField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductShopField, value) != true)) {
+                    this.ProductShopField = value;
+                    this.RaisePropertyChanged("ProductShop");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Shop", Namespace="http://schemas.datacontract.org/2004/07/BLService")]
+    [System.SerializableAttribute()]
+    public partial class Shop : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Cat", Namespace="http://schemas.datacontract.org/2004/07/BLService")]
+    public enum Cat : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MEAT = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        VEGETABLES_FRUITS = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DAIRY = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DRINKS = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ALCOHOL = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BREAD = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SWEETS = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OTHER = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UNRECOGNIZED = 8,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Stats", Namespace="http://schemas.datacontract.org/2004/07/BLService")]
+    [System.SerializableAttribute()]
+    public partial class Stats : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, double> averageByCategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, double> averageByShopField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, Client.BLService.Product> cheapestByCategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, Client.BLService.Product> cheapestByShopField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, string> mostPopularByCategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, string> mostPopularByShopField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, double> spendingsByCategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, double> spendingsByShopField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, double> averageByCategory {
+            get {
+                return this.averageByCategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.averageByCategoryField, value) != true)) {
+                    this.averageByCategoryField = value;
+                    this.RaisePropertyChanged("averageByCategory");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, double> averageByShop {
+            get {
+                return this.averageByShopField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.averageByShopField, value) != true)) {
+                    this.averageByShopField = value;
+                    this.RaisePropertyChanged("averageByShop");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, Client.BLService.Product> cheapestByCategory {
+            get {
+                return this.cheapestByCategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cheapestByCategoryField, value) != true)) {
+                    this.cheapestByCategoryField = value;
+                    this.RaisePropertyChanged("cheapestByCategory");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, Client.BLService.Product> cheapestByShop {
+            get {
+                return this.cheapestByShopField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cheapestByShopField, value) != true)) {
+                    this.cheapestByShopField = value;
+                    this.RaisePropertyChanged("cheapestByShop");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, string> mostPopularByCategory {
+            get {
+                return this.mostPopularByCategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.mostPopularByCategoryField, value) != true)) {
+                    this.mostPopularByCategoryField = value;
+                    this.RaisePropertyChanged("mostPopularByCategory");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, string> mostPopularByShop {
+            get {
+                return this.mostPopularByShopField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.mostPopularByShopField, value) != true)) {
+                    this.mostPopularByShopField = value;
+                    this.RaisePropertyChanged("mostPopularByShop");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, double> spendingsByCategory {
+            get {
+                return this.spendingsByCategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.spendingsByCategoryField, value) != true)) {
+                    this.spendingsByCategoryField = value;
+                    this.RaisePropertyChanged("spendingsByCategory");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, double> spendingsByShop {
+            get {
+                return this.spendingsByShopField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.spendingsByShopField, value) != true)) {
+                    this.spendingsByShopField = value;
+                    this.RaisePropertyChanged("spendingsByShop");
                 }
             }
         }
@@ -79,10 +376,40 @@ namespace Client.BLService {
     public interface IBLService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetPrices", ReplyAction="http://tempuri.org/IBLService/GetPricesResponse")]
-        System.Collections.Generic.List<Client.BLService.Product> GetPrices(string imageLoc);
+        System.Collections.Generic.List<Client.BLService.Product> GetPrices(byte[] image);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetPrices", ReplyAction="http://tempuri.org/IBLService/GetPricesResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Product>> GetPricesAsync(string imageLoc);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Product>> GetPricesAsync(byte[] image);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetShops", ReplyAction="http://tempuri.org/IBLService/GetShopsResponse")]
+        System.Collections.Generic.List<Client.BLService.Shop> GetShops();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetShops", ReplyAction="http://tempuri.org/IBLService/GetShopsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Shop>> GetShopsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Post", ReplyAction="http://tempuri.org/IBLService/PostResponse")]
+        void Post(System.Collections.Generic.List<Client.BLService.Product> products, Client.BLService.Shop shop);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Post", ReplyAction="http://tempuri.org/IBLService/PostResponse")]
+        System.Threading.Tasks.Task PostAsync(System.Collections.Generic.List<Client.BLService.Product> products, Client.BLService.Shop shop);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Test", ReplyAction="http://tempuri.org/IBLService/TestResponse")]
+        string Test();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Test", ReplyAction="http://tempuri.org/IBLService/TestResponse")]
+        System.Threading.Tasks.Task<string> TestAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Search", ReplyAction="http://tempuri.org/IBLService/SearchResponse")]
+        System.Collections.Generic.List<Client.BLService.Product> Search(string itemName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/Search", ReplyAction="http://tempuri.org/IBLService/SearchResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Product>> SearchAsync(string itemName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetStats", ReplyAction="http://tempuri.org/IBLService/GetStatsResponse")]
+        Client.BLService.Stats GetStats(System.Collections.Generic.List<Client.BLService.Product> prods);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBLService/GetStats", ReplyAction="http://tempuri.org/IBLService/GetStatsResponse")]
+        System.Threading.Tasks.Task<Client.BLService.Stats> GetStatsAsync(System.Collections.Generic.List<Client.BLService.Product> prods);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -112,12 +439,52 @@ namespace Client.BLService {
                 base(binding, remoteAddress) {
         }
         
-        public System.Collections.Generic.List<Client.BLService.Product> GetPrices(string imageLoc) {
-            return base.Channel.GetPrices(imageLoc);
+        public System.Collections.Generic.List<Client.BLService.Product> GetPrices(byte[] image) {
+            return base.Channel.GetPrices(image);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Product>> GetPricesAsync(string imageLoc) {
-            return base.Channel.GetPricesAsync(imageLoc);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Product>> GetPricesAsync(byte[] image) {
+            return base.Channel.GetPricesAsync(image);
+        }
+        
+        public System.Collections.Generic.List<Client.BLService.Shop> GetShops() {
+            return base.Channel.GetShops();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Shop>> GetShopsAsync() {
+            return base.Channel.GetShopsAsync();
+        }
+        
+        public void Post(System.Collections.Generic.List<Client.BLService.Product> products, Client.BLService.Shop shop) {
+            base.Channel.Post(products, shop);
+        }
+        
+        public System.Threading.Tasks.Task PostAsync(System.Collections.Generic.List<Client.BLService.Product> products, Client.BLService.Shop shop) {
+            return base.Channel.PostAsync(products, shop);
+        }
+        
+        public string Test() {
+            return base.Channel.Test();
+        }
+        
+        public System.Threading.Tasks.Task<string> TestAsync() {
+            return base.Channel.TestAsync();
+        }
+        
+        public System.Collections.Generic.List<Client.BLService.Product> Search(string itemName) {
+            return base.Channel.Search(itemName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Client.BLService.Product>> SearchAsync(string itemName) {
+            return base.Channel.SearchAsync(itemName);
+        }
+        
+        public Client.BLService.Stats GetStats(System.Collections.Generic.List<Client.BLService.Product> prods) {
+            return base.Channel.GetStats(prods);
+        }
+        
+        public System.Threading.Tasks.Task<Client.BLService.Stats> GetStatsAsync(System.Collections.Generic.List<Client.BLService.Product> prods) {
+            return base.Channel.GetStatsAsync(prods);
         }
     }
 }

@@ -21,14 +21,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:51868" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://lpc/BLService/BLService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="642ea818-ccd9-4d53-abbf-e2f3f9403ff8" SourceId="1" SourceUrl="http://localhost:51868/?xsd=xsd1" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="98119046-44f7-466e-88ca-19517f5353f4" SourceId="1" SourceUrl="http://localhost:51868/?disco" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="fe8e5582-9343-4b66-9bf5-a3dbb9a2c1bb" SourceId="1" SourceUrl="http://localhost:51868/?xsd=xsd2" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="65299c5e-0f5a-4cba-a298-f738504e67b4" SourceId="1" SourceUrl="http://localhost:51868/?xsd=xsd0" />
-    <MetadataFile FileName="BLService.wsdl" MetadataType="Wsdl" ID="c27bba9b-d3ab-4459-aa81-839b7a6e89a8" SourceId="1" SourceUrl="http://localhost:51868/?wsdl" />
+    <MetadataFile FileName="BLService.xsd" MetadataType="Schema" ID="39d5cd35-0992-4017-81a2-ca2b940cf882" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BLService1.xsd" MetadataType="Schema" ID="7613a3ab-d634-47ee-bdd7-32c7362a6e91" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BLService.disco" MetadataType="Disco" ID="db45b342-a91f-45ac-b0a6-1b75bed67343" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?disco" />
+    <MetadataFile FileName="BLService2.xsd" MetadataType="Schema" ID="afbb6b8d-986f-4764-b2ad-e4b95e4d14a3" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BLService1.wsdl" MetadataType="Wsdl" ID="2c6e4a48-7993-4317-b1af-8c577954620e" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?wsdl" />
+    <MetadataFile FileName="BLService3.xsd" MetadataType="Schema" ID="5384a69a-5b8b-4506-bd7a-cf9102cfb1b6" SourceId="1" SourceUrl="http://lpc/BLService/BLService.svc?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
