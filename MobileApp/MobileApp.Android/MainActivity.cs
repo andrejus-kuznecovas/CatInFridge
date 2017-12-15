@@ -13,23 +13,33 @@ namespace MobileApp.Droid
     public class MainActivity : FragmentActivity
     {
         TextureView _textureView;
+        ImageView _imageView;
         CameraImageListener listener;
         string PHOTO_PATH;
+
+        Button photoBtn;
+        Button dismissBtn;
+        Button nextBtn;
+        Button galleryBtn;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
 
-            Main.InitMain();
+            //Main.InitMain();
 
             listener = new CameraImageListener();
             _textureView = (TextureView)FindViewById(Resource.Id.textureView1);
             _textureView.SurfaceTextureListener = listener;
 
-            Button photoBtn = (Button)FindViewById(Resource.Id.buttonTakePhoto);
-            Button dismissBtn = (Button)FindViewById(Resource.Id.buttonDismissPhoto);
-            Button nextBtn = (Button)FindViewById(Resource.Id.buttonNext);
+            _imageView = (ImageView)FindViewById(Resource.Id.imageView1);
+
+            photoBtn = (Button)FindViewById(Resource.Id.buttonTakePhoto);
+            dismissBtn = (Button)FindViewById(Resource.Id.buttonDismissPhoto);
+            nextBtn = (Button)FindViewById(Resource.Id.buttonNext);
+            galleryBtn = (Button)FindViewById(Resource.Id.buttonGallery);
+
 
             photoBtn.Click += delegate
             {
@@ -53,11 +63,30 @@ namespace MobileApp.Droid
             {
                 StartActivity(typeof(EditActivity));
             };
+
+            galleryBtn.Click += delegate
+            {
+                Intent galleryIntent = new Intent();
+                galleryIntent.SetType("image/*");
+                galleryIntent.SetAction(Intent.ActionGetContent);
+                StartActivityForResult(Intent.CreateChooser(galleryIntent, "Select photo"), 0);
+            };
+
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
+
+            _imageView.SetImageURI(data.Data);
+            _textureView.Visibility = ViewStates.Invisible;
+            _imageView.Visibility = ViewStates.Visible;
+
+            photoBtn.Visibility = ViewStates.Invisible;
+            dismissBtn.Visibility = ViewStates.Visible;
+            nextBtn.Visibility = ViewStates.Visible;
+
+            PHOTO_PATH = data.Data.ToString();
         }
 
         
